@@ -1,0 +1,61 @@
+baseurl = "https://exuanbo.xyz"
+title = "Exuanbo's Blog"
+theme = "exmin"
+languagecode = "zh"
+defaultcontentlanguage = "zh"
+
+rssLimit = 10
+hasCJKLanguage = true
+enableRobotsTXT = true
+enableEmoji = true
+googleAnalytics = "UA-111951205-3"
+
+pygmentsuseclasses = true
+pygmentscodefences = true
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  keywords = "blog,web,code,computer science"
+  description = "Exuanbo's Blog | Web | Code | Computer Science"
+  footer = "&copy;2019 [Exuanbo](https://exuanbo.xyz)"
+  copyright = "License: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)"
+
+# Menu links
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
+[[menu.main]]
+  name = "Wiki"
+  url = "https://wiki.exuanbo.xyz"
+  weight = 3
+[[menu.main]]
+  name = "Subscribe"
+  weight = 4
+  url = "/subscribe/"
+
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
+
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
+[outputs]
+  page = ["HTML","MarkDown"]
+
+[params.valine]
+  enable = true
+  appId = '89VYThwE6PdkAYLdYXE8jIMK-MdYXbMMI'
+  appKey = 'cq3bSJa9tmdhLuTQ7PT6rpzM'
+  notify = false
+  verify = false
+  avatar = 'hide'
+  placeholder = '说点什么吧...'
