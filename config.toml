@@ -21,6 +21,7 @@ pygmentscodefences = true
   description = "Exuanbo's Blog | Web | Code | Computer Science"
   footer = "&copy;2019 [Exuanbo](https://exuanbo.xyz)"
   copyright = "License: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)"
+  isso = false
 
 # Menu links
 [[menu.main]]
