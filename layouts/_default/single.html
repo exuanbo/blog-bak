@@ -1,0 +1,38 @@
+{{ partial "header.html" . }}
+
+{{ if .Params.toc }}
+{{ .TableOfContents }}
+{{ end }}
+
+<main>
+  <h1><span class="title">{{ .Title | markdownify }}</span></h1>
+  {{ if (gt .Params.date 0) }}
+  <div class="date">{{ .Date.Format "2006 Jan 02" }}</div>
+  {{ end }}
+  {{ .Content }}
+</main>
+
+<!-- likecoin -->
+<!-- <div id="like">
+  <iframe src="https://button.like.co/in/embed/exuanbo/button/?referrer={{ .Page.Permalink }}" frameborder="0" scrolling="no"></iframe>
+</div> -->
+
+<div class="article-meta">
+  <div class="terms">
+    {{ with .Params.tags }}
+    Tags:
+    {{ range . }}
+    <a href="{{ "tags/" | relURL }}{{ . | urlize }}/"> #{{.}}</a>
+    {{ end }}
+    {{ end }}
+  </div>
+  <div>
+      {{ with .Site.Params.copyright }}
+      {{ . | markdownify }}
+      {{ end }}
+  </div>
+</div>
+
+{{ partial "comment.html" . }}
+
+{{ partial "footer.html" . }}

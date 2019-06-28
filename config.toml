@@ -1,6 +1,5 @@
 baseurl = "https://exuanbo.xyz"
 title = "Exuanbo's Blog"
-theme = "exmin"
 languagecode = "zh"
 defaultcontentlanguage = "zh"
 
