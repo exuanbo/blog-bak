@@ -1,14 +1,14 @@
 <footer>
-  <script>
-    var links=document.querySelectorAll("a");for(var i=0,length=links.length;i<length;i++){if(links[i].hostname!=window.location.hostname){links[i].target="_blank"}};
-  </script>
-  {{ partial "foot_custom.html" . }}
+  <a rel="me" href="https://donotban.com/@exuanbo" style="display: none">Mastodon</a>
   {{ with .Site.Params.footer }}
   {{ . | markdownify }}
   {{ end }}
   <div>Powered by <a href="https://gohugo.io/">Hugo</a>, Theme <a href="https://github.com/exuanbo/hugo-exmin">Exmin</a></div>
 </footer>
-
+{{ $jquery := resources.Get "js/jquery-3.4.1.min.js" }}
+{{ $main := resources.Get "js/main.js" }}
+{{ $script := slice $jquery $main | resources.Concat "js/bundle.js" | minify | fingerprint -}}
+<script src="{{ $script.RelPermalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
 </body>
 
 </html>

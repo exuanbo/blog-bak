@@ -30,6 +30,7 @@ $base0F: #be5046;
     font-family: 'Noto Serif SC';
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
     src: url('/fonts/noto-serif-sc-v5-chinese-simplified-regular.eot'); /* IE9 Compat Modes */
     src: local('Noto Serif SC'), local('NotoSerifSC-Regular'),
          url('/fonts/noto-serif-sc-v5-chinese-simplified-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -44,6 +45,7 @@ $base0F: #be5046;
 font-family: 'Source Code Pro';
 font-style: normal;
 font-weight: 400;
+font-display: swap;
 src: url('/fonts/source-code-pro-v9-latin-regular.eot'); /* IE9 Compat Modes */
 src: local('Source Code Pro'), local('SourceCodePro-Regular'),
         url('/fonts/source-code-pro-v9-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */

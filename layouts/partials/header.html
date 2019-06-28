@@ -2,10 +2,9 @@
 <html lang="{{ .Site.LanguageCode }}">
 
 <head>
-  {{ template "_internal/google_analytics_async.html" . }}
   <meta charset="utf-8">
   <title>{{ .Title }} | {{ .Site.Title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="keywords" content="{{ .Site.Params.keywords }}">
   <meta name="description" content="{{ .Site.Params.description }}">
@@ -15,13 +14,16 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
   <link rel="manifest" href="/images/favicon/site.webmanifest">
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="//us.avoscloud.com">
   {{ with .OutputFormats.Get "rss" }}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end }}
   {{ partial "css.html" . }}
-  {{ partial "head_custom.html" . }}
+  {{ if .Params.isCJKLanguage }}
+  <link rel="preload" href="/fonts/noto-serif-sc-v5-chinese-simplified-regular.woff2">
+  {{ end }}
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="//us.avoscloud.com">
+  {{ template "_internal/google_analytics_async.html" . }}
 </head>
 
 <body>
