@@ -5,18 +5,25 @@
 {{ define "main" }}
   <main>
     {{if not .IsHome }}
-      <h1 class="list">#{{ .Title | markdownify }}</h1>
+      <h1 class="list">#&nbsp;{{ .Title | markdownify }}</h1>
     {{ end }}
     {{ if .Content }}
       {{ .Content }}
     {{ end }}
-    <ul class="list">
-      {{ range (where .Data.Pages "Section" "!=" "") }}
-        <li>
-          <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
-          <div class="list-date">{{ .Date.Format "2006 Jan 02" }}</div>
-        </li>
-      {{ end }}
-    </ul>
+    {{ range (where .Data.Pages "Section" "!=" "").GroupByDate "2006" }}
+      <div class="group">
+        <h2>{{ .Key }}</h2>
+        <ul class="list">
+          {{ range .Pages }}
+            <li>
+              <a href="{{ .RelPermalink }}">
+                <span>{{ .Title }}</span>
+                <span class="list-date">{{ .Date.Format "Jan 02" }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
   </main>
 {{ end }}

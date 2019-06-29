@@ -73,3 +73,19 @@ const loadComments = () => {
 commentsLoader.find('button').click(() => {
   loadComments();
 })
+
+// Back to top
+//
+let arrowUp = $('#top');
+$(window).on('scroll', () => {
+  if(window.pageYOffset > 200) {
+    arrowUp.fadeIn();
+  }
+  else {
+    arrowUp.stop().fadeOut();
+  }
+})
+
+arrowUp.click(() => {
+  $('html,body').animate({scrollTop: '0px'}, 100);
+})

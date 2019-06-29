@@ -16,7 +16,6 @@ h1, h2, h3 {
   font-family: $h-fonts;
   font-weight: lighter;
 
-  &.list,
   &.terms {
     padding-left: 32px;
   }
@@ -55,10 +54,25 @@ a {
   }
 }
 
+.group {
+  display: flex;
+  flex-direction: row;
+
+  h2 {
+    margin-top: 8px;
+    font-size: 1.6em;
+    opacity: .75;
+  }
+
+  .list {
+    flex: 1;
+    line-height: 2.5;
+  }
+}
+
 .list-date {
-  color: $base04;
-  margin-top: -8px;
-  margin-bottom: 4px;
+  opacity: .75;
+  float: right;
 }
 
 /* header and footer areas */
@@ -80,19 +94,6 @@ a {
   }
 }
 
-footer {
-  text-align: center;
-  margin: 4em 0 2em;
-
-  a {
-    border-bottom: none;
-  }
-
-  a:hover {
-    @include noBackground;
-  }
-}
-
 hr {
   height: 1px;
   border: none;
@@ -111,6 +112,36 @@ hr {
 .article-meta {
   margin: 1em 0 3em;
   color: $base05;
+}
+
+footer {
+  text-align: center;
+  margin: 4em 0 2em;
+
+  a {
+    border-bottom: none;
+  }
+
+  a:hover {
+    @include noBackground;
+  }
+}
+
+#top {
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: none;
+}
+
+#arrow {
+  fill: $base07;
+
+  &:hover {
+    fill: $base0C;
+  }
 }
 
 /* code */
@@ -145,8 +176,7 @@ main {
   hyphens: auto;
 
   .date {
-    @extend .list-date;
-    color: $base05;
+    opacity: .75;
   }
 }
 
@@ -187,5 +217,22 @@ blockquote {
 
   .vwrap {
     border-color: $base07;
+  }
+}
+
+@media (max-width: 480px) {
+  .group {
+    flex-direction: column;
+
+    .list {
+      padding-left: 1em;
+      margin-top: 0;
+    }
+
+    h2 {
+      padding-left: 0;
+      margin-left: 16px;
+      margin-bottom: 0;
+    }
   }
 }
