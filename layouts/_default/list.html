@@ -1,19 +1,22 @@
-{{ partial "header.html" . }}
-
-{{if not .IsHome }}
-<h1 class="list">#{{ .Title | markdownify }}</h1>
-{{ end }}
-{{ if .Content }}
-{{ .Content }}
+{{ define "header" }}
+  {{ partial "header.html" . }}
 {{ end }}
 
-<ul class="list">
-  {{ range (where .Data.Pages "Section" "!=" "") }}
-  <li>
-    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
-    <div class="date">{{ .Date.Format "2006 Jan 02" }}</div>
-  </li>
-  {{ end }}
-</ul>
-
-{{ partial "footer.html" . }}
+{{ define "main" }}
+  <main>
+    {{if not .IsHome }}
+      <h1 class="list">#{{ .Title | markdownify }}</h1>
+    {{ end }}
+    {{ if .Content }}
+      {{ .Content }}
+    {{ end }}
+    <ul class="list">
+      {{ range (where .Data.Pages "Section" "!=" "") }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+          <div class="list-date">{{ .Date.Format "2006 Jan 02" }}</div>
+        </li>
+      {{ end }}
+    </ul>
+  </main>
+{{ end }}

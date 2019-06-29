@@ -55,7 +55,7 @@ a {
   }
 }
 
-.date {
+.list-date {
   color: $base04;
   margin-top: -8px;
   margin-bottom: 4px;
@@ -145,6 +145,7 @@ main {
   hyphens: auto;
 
   .date {
+    @extend .list-date;
     color: $base05;
   }
 }
@@ -188,11 +189,3 @@ blockquote {
     border-color: $base07;
   }
 }
-
-// #like {
-//   text-align: center;
-
-//   iframe {
-//     margin: 1em 0 -2em;
-//   }
-// }
