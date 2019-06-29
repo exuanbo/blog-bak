@@ -7,7 +7,6 @@ rssLimit = 10
 hasCJKLanguage = true
 enableRobotsTXT = true
 enableEmoji = true
-googleAnalytics = "UA-111951205-3"
 
 pygmentsuseclasses = true
 pygmentscodefences = true
@@ -16,11 +15,10 @@ pygmentscodefences = true
   tag = "tags"
 
 [params]
-  keywords = "blog,web,code,computer science"
-  description = "Exuanbo's Blog | Web | Code | Computer Science"
   footer = "&copy;2019 [Exuanbo](https://exuanbo.xyz)"
   copyright = "License: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)"
   isso = false
+  valine = true
 
 # Menu links
 [[menu.main]]
@@ -50,12 +48,3 @@ pygmentscodefences = true
   isHTML = false
 [outputs]
   page = ["HTML","MarkDown"]
-
-[params.valine]
-  enable = true
-  appId = '89VYThwE6PdkAYLdYXE8jIMK-MdYXbMMI'
-  appKey = 'cq3bSJa9tmdhLuTQ7PT6rpzM'
-  notify = false
-  verify = false
-  avatar = 'hide'
-  placeholder = '说点什么吧...'
