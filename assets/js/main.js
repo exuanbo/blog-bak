@@ -79,15 +79,36 @@ commentsLoader.find('button').click(() => {
 let arrowUp = $('#top');
 $(window).on('scroll', () => {
   if(window.pageYOffset > 200) {
-    arrowUp.fadeIn();
+    arrowUp.slideDown('fast');
   }
   else {
-    arrowUp.stop().fadeOut();
+    arrowUp.stop().slideUp('fast');
   }
 });
 
 arrowUp.click(() => {
   $('html,body').animate({scrollTop: '0px'}, 100);
+});
+
+// Toggle toc
+//
+let menu = $('#toggle-toc');
+let toc = $('#TableOfContents');
+
+menu.click(() => {
+  if (toc.css('display') === 'none') {
+    toc.fadeIn('fast');
+  }
+});
+
+toc.find('a').click(() => {
+  toc.fadeOut('fast');
+});
+
+$(document).mouseup(function (e) {
+  if (!toc.is(e.target) && !toc.has(e.target).length && (e.target != menu) && (e.target != $('html').get(0))) {
+      toc.fadeOut('fast');
+  }
 });
 
 // Center images
