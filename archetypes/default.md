@@ -2,10 +2,10 @@
 title: "{{ replace .Name "-" " " | title }}"
 description: ""
 date: {{ .Date }}
-categories: []
 tags: []
 isCJKLanguage: true
+math: false
+toc: false
 comment: true
-toc: true
 draft: true
 ---

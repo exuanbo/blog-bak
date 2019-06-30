@@ -72,29 +72,29 @@ draft: false
 
 ### 改变 Launchpad 中应用图标的大小
 
-1. 设置 Launchpad 的列数，对应于每一行 App 的个数
+1 设置 Launchpad 的列数，对应于每一行 App 的个数
 
-    ```bash
-    defaults write com.apple.dock springboard-columns -int 列数
-    ```
+```bash
+defaults write com.apple.dock springboard-columns -int 列数
+```
 
-1. 设置 Launchpad 的行数，对应于每一列 App 的个数
+2 设置 Launchpad 的行数，对应于每一列 App 的个数
 
-    ```bash
-    defaults write com.apple.dock springboard-rows -int 行数
-    ```
+```bash
+defaults write com.apple.dock springboard-rows -int 行数
+```
 
-1. 重置 Launchpad
+3 重置 Launchpad
 
-    ```bash
-    defaults write com.apple.dock ResetLaunchPad -bool TRUE
-    ```
+```bash
+defaults write com.apple.dock ResetLaunchPad -bool TRUE
+```
 
-1. 重置 Dock
+4 重置 Dock
 
-    ```bash
-    killall Dock
-    ```
+```bash
+killall Dock
+```
 
 你也可以将所有指令放到一句话中，每一个分句用「;」分隔，我们来看看将 Launchpad 从 7 x 5 布局调整为 9 x 7 布局的效果，在 terminal 中输入指令并按下回车：
 

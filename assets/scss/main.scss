@@ -73,6 +73,7 @@ a {
 .list-date {
   opacity: .75;
   float: right;
+  margin-right: 51px;
 }
 
 /* header and footer areas */
@@ -110,13 +111,13 @@ hr {
 }
 
 .article-meta {
-  margin: 1em 0 3em;
+  margin: 2em 0 2em;
   color: $base05;
 }
 
 footer {
   text-align: center;
-  margin: 4em 0 2em;
+  margin: 3em 0 2em;
 
   a {
     border-bottom: none;
@@ -166,7 +167,11 @@ code {
 }
 
 /* misc elements */
-img,
+img {
+  width: 50%;
+  height: 50%;
+}
+
 iframe,
 video {
   max-width: 100%;
@@ -225,14 +230,25 @@ blockquote {
     flex-direction: column;
 
     .list {
-      padding-left: 1em;
+      padding-left: 0;
       margin-top: 0;
     }
 
     h2 {
       padding-left: 0;
-      margin-left: 16px;
+      margin-left: 0;
       margin-bottom: 0;
     }
+
+    .list-date {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  img {
+    height: 75%;
+    width: 75%;
   }
 }
