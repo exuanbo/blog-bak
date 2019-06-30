@@ -66,13 +66,14 @@ button {
   flex-direction: row;
 
   h2 {
-    margin-top: 8px;
+    margin-top: 0;
     font-size: 1.6em;
     opacity: .75;
   }
 
   .list {
     flex: 1;
+    margin-top: 4px;
     line-height: 2.5;
   }
 }
@@ -85,6 +86,7 @@ button {
 
 /* header and footer areas */
 .menu {
+  margin: .5em 0 3em;
   padding: 0;
   text-align: center;
 
@@ -102,12 +104,6 @@ button {
   }
 }
 
-hr {
-  height: 1px;
-  border: none;
-  background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(200,204,212,1), rgba(0,0,0,0));
-}
-
 .article-meta {
   margin: 2em 0 2em;
   color: $base05;
@@ -115,7 +111,7 @@ hr {
 
 footer {
   text-align: center;
-  margin: 3em 0 2em;
+  margin: 3em 0 1.5em;
 
   a {
     border-bottom: none;
@@ -128,23 +124,24 @@ footer {
 
 #TableOfContents {
   position: fixed;
-  bottom: 84px;
+  bottom: 108px;
   right: 16px;
-  background-color: $base07;
-  color: $base01;
+  background-color: $base04;
+  color: #ffffff;
   border-radius: 4px;
   opacity: .95;
-  max-width: 80%;
+  max-width: 92%;
   display: none;
   line-height: 1.5;
 
   a {
-    color: $base01;
+    color: #ffffff;
+    border-bottom: none;
   }
 
   ul {
-    margin: 5px;
-    padding-left: 4px;
+    margin: 8px 8px 8px 4px;
+    padding-left: 20px;
 
     li ul {
       padding-left: 8px;
@@ -154,14 +151,14 @@ footer {
 
 #toggle-toc {
   position: fixed;
-  bottom: 50px;
-  right: 8px;
+  bottom: 58px;
+  right: 6px;
 }
 
 #top {
   position: fixed;
-  bottom: 16px;
-  right: 8px;
+  bottom: 14px;
+  right: 6px;
   display: none;
 }
 
