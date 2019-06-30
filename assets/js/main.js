@@ -106,7 +106,7 @@ toc.find('a').click(() => {
 });
 
 $(document).mouseup(function (e) {
-  if (!toc.is(e.target) && !toc.has(e.target).length && (e.target != menu) && (e.target != $('html').get(0))) {
+  if (!toc.is(e.target) && !toc.has(e.target).length) {
       toc.fadeOut('fast');
   }
 });

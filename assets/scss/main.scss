@@ -128,14 +128,15 @@ footer {
 
 #TableOfContents {
   position: fixed;
-  bottom: 79px;
-  right: 23px;
+  bottom: 84px;
+  right: 16px;
   background-color: $base07;
   color: $base01;
   border-radius: 4px;
   opacity: .95;
   max-width: 80%;
   display: none;
+  line-height: 1.5;
 
   a {
     color: $base01;
@@ -153,14 +154,14 @@ footer {
 
 #toggle-toc {
   position: fixed;
-  bottom: 45px;
-  right: 16px;
+  bottom: 50px;
+  right: 8px;
 }
 
 #top {
   position: fixed;
   bottom: 16px;
-  right: 16px;
+  right: 8px;
   display: none;
 }
 
