@@ -90,14 +90,14 @@ button {
 
 /* header and footer areas */
 .menu-bar {
-  display: block;
   position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
   height: 52px;
   width: 100%;
-  background-color: $base03;
+  background-color: $base00;
+  box-shadow: 0 0 4px #060608;
   z-index: 1;
 }
 
@@ -108,12 +108,12 @@ button {
 
   li {
     display: inline-block;
+    margin: 0 6px 0;
   }
 
   a {
     border-bottom: none;
-    padding: 5px;
-    color: #ffffff;
+    color: $base07;
 
     &:hover {
       @include noBackground;
@@ -143,7 +143,7 @@ footer {
   position: fixed;
   bottom: 60px;
   left: 8px;
-  background-color: $base04;
+  background-color: $base00;
   color: #ffffff;
   border-radius: 4px;
   opacity: .95;
@@ -152,7 +152,7 @@ footer {
   line-height: 1.5;
 
   a {
-    color: #ffffff;
+    color: $base07;
     border-bottom: none;
   }
 

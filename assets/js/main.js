@@ -83,7 +83,7 @@ const loadComments = () => {
       });
       commentsLoader.hide();
       comments.fadeIn('slow');
-      $("html, body").animate({ scrollTop: comments.offset().top }, 500);
+      $("html, body").animate({ scrollTop: comments.offset().top }, 750);
     })
     .fail(() => {
       console.log('Failed to load Valine.min.js');

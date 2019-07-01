@@ -34,7 +34,7 @@ pygmentscodefences = true
   url = "https://wiki.exuanbo.xyz"
   weight = 3
 [[menu.main]]
-  name = "Subscribe"
+  name = "RSS"
   weight = 4
   url = "/subscribe/"
 
