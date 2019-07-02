@@ -4,8 +4,10 @@
 
 {{ define "main" }}
   <main>
-    {{if not .IsHome }}
-      <h1 class="list">#&nbsp;{{ .Title | markdownify }}</h1>
+    {{if .IsHome }}
+      <h1>{{ .Title | markdownify }}</h1>
+    {{ else }}
+      <h1>#&nbsp;{{ .Title | markdownify }}</h1>
     {{ end }}
     {{ if .Content }}
       {{ .Content }}

@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Writing"
 draft: false
 isCJKLanguage: true
 ---

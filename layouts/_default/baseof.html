@@ -15,15 +15,18 @@
   {{ with .OutputFormats.Get "rss" }}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end }}
-  {{ if or .Params.math .Site.Params.math }}
-    {{ with resources.Get "scss/katex.scss" | toCSS | minify }}
-    <style>{{ .Content | safeCSS }}</style>
-    {{ end }}
-    <script defer src="/js/katex/katex.min.js"></script>
-    <script defer src="/js/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-  {{ end }}
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
+  {{ if ge (findRE "<pre.*?chroma.*>(.|\n)*?</pre>" .Content ) 1 }}
+    {{ with resources.Get "scss/syntax.scss" | toCSS | minify }}
+      <style>{{ .Content | safeCSS }}</style>
+    {{ end }}
+  {{ end }}
+  {{ if ge (findRE "<span.*?math.*?>(.|\n)*?</span>" .Content ) 1 }}
+    {{ with resources.Get "scss/katex.scss" | toCSS | minify }}
+      <style>{{ .Content | safeCSS }}</style>
+    {{ end }}
+  {{ end }}
   {{ if .Params.isCJKLanguage }}
     <link rel="preload" href="/fonts/noto-serif-sc-v5-chinese-simplified-regular.woff2" as="font" type="font/woff2" crossorigin>
   {{ end }}
@@ -35,9 +38,7 @@
   {{ block "header" . }}{{ end }}
 	{{ block "main" . }}{{ end }}
   {{ partialCached "footer.html" . }}
-  {{ $jquery := resources.Get "js/jquery-3.4.1.min.js" }}
-  {{ $main := resources.Get "js/main.js" }}
-  {{ $script := slice $jquery $main | resources.Concat "js/bundle.js" | minify | fingerprint -}}
+  {{ $script := resources.Get "js/main.js" | minify | fingerprint }}
   <script src="{{ $script.RelPermalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
 </body>
 

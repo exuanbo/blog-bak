@@ -22,7 +22,7 @@ pygmentscodefences = true
 
 # Menu links
 [[menu.main]]
-  name = "Home"
+  name = "Writing"
   url = "/"
   weight = 1
 [[menu.main]]

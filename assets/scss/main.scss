@@ -1,20 +1,18 @@
 @import "_predefined.scss";
-@import "_syntax.scss";
+@import "_normalize.scss";
+@import "_animate.scss";
 
 body {
   max-width: 800px;
   margin: auto;
   padding: 1em;
-  line-height: 1.75;
-  font-family: $fonts;
-  font-weight: lighter;
+  font: 1em/1.75 $fonts;
   background: $base01;
   color: $base07;
 }
 
 h1, h2, h3 {
   font-family: $h-fonts;
-  font-weight: lighter;
 
   &.terms {
     padding-left: 32px;
@@ -67,12 +65,10 @@ button {
 
 .group {
   display: flex;
-  flex-direction: row;
 
   h2 {
     margin-top: 0;
-    font-size: 1.6em;
-    opacity: .75;
+    opacity: .5;
   }
 
   .list {
@@ -83,9 +79,30 @@ button {
 }
 
 .list-date {
-  opacity: .75;
+  opacity: .5;
   float: right;
-  margin-right: 51px;
+  margin-right: 85px;
+}
+
+@media (max-width: 600px) {
+  .group {
+    flex-direction: column;
+
+    .list {
+      padding-left: 0;
+      margin-top: 0;
+    }
+
+    h2 {
+      padding-left: 0;
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+
+    .list-date {
+      margin: 0;
+    }
+  }
 }
 
 /* header and footer areas */
@@ -208,6 +225,13 @@ img {
   height: 50%;
 }
 
+@media (max-width: 720px) {
+  img {
+    height: 75%;
+    width: 75%;
+  }
+}
+
 iframe,
 video {
   max-width: 100%;
@@ -259,33 +283,5 @@ blockquote {
 
   .vwrap {
     border-color: $base07;
-  }
-}
-
-@media (max-width: 480px) {
-  .group {
-    flex-direction: column;
-
-    .list {
-      padding-left: 0;
-      margin-top: 0;
-    }
-
-    h2 {
-      padding-left: 0;
-      margin-left: 0;
-      margin-bottom: 0;
-    }
-
-    .list-date {
-      margin: 0;
-    }
-  }
-}
-
-@media (max-width: 720px) {
-  img {
-    height: 75%;
-    width: 75%;
   }
 }

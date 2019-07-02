@@ -31,33 +31,33 @@ draft: false
 
 ### 信息消费：从入门到放弃 | 2018 年度征文
 
-原文：https://sspai.com/post/52832
+[原文](https://sspai.com/post/52832)
 
 ### 《地狱是上帝不存在的地方》
 
-原文：https://site.douban.com/196103/widget/notes/11781495/note/603772831/
+[原文](https://site.douban.com/196103/widget/notes/11781495/note/603772831/)
 
 ### 让吴珊卓捧回金球奖的《杀死伊芙》是一部神仙百合剧
 
-原文：http://www.vice.cn/read/what-makes-killing-eve-so-different-from-other-tv-dramas
+[原文](http://www.vice.cn/read/what-makes-killing-eve-so-different-from-other-tv-dramas)
 
-### 从反抗这个世界到成为世界的一部分，赛博朋克如何诞生、进化以及停滞不前？
+### 从反抗这个世界到成为世界的一部分，赛博朋克如何诞生、进化以及停滞不前
 
-原文：http://www.qdaily.com/articles/60582.html?source=feed
+[原文](http://www.qdaily.com/articles/60582.html?source=feed)
 
 ### Anna Malina 的 GIF 动图
 
-原文：http://thecreatorsproject.vice.cn/read/Anna-Malina-on-her-stop-motion-gifs
+[原文](http://thecreatorsproject.vice.cn/read/Anna-Malina-on-her-stop-motion-gifs)
 
-### 袍哥、茶馆和街头文化，一个曾经存在社会自治的城市是什么样？
+### 袍哥、茶馆和街头文化，一个曾经存在社会自治的城市是什么样
 
-原文：http://www.qdaily.com/articles/60839.html?source=feed
+[原文](http://www.qdaily.com/articles/60839.html?source=feed)
 
 ## 文摘
 
 ### 语不惊人死不休（247）岁月更新，人随春好
 
-原文：http://www.zreading.cn/archives/6800.html
+[原文](http://www.zreading.cn/archives/6800.html)
 
 生活：
 
