@@ -207,7 +207,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-arrowUp.addEventListener('click', doScrolling.bind(null, 'h1', 250));
+listen('#top', 'click', doScrolling.bind(null, 'h1', 250));
 
 // Toggle toc
 //

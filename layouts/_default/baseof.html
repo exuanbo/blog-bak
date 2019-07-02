@@ -15,6 +15,9 @@
   {{ with .OutputFormats.Get "rss" }}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end }}
+  {{ if .Params.isCJKLanguage }}
+    <link rel="preload" href="/fonts/noto-serif-sc-v5-chinese-simplified-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  {{ end }}
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
   {{ if ge (findRE "<pre.*?chroma.*>(.|\n)*?</pre>" .Content ) 1 }}
@@ -26,9 +29,6 @@
     {{ with resources.Get "scss/katex.scss" | toCSS | minify }}
       <style>{{ .Content | safeCSS }}</style>
     {{ end }}
-  {{ end }}
-  {{ if .Params.isCJKLanguage }}
-    <link rel="preload" href="/fonts/noto-serif-sc-v5-chinese-simplified-regular.woff2" as="font" type="font/woff2" crossorigin>
   {{ end }}
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="//us.avoscloud.com">
