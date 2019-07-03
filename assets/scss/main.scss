@@ -11,7 +11,9 @@ body {
   color: $base07;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: $h-fonts;
 
   &.terms {
@@ -39,7 +41,7 @@ a {
   }
 
   &:hover {
-  @include withBackground;
+    @include withBackground;
   }
 }
 
@@ -281,7 +283,7 @@ blockquote {
 
   .vsys,
   .vbtn {
-  background: $base04;
+    background: $base04;
   }
 
   .vwrap {
