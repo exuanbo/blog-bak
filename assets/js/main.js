@@ -198,16 +198,35 @@ if (comments) {
 // Back to top
 //
 let arrowUp = document.getElementById('top');
+let showArrow = false;
+let clickArrow = false;
+
 window.addEventListener('scroll', () => {
-  if(window.pageYOffset > 200) {
-    arrowUp.style.display = 'block';
+  if (window.pageYOffset > 200) {
+      arrowUp.style.display = 'block';
+      if (showArrow == false) {
+        animateCSS(arrowUp, 'bounceInUp', () => {
+          showArrow = true;
+        });
+      }
   }
-  else {
-    arrowUp.style.display = 'none';
+  else if (showArrow == true && clickArrow == false) {
+    animateCSS(arrowUp, 'fadeOutUp', () => {
+      arrowUp.style.display = 'none';
+      showArrow = false;
+    });
   }
 });
 
-listen('#top', 'click', doScrolling.bind(null, 'h1', 250));
+listen('#top', 'click', () => {
+  clickArrow = true;
+  doScrolling('h1', 500);
+  animateCSS(arrowUp, 'bounceOutUp', () => {
+    arrowUp.style.display = 'none';
+    showArrow = false;
+    clickArrow = false;
+  });
+});
 
 // Toggle toc
 //
