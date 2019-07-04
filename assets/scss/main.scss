@@ -108,6 +108,38 @@ button {
 }
 
 /* header and footer areas */
+.github-corner:hover .octo-arm {
+  animation: octocat-wave .5s ease-in-out;
+}
+
+@keyframes octocat-wave {
+
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+@media (max-width:500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+
+  .github-corner .octo-arm {
+    animation: octocat-wave .5s ease-in-out;
+  }
+}
+
 .menu-bar {
   position: fixed;
   bottom: 0;
@@ -137,24 +169,6 @@ button {
     &:hover {
       @include noBackground;
     }
-  }
-}
-
-.article-meta {
-  margin: 2em 0 2em;
-  color: $base05;
-}
-
-footer {
-  text-align: center;
-  margin: 3em 0 4em;
-
-  a {
-    border-bottom: none;
-  }
-
-  a:hover {
-    @include noBackground;
   }
 }
 
@@ -201,6 +215,24 @@ footer {
   right: 4px;
   display: none;
   z-index: 2;
+}
+
+.article-meta {
+  margin: 2em 0 2em;
+  color: $base05;
+}
+
+footer {
+  text-align: center;
+  margin: 3em 0 4em;
+
+  a {
+    border-bottom: none;
+  }
+
+  a:hover {
+    @include noBackground;
+  }
 }
 
 /* code */
@@ -251,7 +283,7 @@ main {
 }
 
 blockquote {
-  background: $base03;
+  background: $base00;
   margin: 0;
   border-left: 4px solid $base07;
   padding-left: 12px;

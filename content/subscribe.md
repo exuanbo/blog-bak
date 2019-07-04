@@ -1,7 +1,7 @@
 ---
 title: "RSS"
 date: 2019-06-20
-type: "subscribe"
+type: "page"
 layout: "rss"
 draft: false
 isCJKLanguage: true

@@ -1,6 +1,5 @@
 <nav class="menu-bar">
   {{ if .Params.toc }}
-    {{ .TableOfContents }}
     <button id="toggle-toc" aria-label="toggle table of contents">
       <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
         <path fill="none" d="M0 0h24v24H0z"/>
@@ -10,7 +9,7 @@
   {{ end }}
   <ul class="menu">
     {{ range .Site.Menus.main }}
-    <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+      <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
     {{ end }}
   </ul>
   <button id="top" aria-label="scroll to top">
@@ -20,3 +19,8 @@
     </svg>
   </button>
 </nav>
+{{ if .Params.toc }}
+  <aside>
+    {{ .TableOfContents }}
+  </aside>
+{{ end }}
