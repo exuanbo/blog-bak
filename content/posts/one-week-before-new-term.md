@@ -23,9 +23,9 @@ toc: false
 
 等等停一下，是不是感觉上面那几句话描写的心境很眼熟。我写出来时才意识到
 
-![00](/images/posts/one-week-before-new-term/00.jpg)
+![00](/images/posts/one-week-before-new-term-00.jpg)
 
-![01](/images/posts/one-week-before-new-term/01.jpg)
+![01](/images/posts/one-week-before-new-term-01.jpg)
 
 就像回到了两年前，同样是因为一个女孩，几乎一模一样的场景。可笑
 
