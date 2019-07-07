@@ -15,7 +15,7 @@ pygmentscodefences = true
   tag = "tags"
 
 [params]
-  footer = "&copy;2019 [Exuanbo](https://exuanbo.xyz)"
+  footer = "&copy; 2019 [Exuanbo](https://exuanbo.xyz)"
   copyright = "License: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)"
   isso = false
   valine = true

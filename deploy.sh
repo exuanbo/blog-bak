@@ -19,4 +19,4 @@ git add -A
 git commit
 git push origin master
 
-echo "Done!"
+echo "\n\033[0;32mDone!\033[0m"

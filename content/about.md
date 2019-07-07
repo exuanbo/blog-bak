@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: 2019-07-04
+date: 2019-07-07
 type: "page"
 layout: "about"
 draft: false
@@ -8,11 +8,11 @@ isCJKLanguage: true
 comment: true
 ---
 
-本博客由 Github Page 托管，AWS Cloudfront CND 加速。
+本博客由 Github Page 托管，AWS Cloudfront CND 加速，域名为 [exuanbo.xyz](https://exuanbo.xyz)
 
 ## 我
 
-目前在意大利米兰理工大学（Politecnico di Milano）读本科，传统与现代的矛盾结合体，宅。
+目前在意大利米兰理工大学（Politecnico di Milano）读本科，传统与现代的矛盾结合体，宅
 
 - Email: exuanbo (at) pm.me
 - Wiki: [Exuanbo's Wiki](https://wiki.exuanbo.xyz)
