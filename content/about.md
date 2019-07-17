@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: 2019-07-07
+date: 2019-07-08
 type: "page"
 layout: "about"
 draft: false
@@ -17,6 +17,7 @@ comment: true
 - Email: exuanbo (at) pm.me
 - Wiki: [Exuanbo's Wiki](https://wiki.exuanbo.xyz)
 - 豆瓣: [程不博](https://www.douban.com/people/121508967/)
+- [Ask me anything](https://peing.net/zh-CN/exuanbo?event=0)
 
 ## 期望
 
