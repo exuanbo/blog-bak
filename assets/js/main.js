@@ -37,9 +37,7 @@ const loadScript = (source, beforeEl, async = true, defer = true) => {
 // addEventListener helper
 //
 const listen = (ele, e, callback) => {
-  if (document.querySelector(ele) !== null) {
-    document.querySelector(ele).addEventListener(e, callback)
-  }
+  ele.addEventListener(e, callback)
 }
 
 /**
@@ -53,14 +51,14 @@ const getElementY = query => {
 }
 
 const doScrolling = (element, duration) => {
-  let startingY = window.pageYOffset
-  let elementY = getElementY(element)
+  const startingY = window.pageYOffset
+  const elementY = getElementY(element)
   // If element is close to page's bottom then window will scroll only to some position above the element.
-  let targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY
-  let diff = targetY - startingY
+  const targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY
+  const diff = targetY - startingY
   // Easing function: easeInOutCubic
   // From: https://gist.github.com/gre/1650294
-  let easing = t => { return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1 }
+  const easing = t => { return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1 }
   let start
 
   if (!diff) return
@@ -69,7 +67,7 @@ const doScrolling = (element, duration) => {
   window.requestAnimationFrame(function step (timestamp) {
     if (!start) start = timestamp
     // Elapsed miliseconds since start of scrolling.
-    let time = timestamp - start
+    const time = timestamp - start
     // Get percent of completion in range [0, 1].
     let percent = Math.min(time / duration, 1)
     // Apply the easing.
@@ -97,18 +95,17 @@ const animateCSS = (element, animationName, callback) => {
     if (typeof callback === 'function') callback()
   }
 
-  element.addEventListener('animationend', handleAnimationEnd)
+  listen(element, 'animationend', handleAnimationEnd)
 }
 
 // Fix toc
 //
 (() => {
-  let toc = document.getElementById('TableOfContents')
+  const toc = document.getElementById('TableOfContents')
   if (!toc) return
-  let li
-  let ul = toc.querySelector('ul')
+  const ul = toc.querySelector('ul')
   if (ul.childElementCount !== 1) return
-  li = ul.firstElementChild
+  const li = ul.firstElementChild
   if (li.tagName !== 'LI') return
   // remove <ul><li></li></ul> where only <ul> only contains one <li>
   ul.outerHTML = li.innerHTML
@@ -117,7 +114,7 @@ const animateCSS = (element, animationName, callback) => {
 // Open external link in new tab
 //
 (() => {
-  let links = document.getElementsByTagName('a')
+  const links = document.getElementsByTagName('a')
   for (let i = 0, length = links.length; i < length; i++) {
     if (links[i].hostname !== window.location.hostname) {
       links[i].target = '_blank'
@@ -129,10 +126,10 @@ const animateCSS = (element, animationName, callback) => {
 // Center images
 //
 (() => {
-  let centerEl = (tagName) => {
-    let tags = document.getElementsByTagName(tagName)
+  const centerEl = (tagName) => {
+    const tags = document.getElementsByTagName(tagName)
     for (let i = 0; i < tags.length; i++) {
-      let tag = tags[i]
+      const tag = tags[i]
       let parent = tag.parentElement
       // center an image if it is the only element of its parent
       if (parent.childNodes.length === 1) {
@@ -145,7 +142,8 @@ const animateCSS = (element, animationName, callback) => {
       }
     }
   }
-  let tagNames = ['img', 'embed', 'object']
+
+  const tagNames = ['img', 'embed', 'object']
   for (let i = 0; i < tagNames.length; i++) {
     centerEl(tagNames[i])
   }
@@ -166,9 +164,9 @@ if (document.getElementsByClassName('math').length !== 0) {
 
 // Load comments
 //
-let comments = document.getElementById('vcomments')
+const comments = document.getElementById('vcomments')
 if (comments) {
-  let commentsLoader = document.getElementById('comments-loader')
+  const commentsLoader = document.getElementById('comments-loader')
 
   const valineJsUrl = '/js/Valine.min.js'
 
@@ -194,16 +192,16 @@ if (comments) {
     })
   }
 
-  listen('#comments-loader', 'click', loadComments)
+  listen(commentsLoader.children[0], 'click', loadComments)
 }
 
 // Back to top
 //
-let arrowUp = document.getElementById('top')
+const arrowUp = document.getElementById('top')
 let showArrow = false
 let clickArrow = false
 
-window.addEventListener('scroll', () => {
+listen(window, 'scroll', () => {
   if (window.pageYOffset > 200) {
     arrowUp.style.display = 'block'
     if (showArrow === false) {
@@ -219,7 +217,7 @@ window.addEventListener('scroll', () => {
   }
 })
 
-listen('#top', 'click', () => {
+listen(arrowUp, 'click', () => {
   clickArrow = true
   doScrolling('h1', 500)
   animateCSS(arrowUp, 'bounceOutUp', () => {
@@ -231,9 +229,9 @@ listen('#top', 'click', () => {
 
 // Toggle toc
 //
-let toc = document.getElementById('TableOfContents')
+const toc = document.getElementById('TableOfContents')
 if (toc) {
-  let tocA = toc.querySelectorAll('a')
+  const tocA = toc.querySelectorAll('a')
 
   const toggleToc = () => {
     if (window.getComputedStyle(toc, null).getPropertyValue('display') === 'none' || toc.style.display === 'none') {
@@ -246,13 +244,9 @@ if (toc) {
     }
   }
 
-  listen('#toggle-toc', 'click', () => {
-    toggleToc()
-  })
+  listen(document.getElementById('toggle-toc'), 'click', toggleToc)
 
   tocA.forEach(a => {
-    a.addEventListener('click', () => {
-      toggleToc()
-    })
+    listen(a, 'click', toggleToc)
   })
 }

@@ -3,6 +3,7 @@ title = "Exuanbo's Blog"
 languagecode = "zh"
 defaultcontentlanguage = "zh"
 
+relativeURLs = true
 rssLimit = 10
 hasCJKLanguage = true
 enableRobotsTXT = true

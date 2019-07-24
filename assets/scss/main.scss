@@ -14,8 +14,6 @@ body {
 h1,
 h2,
 h3 {
-  font-family: $h-fonts;
-
   &.terms {
     padding-left: 32px;
   }
@@ -295,8 +293,6 @@ blockquote {
   text-align: center;
 
   button {
-    font-family: $fonts;
-    font-size: 1em;
     color: $base07;
 
     &:hover {
@@ -310,8 +306,21 @@ blockquote {
     color: $base07;
   }
 
-  a:hover {
-    background: none;
+  .v * {
+    line-height: 1.75;
+  }
+
+  a {
+    display: inline;
+    font-size: 1em;
+
+    &:hover {
+      background: none;
+    }
+  }
+
+  .v .vlist .vcard .vhead .vnick {
+    display: inline;
   }
 
   .vsys,
