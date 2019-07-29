@@ -7,7 +7,6 @@ rm -rf public/*
 hugo --minify --gc
 
 cd public
-nvm use 10
 font-spider *.html */*.html */*/*.html
 
 git add -A

@@ -27,19 +27,19 @@ $base0F: #be5046;
 }
 
 @font-face {
-    font-family: 'Source Han Serif CN';
-    font-display: swap;
-    src: local('Source Han Serif CN'), local('Source Han Serif SC'), local('SourceHanSerifCN-Regular'),
-         url('../fonts/SourceHanSerifCN-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/SourceHanSerifCN-Regular.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/SourceHanSerifCN-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/SourceHanSerifCN-Regular.svg#SourceHanSerifCN') format('svg'); /* Legacy iOS */
+  font-family: 'Source Han Serif CN';
+  font-display: swap;
+  src: local('Source Han Serif CN'), local('Source Han Serif SC'), local('SourceHanSerifCN-Regular'),
+        url('../fonts/SourceHanSerifCN-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/SourceHanSerifCN-Regular.woff') format('woff'), /* Modern Browsers */
+        url('../fonts/SourceHanSerifCN-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('../fonts/SourceHanSerifCN-Regular.svg#SourceHanSerifCN') format('svg'); /* Legacy iOS */
 }
 
 @font-face {
-font-family: 'Source Code Pro';
-font-display: swap;
-src: local('Source Code Pro'), local('SourceCodePro-Regular'),
+  font-family: 'Source Code Pro';
+  font-display: swap;
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'),
         url('../fonts/SourceCodePro-Regular.woff2') format('woff2'), /* Super Modern Browsers */
         url('../fonts/SourceCodePro-Regular.woff') format('woff'), /* Modern Browsers */
         url('../fonts/SourceCodePro-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
