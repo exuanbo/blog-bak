@@ -34,6 +34,20 @@ const loadScript = (source, beforeEl, async = true, defer = true) => {
   })
 }
 
+// Throttle
+//
+const throttle = (callback, limit) => {
+  let timeoutHandler = null
+  return () => {
+    if (timeoutHandler == null) {
+      timeoutHandler = setTimeout(() => {
+        callback()
+        timeoutHandler = null
+      }, limit)
+    }
+  }
+}
+
 // addEventListener helper
 //
 const listen = (ele, e, callback) => {
@@ -177,10 +191,10 @@ if (comments) {
         el: '#vcomments',
         appId: '89VYThwE6PdkAYLdYXE8jIMK-MdYXbMMI',
         appKey: 'cq3bSJa9tmdhLuTQ7PT6rpzM',
+        lang: 'en',
         notify: false,
         verify: false,
-        avatar: 'hide',
-        placeholder: '说点什么吧...'
+        avatar: 'hide'
       })
       animateCSS(commentsLoader, 'fadeOutDown', () => {
         commentsLoader.style.display = 'none'
@@ -201,7 +215,7 @@ const arrowUp = document.getElementById('top')
 let showArrow = false
 let clickArrow = false
 
-listen(window, 'scroll', () => {
+listen(window, 'scroll', throttle(() => {
   if (window.pageYOffset > 200) {
     arrowUp.style.display = 'block'
     if (showArrow === false) {
@@ -215,7 +229,7 @@ listen(window, 'scroll', () => {
       showArrow = false
     })
   }
-})
+}, 250))
 
 listen(arrowUp, 'click', () => {
   clickArrow = true

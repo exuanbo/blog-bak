@@ -12,20 +12,20 @@ isCJKLanguage: true
 
 ## 删除 .DS_Store
 
-1. 删除项目中的所有 `.DS_Store`。这会跳过不在项目中的 `.DS_Store`：
+1. 删除项目中的所有 `.DS_Store`。这会跳过不在项目中的 `.DS_Store`
 
 ```bash
 find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 ```
 
-1. 更新项目：
+1. 更新项目
 
 ```bash
 git add -A
 git commit -m '.DS_Store banished!'
 ```
 
-如果你只需要删除磁盘上的 `.DS_Store`，可以使用下面的命令来删除当前目录及其子目录下的所有 `.DS_Store` 文件:
+如果你只需要删除磁盘上的 `.DS_Store`，可以使用下面的命令来删除当前目录及其子目录下的所有 `.DS_Store` 文件
 
 ```bash
 find . -name ‘*.DS_Store’ -type f -delete
@@ -36,15 +36,14 @@ find . -name ‘*.DS_Store’ -type f -delete
 在今后的使用中为了省去每次单独编辑 git 目录中 `.gitignore` 文件的麻烦，需要添加全局忽略文件
 
 1. 创建 `~/.gitignore_global` 文件，把需要全局忽略的文件写入该文件，语法和 `.gitignore` 一样
-
-2. 在 git 配置文件 `~/.gitconfig` 中引入 `.gitignore_global` 文件：
+1. 在 git 配置文件 `~/.gitconfig` 中引入 `.gitignore_global` 文件
 
 ```ini
 [core]
 excludesfile = ~/.gitignore_global
 ```
 
-也可以通过这个命令来实现：
+    也可以通过这个命令来实现
 
 ```bash
 git config --global core.excludesfile ~/.gitignore_global
@@ -52,13 +51,13 @@ git config --global core.excludesfile ~/.gitignore_global
 
 ## 禁用或启用自动生成 .DS_Store
 
-禁止 `.DS_store` 生成：
+- 禁止 `.DS_store` 生成
 
 ```bash
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
 ```
 
-恢复 `.DS_store` 生成：
+- 恢复 `.DS_store` 生成
 
 ```bash
 defaults delete com.apple.desktopservices DSDontWriteNetworkStores

@@ -24,12 +24,13 @@ $base0F: #be5046;
 @mixin withBackground {
   color: $base00;
   background: $base0C;
+  padding-top: 1.25px;
 }
 
 @font-face {
   font-family: 'Source Han Serif CN';
   font-display: swap;
-  src: local('Source Han Serif CN'), local('Source Han Serif SC'), local('SourceHanSerifCN-Regular'),
+  src: local('Source Han Serif CN'), local('Source Han Serif SC'), local('SourceHanSerifCN-Regular'), local('SourceHanSerifSC-Regular'),
         url('../fonts/SourceHanSerifCN-Regular.woff2') format('woff2'), /* Super Modern Browsers */
         url('../fonts/SourceHanSerifCN-Regular.woff') format('woff'), /* Modern Browsers */
         url('../fonts/SourceHanSerifCN-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
