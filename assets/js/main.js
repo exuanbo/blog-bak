@@ -194,7 +194,7 @@ if (comments) {
         lang: 'en',
         notify: false,
         verify: false,
-        avatar: 'hide'
+        avatar: 'robohash'
       })
       animateCSS(commentsLoader, 'fadeOutDown', () => {
         commentsLoader.style.display = 'none'

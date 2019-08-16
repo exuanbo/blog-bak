@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: 2019-07-08
+date: 2019-08-16
 type: "page"
 layout: "about"
 draft: false
@@ -10,14 +10,14 @@ comment: true
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=769950&auto=0&height=66"></iframe>
 
-本博客由 Github Page 托管，AWS Cloudfront CND 加速，域名为 [exuanbo.xyz](https://exuanbo.xyz)
+本博客由 Github Pages 托管，AWS Cloudfront CDN 加速，域名为 [exuanbo.xyz](https://exuanbo.xyz)
 
 ## 我
 
 目前在意大利米兰理工大学（Politecnico di Milano）读本科，传统与现代的矛盾结合体，宅
 
 - Email: exuanbo (at) pm.me
-- 豆瓣: [程不博](https://www.douban.com/people/121508967/)
+- 豆瓣: [Exuanbo](https://www.douban.com/people/121508967/)
 - [Ask me anything](https://peing.net/zh-CN/exuanbo?event=0)
 
 ## 期望

@@ -7,7 +7,9 @@
   {{ if (gt .Params.date 0) }}
     <div class="date">{{ .Date.Format "2006 Jan 02" }}</div>
   {{ end }}
-  <p>原文地址: <a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></p>
+  <blockquote>
+    <p>原文地址: <a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></p>
+  </blockquote>
   {{ .Content }}
   <div class="article-meta">
     <div class="terms">
