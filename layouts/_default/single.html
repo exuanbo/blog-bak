@@ -3,14 +3,12 @@
 {{ end }}
 
 {{ define "main" }}
-  <main>
-    <h1><span class="title">{{ .Title | markdownify }}</span></h1>
-    {{ if (gt .Params.date 0) }}
-      <div class="date">{{ .Date.Format "2006 Jan 02" }}</div>
-    {{ end }}
-    <p>原文地址: <a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></p>
-    {{ .Content }}
-  </main>
+  <h1><span class="title">{{ .Title | markdownify }}</span></h1>
+  {{ if (gt .Params.date 0) }}
+    <div class="date">{{ .Date.Format "2006 Jan 02" }}</div>
+  {{ end }}
+  <p>原文地址: <a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></p>
+  {{ .Content }}
   <div class="article-meta">
     <div class="terms">
       {{ with .Params.tags }}
@@ -23,7 +21,7 @@
       {{ end }}
     </div>
   </div>
-  {{ if and (or .Site.Params.valine .Site.Params.isso) (.Params.comment) }}
+  {{ if and .Site.Params.valine .Params.comment }}
     {{ partialCached "comment.html" . }}
   {{ end }}
 {{ end }}
