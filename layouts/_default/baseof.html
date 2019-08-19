@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>{{ .Title }} | {{ .Site.Title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   {{ template "_internal/schema.html" . }}
@@ -20,18 +19,22 @@
   {{ end }}
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
-  {{ if ge (findRE "<pre.*?chroma.*>(.|\n)*?</pre>" .Content ) 1 }}
+  {{ if ge (findRE "<pre class=\"chroma\">.*?</pre>" .Content ) 1 }}
     {{ with resources.Get "scss/syntax.scss" | toCSS | minify }}
       <style>{{ .Content | safeCSS }}</style>
     {{ end }}
   {{ end }}
-  {{ if ge (findRE "<span.*?math.*?>(.|\n)*?</span>" .Content ) 1 }}
+  {{ if ge (findRE "<span class=\"math\">.*?</span>" .Content ) 1 }}
     {{ with resources.Get "scss/katex.scss" | toCSS | minify }}
       <style>{{ .Content | safeCSS }}</style>
     {{ end }}
   {{ end }}
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="//us.avoscloud.com">
+  {{ $title := .Title }}
+  {{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
+  <title>{{ $title }}</title>
+  <!-- <title>{{ .Title }} | {{ .Site.Title }}</title> -->
 </head>
 
 <body>

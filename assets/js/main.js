@@ -181,7 +181,6 @@ if (document.getElementsByClassName('math').length !== 0) {
 const comments = document.getElementById('vcomments')
 if (comments) {
   const commentsLoader = document.getElementById('comments-loader')
-
   const valineJsUrl = '/js/Valine.min.js'
 
   const loadComments = () => {

@@ -12,7 +12,7 @@
 {{ define "main" }}
   <h1><span class="title">{{ .Title | markdownify }}</span></h1>
   {{ if (gt .Params.date 0) }}
-    <div class="date">Last updated on: {{ .Date.Format "2006 Jan 02" }}</div>
+    <div class="date">Last updated: {{ .Date.Format "2006 Jan 02" }}</div>
   {{ end }}
   {{ .Content }}
   <div class="article-meta">

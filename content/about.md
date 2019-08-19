@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: 2019-08-16
+date: 2019-08-19
 type: "page"
 layout: "about"
 draft: false
@@ -22,7 +22,7 @@ comment: true
 
 ## 期望
 
-想成为一名：
+成为一个：
 
 - 知行合一的理想主义者
 - 温和坚定的自由主义者
@@ -35,5 +35,5 @@ comment: true
 - 英语 > 意大利语 > 日语 > 法语 | 语言学
 - 板绘插画
 - 电影、电视剧、动画、漫画、小说 | 科幻, 悬疑, 恐怖; Marvel, DC
-- PC单机游戏 (Steam), 主机游戏 (Nintendo Switch) | 独立游戏
+- PC 单机游戏 (Steam), 主机游戏 (Nintendo Switch) | 独立游戏
 - 长跑

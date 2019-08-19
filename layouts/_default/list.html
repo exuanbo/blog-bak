@@ -4,44 +4,28 @@
 
 {{ define "main" }}
   {{if .IsHome }}
-    <h1>{{ .Title | markdownify }}</h1>
+    <h1>WRITINGS</h1>
   {{ else }}
     <h1>#&nbsp;{{ .Title | markdownify }}</h1>
   {{ end }}
   {{ if .Content }}
     {{ .Content }}
   {{ end }}
-  {{ if .IsHome }}
-    {{ range (where .Site.RegularPages "Section" "!=" "").GroupByDate "2006" }}
-      <div class="group">
-        <h2>{{ .Key }}</h2>
-        <ul class="list">
-          {{ range .Pages }}
-            <li>
-              <a href="{{ .RelPermalink }}">
-                <span>{{ .Title }}</span>
-                <span class="list-date">{{ .Date.Format "Jan 02" }}</span>
-              </a>
-            </li>
-          {{ end }}
-        </ul>
-      </div>
-    {{ end }}
-  {{ else }}
-    {{ range .Data.Pages.GroupByDate "2006" }}
-      <div class="group">
-        <h2>{{ .Key }}</h2>
-        <ul class="list">
-          {{ range .Pages }}
-            <li>
-              <a href="{{ .RelPermalink }}">
-                <span>{{ .Title }}</span>
-                <span class="list-date">{{ .Date.Format "Jan 02" }}</span>
-              </a>
-            </li>
-          {{ end }}
-        </ul>
-      </div>
-    {{ end }}
+  {{ $pages := .Pages }}
+  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+  {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
+    <div class="group">
+      <h2>{{ .Key }}</h2>
+      <ul class="list">
+        {{ range .Pages }}
+          <li>
+            <a href="{{ .RelPermalink }}">
+              <span>{{ .Title }}</span>
+              <span class="list-date">{{ .Date.Format "Jan 02" }}</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
   {{ end }}
 {{ end }}
