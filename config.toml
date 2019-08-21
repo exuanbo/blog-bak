@@ -1,6 +1,6 @@
 baseurl = "https://exuanbo.xyz"
 title = "Exuanbo's"
-languagecode = "zh"
+languagecode = "zh-CN"
 defaultcontentlanguage = "zh"
 
 relativeURLs = true
@@ -16,23 +16,44 @@ pygmentscodefences = true
   tag = "tags"
 
 [params]
-  footer = "&copy; 2019 [Exuanbo](https://exuanbo.xyz)"
+  footer = "&copy; 2019 [Exuanbo's](https://exuanbo.xyz)"
   copyright = "License: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)"
   isso = false
   valine = true
 
+[language.zh]
+  languageName = "Chinese"
+  weight = 1
+
+[language.en]
+  languageName = "English"
+  weight = 2
+
 # Menu links
-[[menu.main]]
-  name = "WRITINGS"
+[[languages.zh.menu.main]]
+  name = "首页"
   url = "/"
   weight = 1
-[[menu.main]]
+[[languages.zh.menu.main]]
+  name = "关于"
+  url = "/about/"
+  weight = 2
+[[languages.zh.menu.main]]
+  name = "订阅"
+  url = "https://exuanbo.xyz/index.xml"
+  weight = 3
+
+[[language.en.menu.main]]
+  name = "HOME"
+  url = "/"
+  weight = 1
+[[language.en.menu.main]]
   name = "ABOUT"
   url = "/about/"
   weight = 2
-[[menu.main]]
-  name = "WIKI"
-  url = "https://wiki.exuanbo.xyz"
+[[language.en.menu.main]]
+  name = "RSS"
+  url = "https://exuanbo.xyz/index.xml"
   weight = 3
 
 [mediaTypes]

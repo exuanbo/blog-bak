@@ -32,9 +32,8 @@
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="//us.avoscloud.com">
   {{ $title := .Title }}
-  {{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
+  {{ if not .IsHome }}{{ $title = print $title " · " .Site.Title }}{{ end }}
   <title>{{ $title }}</title>
-  <!-- <title>{{ .Title }} | {{ .Site.Title }}</title> -->
 </head>
 
 <body>

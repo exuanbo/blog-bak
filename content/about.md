@@ -1,6 +1,6 @@
 ---
-title: "About"
-date: 2019-08-19
+title: "关于"
+date: 2019-08-20
 type: "page"
 layout: "about"
 draft: false
