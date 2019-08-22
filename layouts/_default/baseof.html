@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html>
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   {{ template "_internal/schema.html" . }}
   {{ template "_internal/opengraph.html" . }}
+  {{ $title := .Title }}
+  {{ if not .IsHome }}{{ $title = print $title " · " .Site.Title }}{{ end }}
+  <title>{{ $title }}</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
@@ -31,9 +34,6 @@
   {{ end }}
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="//us.avoscloud.com">
-  {{ $title := .Title }}
-  {{ if not .IsHome }}{{ $title = print $title " · " .Site.Title }}{{ end }}
-  <title>{{ $title }}</title>
 </head>
 
 <body>
