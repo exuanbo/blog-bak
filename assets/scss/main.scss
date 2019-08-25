@@ -1,6 +1,25 @@
 @import "_predefined.scss";
-@import "_normalize.scss";
 @import "_animate.scss";
+@import "_normalize.scss";
+
+/* Webkit Scrollbar Customize */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: $base00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $base05;
+
+  &:hover {
+    background: $base07;
+  }
+}
+
+html {
+  border-top: 2px solid $base0C;
+}
 
 body {
   max-width: 800px;
@@ -14,6 +33,8 @@ body {
 h1,
 h2,
 h3 {
+  color: $base0C;
+
   &.terms {
     padding-left: 32px;
   }
@@ -48,6 +69,12 @@ button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  background-image: linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0));
 }
 
 .list,
@@ -146,7 +173,8 @@ button {
   height: 48px;
   width: 100%;
   background-color: $base00;
-  box-shadow: 0 0 4px #060608;
+  // box-shadow: 0 0 4px #060608;
+  box-shadow: 3px 0 5px -1px rgba(0, 0, 0, .2), 6px 0 10px 0 rgba(0, 0, 0, .14), 1px 0 18px 0 rgba(0, 0, 0, .12);
   z-index: 1;
 }
 

@@ -2,5 +2,4 @@ User-agent: Baiduspider
 Disallow: /
 
 User-agent: *
-Disallow: /*.md$
 Sitemap: https://exuanbo.xyz/sitemap.xml

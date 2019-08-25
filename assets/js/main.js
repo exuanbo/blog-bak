@@ -19,7 +19,7 @@ const loadScript = (source, beforeEl, async = true, defer = true) => {
         script = undefined
 
         if (isAbort) {
-          reject()
+          reject(new Error('Failed to load'))
         } else {
           resolve()
         }
@@ -162,6 +162,19 @@ const animateCSS = (element, animationName, callback) => {
     centerEl(tagNames[i])
   }
 })()
+
+// Load Medium-zoom.js
+//
+if (document.getElementsByTagName('img').length !== 0) {
+  loadScript('/js/medium-zoom.min.js').then(() => {
+    mediumZoom('img', {
+      background: 'rgba(0, 0, 0, 0.5)',
+      container: {
+        height: window.innerHeight - 52
+      }
+    })
+  })
+}
 
 // Load katex
 //

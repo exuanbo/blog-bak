@@ -54,14 +54,3 @@ pygmentscodefences = true
   name = "RSS"
   url = "https://exuanbo.xyz/index.xml"
   weight = 3
-
-[mediaTypes]
-  [mediaTypes."text/plain"]
-    suffixes = ["md"]
-
-[outputFormats.MarkDown]
-  mediaType = "text/plain"
-  isPlainText = true
-  isHTML = false
-[outputs]
-  page = ["HTML","MarkDown"]

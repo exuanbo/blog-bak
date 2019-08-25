@@ -1,5 +1,5 @@
 ---
-title: "来到米兰一个月"
+title: "在米兰的这一个月"
 date: 2017-12-15
 tags: [随笔]
 isCJKLanguage: true
