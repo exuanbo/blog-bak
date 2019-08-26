@@ -51,7 +51,7 @@ ol {
 
 a {
   text-decoration: none;
-  border-bottom: 1px solid $base0C;
+  box-shadow: inset 0 -1.25px 0 $base0C;
 
   &:link,
   &:visited,
@@ -82,7 +82,7 @@ hr {
   list-style-type: none;
 
   a {
-    border-bottom: none;
+    box-shadow: none;
 
     &:hover {
       @include noBackground;
@@ -189,7 +189,7 @@ hr {
   }
 
   a {
-    border-bottom: none;
+    box-shadow: none;
     color: $base07;
 
     &:hover {
@@ -212,7 +212,7 @@ hr {
   line-height: 1.5;
 
   a {
-    border-bottom: none;
+    box-shadow: none;
 
     &:hover {
       @include noBackground;
@@ -256,7 +256,7 @@ footer {
   margin: 3em 0 4em;
 
   a {
-    border-bottom: none;
+    box-shadow: none;
   }
 
   a:hover {
