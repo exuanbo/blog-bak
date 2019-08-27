@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="{{.Site.LanguageCode}}">
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  {{ template "_internal/schema.html" . }}
-  {{ template "_internal/opengraph.html" . }}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   {{ $title := .Title }}
   {{ if not .IsHome }}{{ $title = print $title " · " .Site.Title }}{{ end }}
   <title>{{ $title }}</title>
+  {{ if .Params.isCJKLanguage }}
+    <link rel="preload" href="/fonts/SourceHanSerifCN-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  {{ end }}
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="//us.avoscloud.com">
+  {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
+  {{ template "_internal/schema.html" . }}
+  {{ template "_internal/opengraph.html" . }}
+  {{ with .OutputFormats.Get "rss" }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end }}
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  {{ with .OutputFormats.Get "rss" }}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end }}
-  {{ if .Params.isCJKLanguage }}
-    <link rel="preload" href="/fonts/SourceHanSerifCN-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  {{ end }}
-  {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
   {{ if ge (findRE "<pre class=\"chroma\">.*?</pre>" .Content ) 1 }}
     {{ with resources.Get "scss/syntax.scss" | toCSS | minify }}
       <style>{{ .Content | safeCSS }}</style>
@@ -32,8 +34,6 @@
       <style>{{ .Content | safeCSS }}</style>
     {{ end }}
   {{ end }}
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="//us.avoscloud.com">
 </head>
 
 <body>

@@ -19,12 +19,12 @@
 }
 
 html {
-  border-top: 2px solid $base0C;
+  border-top: 2.5px solid $base0C;
 }
 
 body {
   max-width: 800px;
-  margin: auto;
+  margin: 4em auto 0;
   padding: 1em;
   font: 1em/1.75 $fonts;
   background: $base01;
@@ -174,8 +174,7 @@ hr {
   height: 48px;
   width: 100%;
   background-color: $base00;
-  // box-shadow: 0 0 4px #060608;
-  box-shadow: 3px 0 5px -1px rgba(0, 0, 0, .2), 6px 0 10px 0 rgba(0, 0, 0, .14), 1px 0 18px 0 rgba(0, 0, 0, .12);
+  box-shadow: 3px 0 5px -1px rgba(0,0,0,.2), 6px 0 10px 0 rgba(0,0,0,.14), 1px 0 18px 0 rgba(0,0,0,.12);
   z-index: 1;
 }
 
@@ -204,7 +203,7 @@ hr {
   bottom: 56px;
   left: 8px;
   background-color: $base00;
-  color: #ffffff;
+  color: #fff;
   border-radius: 4px;
   opacity: .95;
   max-width: 95%;

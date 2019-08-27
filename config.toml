@@ -1,5 +1,6 @@
 baseurl = "https://exuanbo.xyz"
 title = "Exuanbo's"
+languageCode = "zh-CN"
 defaultcontentlanguage = "zh"
 
 relativeURLs = true
