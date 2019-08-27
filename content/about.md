@@ -10,7 +10,7 @@ comment: true
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=769950&auto=0&height=66"></iframe>
 
-本博客由本人设计、Hugo 生成，托管于 Github Pages，AWS Cloudfront CDN 加速，域名为 [exuanbo.xyz](https://exuanbo.xyz)
+本博客由 [Hugo](https://gohugo.io/) 生成，托管于 Github Pages，AWS Cloudfront CDN 加速，域名为 [exuanbo.xyz](https://exuanbo.xyz)
 
 ## 我
 

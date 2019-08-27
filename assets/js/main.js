@@ -2,6 +2,8 @@
  * Utils
  */
 
+document.body.addEventListener('touchstart', function () {})
+
 // Load and run script via AJAX
 //
 const loadScript = (source, beforeEl, async = true, defer = true) => {
@@ -241,7 +243,7 @@ listen(window, 'scroll', throttle(() => {
       showArrow = false
     })
   }
-}, 250))
+}, 500))
 
 listen(arrowUp, 'click', () => {
   clickArrow = true
