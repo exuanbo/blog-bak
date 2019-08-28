@@ -5,9 +5,8 @@ tags: [随笔]
 isCJKLanguage: true
 toc: false
 comment: true
+bgm: "31140336"
 ---
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=31140336&auto=0&height=66"></iframe>
 
 这半年里我对于「死亡」这个略沉重的话题有了新的思考，主要因为:
 
@@ -25,7 +24,7 @@ comment: true
 
     - [《Free Solo》(《徒手攀岩》)](https://movie.douban.com/subject/30167509/)
 
-        <img src="/images/posts/free-solo.JPEG" style="height:100%;width:100%">
+        <img src="/images/posts/free-solo.JPEG" style="height:100%;width:100%" alt="Free Solo">
 
     - [《The Internet's Own Boy: The Story of Aaron Swartz》(《互联网之子》)](https://movie.douban.com/subject/25785114/)
 

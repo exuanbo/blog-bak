@@ -205,7 +205,7 @@ if (comments) {
         el: '#vcomments',
         appId: '89VYThwE6PdkAYLdYXE8jIMK-MdYXbMMI',
         appKey: 'cq3bSJa9tmdhLuTQ7PT6rpzM',
-        lang: 'en',
+        lang: 'zh-cn',
         notify: false,
         verify: false,
         avatar: 'robohash'

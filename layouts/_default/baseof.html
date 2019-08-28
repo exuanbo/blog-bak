@@ -44,6 +44,13 @@
   {{ partialCached "footer.html" . }}
   {{ $script := resources.Get "js/main.js" | minify | fingerprint }}
   <script src="{{ $script.RelPermalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
+  {{ with .Params.bgm }}
+    <script>
+      const frame = document.getElementById('bgm')
+      frame.src = '//music.163.com/outchain/player?type=2&id={{.}}&auto=0&height=66'
+      frame.style.display = 'block'
+    </script>
+  {{ end }}
 </body>
 
 </html>
