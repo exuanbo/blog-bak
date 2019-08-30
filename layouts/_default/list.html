@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-  {{if .IsHome }}
+  {{ if .IsHome }}
     <h1>WRITINGS</h1>
   {{ else }}
     <h1>#&nbsp;{{ .Title | markdownify }}</h1>

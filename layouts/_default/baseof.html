@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="{{.Site.LanguageCode}}">
+<html lang="{{ .Site.LanguageCode }}">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{ $title := .Title }}
-  {{ if not .IsHome }}{{ $title = print $title " · " .Site.Title }}{{ end }}
+  {{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
   <title>{{ $title }}</title>
   {{ if .Params.isCJKLanguage }}
     <link rel="preload" href="/fonts/SourceHanSerifCN-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -44,13 +44,6 @@
   {{ partialCached "footer.html" . }}
   {{ $script := resources.Get "js/main.js" | minify | fingerprint }}
   <script src="{{ $script.RelPermalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
-  {{ with .Params.bgm }}
-    <script>
-      const frame = document.getElementById('bgm')
-      frame.src = '//music.163.com/outchain/player?type=2&id={{.}}&auto=0&height=66'
-      frame.style.display = 'block'
-    </script>
-  {{ end }}
 </body>
 
 </html>
