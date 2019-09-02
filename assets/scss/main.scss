@@ -73,9 +73,15 @@ button {
 }
 
 hr {
-  height: 1px;
   border: 0;
-  background-image: linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0));
+  margin: 2em auto 4em;
+  color: $base07;
+
+  &::after {
+    content: '§';
+    text-align: center;
+    display: block;
+  }
 }
 
 .list,
@@ -312,7 +318,6 @@ main {
 }
 
 blockquote {
-  background: $base00;
   margin: 0;
   border-left: 2.5px solid $base0C;
   padding-left: 12px;
@@ -320,6 +325,7 @@ blockquote {
 
 #org-link {
   margin-bottom: 2em;
+  background: $base00;
 }
 
 /* Valine */
