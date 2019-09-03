@@ -324,7 +324,9 @@ blockquote {
 }
 
 #org-link {
-  margin-bottom: 2em;
+  margin: 1em auto 1.5em;
+  padding: 0 4px;
+  display: inline-block;
   background: $base00;
 }
 
