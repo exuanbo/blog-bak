@@ -223,6 +223,30 @@ if (comments) {
   listen(commentsLoader.children[0], 'click', loadComments)
 }
 
+// Auto Hide Header
+//
+const header = document.getElementById('site-header')
+let lastScrollPosition = window.pageYOffset
+let showHeader = true
+
+const autoHideHeader = () => {
+  let currentScrollPosition = window.pageYOffset
+  if (currentScrollPosition > lastScrollPosition) {
+    header.classList.remove('slideInUp')
+    header.classList.add('slideOutDown')
+    showHeader = false
+  } else {
+    header.classList.remove('slideOutDown')
+    header.classList.add('slideInUp')
+    showHeader = true
+  }
+  lastScrollPosition = currentScrollPosition
+}
+
+listen(window, 'scroll', throttle(() => {
+  autoHideHeader()
+}, 250))
+
 // Back to top
 //
 const arrowUp = document.getElementById('top')
@@ -231,8 +255,8 @@ let clickArrow = false
 
 listen(window, 'scroll', throttle(() => {
   if (window.pageYOffset > 200) {
-    arrowUp.style.display = 'block'
-    if (showArrow === false) {
+    if (showArrow === false && showHeader === true) {
+      arrowUp.style.display = 'block'
       animateCSS(arrowUp, 'bounceInUp', () => {
         showArrow = true
       })

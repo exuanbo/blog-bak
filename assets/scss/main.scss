@@ -172,7 +172,7 @@ hr {
   }
 }
 
-.menu-bar {
+#site-header {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -180,6 +180,7 @@ hr {
   height: 48px;
   width: 100%;
   background-color: $base00;
+  opacity: .95;
   box-shadow: 3px 0 5px -1px rgba(0,0,0,.2), 6px 0 10px 0 rgba(0,0,0,.14), 1px 0 18px 0 rgba(0,0,0,.12);
   z-index: 1;
 }
@@ -259,7 +260,7 @@ hr {
 
 footer {
   text-align: center;
-  margin: 3em 0 4em;
+  margin: 3em 0 7em;
 
   a {
     box-shadow: none;
