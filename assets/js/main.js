@@ -225,7 +225,7 @@ if (comments) {
 
 // Auto Hide Header
 //
-const header = document.getElementById('site-header')
+const header = document.getElementById('site-nav')
 let lastScrollPosition = window.pageYOffset
 let showHeader = true
 

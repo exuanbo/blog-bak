@@ -35,10 +35,6 @@ h1,
 h2,
 h3 {
   color: $base0C;
-
-  &.terms {
-    padding-left: 32px;
-  }
 }
 
 h1 {
@@ -52,7 +48,6 @@ ol {
 
 a {
   text-decoration: none;
-  box-shadow: inset 0 -1.25px 0 $base0C;
 
   &:link,
   &:visited,
@@ -60,9 +55,7 @@ a {
     color: $base07;
   }
 
-  &:hover {
-    @include withBackground;
-  }
+  @include withBackground;
 }
 
 button {
@@ -84,20 +77,15 @@ hr {
   }
 }
 
-.list,
-.terms {
+.list {
   list-style-type: none;
 
   a {
-    box-shadow: none;
-
-    &:hover {
-      @include noBackground;
-    }
+    @include noBackground;
   }
 }
 
-.group {
+.year-group {
   display: flex;
 
   h2 {
@@ -119,18 +107,16 @@ hr {
 }
 
 @media (max-width: 600px) {
-  .group {
+  .year-group {
     flex-direction: column;
 
     .list {
       padding-left: 0;
-      margin-top: 0;
+      margin: 0;
     }
 
     h2 {
-      padding-left: 0;
-      margin-left: 0;
-      margin-bottom: 0;
+      margin: 0;
     }
 
     .list-date {
@@ -172,7 +158,7 @@ hr {
   }
 }
 
-#site-header {
+#site-nav {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -185,7 +171,7 @@ hr {
   z-index: 1;
 }
 
-.menu {
+#nav-list {
   margin: 10px auto 10px;
   padding: 0;
   text-align: center;
@@ -196,12 +182,7 @@ hr {
   }
 
   a {
-    box-shadow: none;
-    color: $base07;
-
-    &:hover {
-      @include noBackground;
-    }
+    @include noBackground;
   }
 }
 
@@ -219,11 +200,7 @@ hr {
   line-height: 1.5;
 
   a {
-    box-shadow: none;
-
-    &:hover {
-      @include noBackground;
-    }
+    @include noBackground;
   }
 
   ul {
@@ -253,7 +230,11 @@ hr {
   z-index: 2;
 }
 
-.article-meta {
+#article-date {
+  opacity: .75;
+}
+
+#article-meta {
   margin: 2em 0 2em;
   color: $base05;
 }
@@ -263,10 +244,6 @@ footer {
   margin: 3em 0 7em;
 
   a {
-    box-shadow: none;
-  }
-
-  a:hover {
     @include noBackground;
   }
 }
@@ -312,10 +289,6 @@ video {
 
 main {
   hyphens: auto;
-
-  .date {
-    opacity: .75;
-  }
 }
 
 blockquote {

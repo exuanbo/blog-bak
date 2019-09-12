@@ -3,14 +3,14 @@
 {{ end }}
 
 {{ define "main" }}
-  <h1><span class="title">{{ .Title | markdownify }}</span></h1>
+  <h1>{{ .Title | markdownify }}</h1>
   {{ if (gt .Params.date 0) }}
-    <div class="date">{{ .Date.Format "2006 Jan 02" }}</div>
+    <div id="article-date">{{ .Date.Format "2006 Jan 02" }}</div>
   {{ end }}
   <div id="org-link">原文地址: <a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></div>
   {{ .Content }}
-  <div class="article-meta">
-    <div class="terms">
+  <div id="article-meta">
+    <div class="list">
       {{ with .Params.tags }}
         Tags: {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/"> #{{.}}</a>{{ end }}
       {{ end }}

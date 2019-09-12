@@ -10,12 +10,12 @@
 {{ end }}
 
 {{ define "main" }}
-  <h1><span class="title">{{ .Title | markdownify }}</span></h1>
+  <h1>{{ .Title | markdownify }}</h1>
   {{ if (gt .Params.date 0) }}
-    <div class="date">Last updated: {{ .Date.Format "2006 Jan 02" }}</div>
+    <div id="article-date">Last updated: {{ .Date.Format "2006 Jan 02" }}</div>
   {{ end }}
   {{ .Content }}
-  <div class="article-meta">
+  <div id="article-meta">
     {{ with .Site.Params.copyright }}
         {{ . | markdownify }}
     {{ end }}
