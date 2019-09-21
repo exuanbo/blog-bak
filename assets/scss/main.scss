@@ -260,13 +260,11 @@ pre {
   }
 }
 
-code {
+code:not([class]) {
+  padding: 2px 4px;
   font-family: $code-fonts;
   background: $base04;
-
-  &:not([class]) {
-    color: #fff;
-  }
+  color: #fff;
 }
 
 /* misc elements */
@@ -326,21 +324,9 @@ blockquote {
     color: $base07;
   }
 
-  .v * {
-    line-height: 1.75;
-  }
-
   a {
-    display: inline;
     font-size: 1em;
-
-    &:hover {
-      background: none;
-    }
-  }
-
-  .v .vlist .vcard .vhead .vnick {
-    display: inline;
+    @include noBackground;
   }
 
   .vsys,

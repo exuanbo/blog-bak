@@ -181,14 +181,21 @@ if (document.getElementsByTagName('img').length !== 0) {
 
 // Load katex
 //
-const math = /\$\$.+?\$\$/
+const math = /\$.*?\$/
 if (math.test(document.getElementsByTagName('main')[0].innerHTML)) {
   const katexUrl = '/js/katex/katex.min.js'
   const autoRenderUrl = '/js/katex/contrib/auto-render.min.js'
 
   loadScript(katexUrl).then(() => {
     loadScript(autoRenderUrl).then(() => {
-      renderMathInElement(document.body)
+      renderMathInElement( document.body, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '\\[', right: '\\]', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\(', right: '\\)', display: false }
+        ]
+      })
     })
   })
 }
@@ -232,7 +239,7 @@ let lastScrollPosition = window.pageYOffset
 let showHeader = true
 
 const autoHideHeader = () => {
-  let currentScrollPosition = window.pageYOffset
+  const currentScrollPosition = window.pageYOffset
   if (currentScrollPosition > lastScrollPosition) {
     header.classList.remove('slideInUp')
     header.classList.add('slideOutDown')
