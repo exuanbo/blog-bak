@@ -25,8 +25,6 @@ comment: true
 - 知行合一的理想主义者
 - 温和坚定的自由主义者
 
-> Carpe diem, quam minimum credula postero.
-
 ## 爱好
 
 - 电影、电视剧、动画、漫画、小说 | 科幻, 悬疑, 恐怖; Marvel, DC
