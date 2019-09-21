@@ -15,6 +15,10 @@
   <link rel="dns-prefetch" href="//us.avoscloud.com">
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
+  {{ if ge (findRE "$$$$.*?$$$$" .Content ) 1 }}
+  {{ $katex := resources.Get "scss/katex.scss" | resources.ExecuteAsTemplate "css/katex.css" . | toCSS | minify -}}
+  <link rel="stylesheet" href="{{ $katex.RelPermalink }}">
+  {{ end }}
   {{ template "_internal/schema.html" . }}
   {{ template "_internal/opengraph.html" . }}
   {{ with .OutputFormats.Get "rss" }}
@@ -26,11 +30,6 @@
   <link rel="manifest" href="/site.webmanifest">
   {{ if ge (findRE "<pre class=\"chroma\">.*?</pre>" .Content ) 1 }}
     {{ with resources.Get "scss/syntax.scss" | toCSS | minify }}
-      <style>{{ .Content | safeCSS }}</style>
-    {{ end }}
-  {{ end }}
-  {{ if ge (findRE "<span class=\"math\">.*?</span>" .Content ) 1 }}
-    {{ with resources.Get "scss/katex.scss" | toCSS | minify }}
       <style>{{ .Content | safeCSS }}</style>
     {{ end }}
   {{ end }}

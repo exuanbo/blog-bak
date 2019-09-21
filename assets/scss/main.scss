@@ -7,7 +7,7 @@
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: $base00;
+  background: $base01;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -27,7 +27,7 @@ body {
   margin: 4em auto 0;
   padding: 1em;
   font: 1em/1.75 $fonts;
-  background: $base01;
+  background: $base00;
   color: $base07;
 }
 
@@ -165,7 +165,7 @@ hr {
   left: 0;
   height: 48px;
   width: 100%;
-  background-color: $base00;
+  background-color: $base01;
   opacity: .95;
   box-shadow: 3px 0 5px -1px rgba(0,0,0,.2), 6px 0 10px 0 rgba(0,0,0,.14), 1px 0 18px 0 rgba(0,0,0,.12);
   z-index: 1;
@@ -190,7 +190,7 @@ hr {
   position: fixed;
   bottom: 56px;
   left: 8px;
-  background-color: $base00;
+  background-color: $base01;
   color: #fff;
   border-radius: 4px;
   opacity: .95;
@@ -301,7 +301,11 @@ blockquote {
   margin: 1em auto 1.5em;
   padding: 0 4px;
   display: inline-block;
-  background: $base00;
+  background: $base01;
+
+  a {
+    @include noBackground;
+  }
 }
 
 /* Valine */

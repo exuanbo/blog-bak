@@ -7,7 +7,7 @@ rm -rf public/*
 hugo --minify --gc
 
 cd public
-font-spider *.html */*.html */*/*.html
+font-spider --ignore "css/katex.min.css" *.html */*.html */*/*.html
 
 git add -A
 msg="rebuilding site `date`"

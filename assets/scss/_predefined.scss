@@ -1,4 +1,4 @@
-// base16 onedark
+// base16-onedark
 $base00: #282c34;
 $base01: #353b45;
 $base02: #3e4451;
@@ -47,15 +47,5 @@ $base0F: #be5046;
         url('../fonts/SourceHanSerifCN-Regular.svg#SourceHanSerifCN') format('svg'); /* Legacy iOS */
 }
 
-@font-face {
-  font-family: 'Source Code Pro';
-  font-display: swap;
-  src: local('Source Code Pro'), local('SourceCodePro-Regular'),
-        url('../fonts/SourceCodePro-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../fonts/SourceCodePro-Regular.woff') format('woff'), /* Modern Browsers */
-        url('../fonts/SourceCodePro-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('../fonts/SourceCodePro-Regular.svg#SourceCodePro') format('svg'); /* Legacy iOS */
-}
-
-$fonts: Palatino, Palatino Linotype, Palatino Lt Std, Georgia, 'Source Han Serif CN', 'Songti SC', 'Noto Serif CJK SC', 'Source Han Serif SC', STSong, 'AR PL New Sung', 'AR PL SungtiL GB', NSimSun, SimSun, 'TW\-Sung', 'WenQuanYi Bitmap Song', 'AR PL UMing CN', 'AR PL UMing HK', 'AR PL UMing TW', 'AR PL UMing TW MBE', PMingLiU, MingLiU, serif;
-$code-fonts: 'Source Code Pro', 'Lucida Console', Monaco, 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', monospace;
+$fonts: Palatino, Palatino Linotype, Palatino Lt Std, Georgia, 'Source Han Serif CN', 'Songti SC', 'Noto Serif CJK SC', STSong, 'AR PL New Sung', 'AR PL SungtiL GB', NSimSun, SimSun, 'TW\-Sung', 'WenQuanYi Bitmap Song', 'AR PL UMing CN', 'AR PL UMing HK', 'AR PL UMing TW', 'AR PL UMing TW MBE', PMingLiU, MingLiU, serif;
+$code-fonts: 'Lucida Console', Monaco, monospace;

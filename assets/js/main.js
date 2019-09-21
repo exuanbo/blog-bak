@@ -172,7 +172,8 @@ if (document.getElementsByTagName('img').length !== 0) {
     mediumZoom('img', {
       background: 'rgba(0, 0, 0, 0.5)',
       container: {
-        height: window.innerHeight - 52
+        height: window.innerHeight - 52,
+        top: 4
       }
     })
   })
@@ -180,7 +181,8 @@ if (document.getElementsByTagName('img').length !== 0) {
 
 // Load katex
 //
-if (document.getElementsByClassName('math').length !== 0) {
+const math = /\$\$.+?\$\$/
+if (math.test(document.getElementsByTagName('main')[0].innerHTML)) {
   const katexUrl = '/js/katex/katex.min.js'
   const autoRenderUrl = '/js/katex/contrib/auto-render.min.js'
 
