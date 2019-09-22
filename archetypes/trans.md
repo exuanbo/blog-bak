@@ -1,7 +1,12 @@
 ---
 title: {{ replace .Name "-" " " | title }}
 date: {{ .Date }}
-tags: []
+sourceTitle: 
+author: 
+authorLink: 
+sourceDate: 
+sourceLink: 
+tags: [翻译]
 isCJKLanguage: true
 math: false
 toc: false

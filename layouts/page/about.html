@@ -10,7 +10,7 @@
 {{ end }}
 
 {{ define "main" }}
-  <h1>{{ .Title | markdownify }}</h1>
+  <h1>{{ .Title }}</h1>
   {{ if (gt .Params.date 0) }}
     <div id="article-date">Last updated: {{ .Date.Format "2006 Jan 02" }}</div>
   {{ end }}

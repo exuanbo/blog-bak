@@ -6,7 +6,7 @@
   {{ if .IsHome }}
     <h1>WRITINGS</h1>
   {{ else }}
-    <h1>#&nbsp;{{ .Title | markdownify }}</h1>
+    <h1>#&nbsp;{{ .Title }}</h1>
   {{ end }}
   {{ if .Content }}
     {{ .Content }}

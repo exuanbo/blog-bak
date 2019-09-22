@@ -1,7 +1,7 @@
-@import "_predefined.scss";
-@import "_normalize.scss";
-@import "_animate.scss";
-@import "_hover.scss";
+@import '_predefined.scss';
+@import '_normalize.scss';
+@import '_animate.scss';
+@import '_hover.scss';
 
 /* Webkit Scrollbar Customize */
 ::-webkit-scrollbar {
@@ -71,7 +71,7 @@ hr {
   color: $base07;
 
   &::after {
-    content: '§';
+    content: '· · ·';
     text-align: center;
     display: block;
   }
@@ -295,9 +295,9 @@ blockquote {
   padding-left: 12px;
 }
 
-#org-link {
+#orig {
   margin: 1em auto 1.5em;
-  padding: 0 4px;
+  padding: 2px 4px;
   display: inline-block;
   background: $base01;
 
