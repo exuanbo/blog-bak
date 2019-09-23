@@ -1,4 +1,4 @@
-// base16-onedark
+/*! base16-onedark */
 $base00: #282c34;
 $base01: #353b45;
 $base02: #3e4451;
@@ -24,7 +24,6 @@ $base0F: #be5046;
     background: none;
     padding-top: 0;
   }
-
 }
 
 @mixin withBackground {
@@ -38,14 +37,19 @@ $base0F: #be5046;
 }
 
 @font-face {
-  font-family: 'Source Han Serif CN';
+  font-family: "Source Han Serif CN";
   font-display: swap;
-  src: local('Source Han Serif CN'), local('Source Han Serif SC'), local('SourceHanSerifCN-Regular'), local('SourceHanSerifSC-Regular'),
-        url('../fonts/SourceHanSerifCN-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../fonts/SourceHanSerifCN-Regular.woff') format('woff'), /* Modern Browsers */
-        url('../fonts/SourceHanSerifCN-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('../fonts/SourceHanSerifCN-Regular.svg#SourceHanSerifCN') format('svg'); /* Legacy iOS */
+  src: local("Source Han Serif CN"), local("Source Han Serif SC"),
+    local("SourceHanSerifCN-Regular"), local("SourceHanSerifSC-Regular"),
+    url("../fonts/SourceHanSerifCN-Regular.woff2") format("woff2"),
+    url("../fonts/SourceHanSerifCN-Regular.woff") format("woff"),
+    url("../fonts/SourceHanSerifCN-Regular.ttf") format("truetype"),
+    url("../fonts/SourceHanSerifCN-Regular.svg#SourceHanSerifCN") format("svg");
 }
 
-$fonts: Palatino, Palatino Linotype, Palatino Lt Std, Georgia, 'Source Han Serif CN', 'Songti SC', 'Noto Serif CJK SC', STSong, 'AR PL New Sung', 'AR PL SungtiL GB', NSimSun, SimSun, 'TW\-Sung', 'WenQuanYi Bitmap Song', 'AR PL UMing CN', 'AR PL UMing HK', 'AR PL UMing TW', 'AR PL UMing TW MBE', PMingLiU, MingLiU, serif;
-$code-fonts: 'Lucida Console', Monaco, monospace;
+$fonts: Palatino, Palatino Linotype, Palatino Lt Std, Georgia,
+  "Source Han Serif CN", "Songti SC", "Noto Serif CJK SC", STSong,
+  "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung",
+  "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW",
+  "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
+$code-fonts: "Lucida Console", Monaco, monospace;

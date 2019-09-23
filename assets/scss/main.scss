@@ -1,7 +1,8 @@
-@import '_predefined.scss';
-@import '_normalize.scss';
-@import '_animate.scss';
-@import '_hover.scss';
+@import "_predefined.scss";
+@import "_normalize.scss";
+@import "_animate.scss";
+@import "_hover.scss";
+@import "_syntax.scss";
 
 /* Webkit Scrollbar Customize */
 ::-webkit-scrollbar {
@@ -71,7 +72,7 @@ hr {
   color: $base07;
 
   &::after {
-    content: '· · ·';
+    content: "· · ·";
     text-align: center;
     display: block;
   }
@@ -90,7 +91,7 @@ hr {
 
   h2 {
     margin-top: 0;
-    opacity: .5;
+    opacity: 0.5;
   }
 
   .list {
@@ -101,7 +102,7 @@ hr {
 }
 
 .list-date {
-  opacity: .5;
+  opacity: 0.5;
   float: right;
   margin-right: 85px;
 }
@@ -127,11 +128,10 @@ hr {
 
 /* header and footer areas */
 .github-corner:hover .octo-arm {
-  animation: octocat-wave .5s ease-in-out;
+  animation: octocat-wave 0.5s ease-in-out;
 }
 
 @keyframes octocat-wave {
-
   0%,
   100% {
     transform: rotate(0);
@@ -148,13 +148,13 @@ hr {
   }
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .github-corner:hover .octo-arm {
     animation: none;
   }
 
   .github-corner .octo-arm {
-    animation: octocat-wave .5s ease-in-out;
+    animation: octocat-wave 0.5s ease-in-out;
   }
 }
 
@@ -166,8 +166,9 @@ hr {
   height: 48px;
   width: 100%;
   background-color: $base01;
-  opacity: .95;
-  box-shadow: 3px 0 5px -1px rgba(0,0,0,.2), 6px 0 10px 0 rgba(0,0,0,.14), 1px 0 18px 0 rgba(0,0,0,.12);
+  opacity: 0.95;
+  box-shadow: 3px 0 5px -1px rgba(0, 0, 0, 0.2),
+    6px 0 10px 0 rgba(0, 0, 0, 0.14), 1px 0 18px 0 rgba(0, 0, 0, 0.12);
   z-index: 1;
 }
 
@@ -193,7 +194,7 @@ hr {
   background-color: $base01;
   color: #fff;
   border-radius: 4px;
-  opacity: .95;
+  opacity: 0.95;
   max-width: 95%;
   display: none;
   z-index: 2;
@@ -231,7 +232,7 @@ hr {
 }
 
 #article-date {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 #article-meta {
@@ -335,7 +336,7 @@ blockquote {
   }
 
   .vsys {
-    opacity: .75;
+    opacity: 0.75;
   }
 
   .vwrap {

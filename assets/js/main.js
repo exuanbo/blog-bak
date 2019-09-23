@@ -167,7 +167,7 @@ const animateCSS = (element, animationName, callback) => {
 
 // Load Medium-zoom.js
 //
-if (document.getElementsByTagName('img').length !== 0) {
+if (document.getElementsByTagName('img').length > 0) {
   loadScript('/js/medium-zoom.min.js').then(() => {
     mediumZoom('img', {
       background: 'rgba(0, 0, 0, 0.5)',
@@ -181,19 +181,17 @@ if (document.getElementsByTagName('img').length !== 0) {
 
 // Load katex
 //
-const math = /\$.*?\$/
-if (math.test(document.getElementsByTagName('main')[0].innerHTML)) {
+const math = /<link rel="stylesheet" href="\.\.\/\.\.\/css\/katex\.min\.css">/
+if (math.test(document.head.innerHTML)) {
   const katexUrl = '/js/katex/katex.min.js'
   const autoRenderUrl = '/js/katex/contrib/auto-render.min.js'
 
   loadScript(katexUrl).then(() => {
     loadScript(autoRenderUrl).then(() => {
-      renderMathInElement( document.body, {
+      renderMathInElement(document.body, {
         delimiters: [
           { left: '$$', right: '$$', display: true },
-          { left: '\\[', right: '\\]', display: true },
-          { left: '$', right: '$', display: false },
-          { left: '\\(', right: '\\)', display: false }
+          { left: '$', right: '$', display: false }
         ]
       })
     })
