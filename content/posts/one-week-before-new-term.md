@@ -2,7 +2,6 @@
 title: "写在新学期开始前"
 date: 2018-09-08
 tags: [随笔]
-isCJKLanguage: true
 comment: true
 toc: false
 ---

@@ -2,7 +2,6 @@
 title: "在合工大的一年"
 date: 2017-09-26
 tags: [随笔]
-isCJKLanguage: true
 comment: true
 toc: false
 ---

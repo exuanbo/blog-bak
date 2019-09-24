@@ -5,7 +5,6 @@ title: "如何处理 Git 中 .DS_Store 文件"
 tags: [mac, git]
 toc: true
 comment: true
-isCJKLanguage: true
 ---
 
 我最近新换了 Mac 系统，使用 git 时发现目录下自动生成了一个隐藏的 `.DS_Store` 文件。`.DS_Store`（英文全称 Desktop Services Store）是一种由苹果公司的 Mac OS 操作系统所创造的隐藏文件，目的在于存贮目录的自定义属性，例如文件们的图标位置或者是背景色的选择。相当于 Windows 系统下的 `desktop.ini`。

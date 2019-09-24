@@ -2,7 +2,6 @@
 title: "来到米兰的第三天"
 date: 2017-11-08
 tags: [随笔]
-isCJKLanguage: true
 comment: true
 toc: false
 ---

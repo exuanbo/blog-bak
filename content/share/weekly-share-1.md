@@ -1,7 +1,6 @@
 ---
 title: "每周分享第 1 期"
 date: 2019-02-07T17:44:48+01:00
-isCJKLanguage: true
 comment: true
 toc: true
 draft: false

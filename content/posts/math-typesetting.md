@@ -2,8 +2,6 @@
 title: "Math Typesetting"
 date: 2019-09-21T14:31:45+02:00
 tags: [demo]
-isCJKLanguage: false
-math: true
 toc: false
 comment: true
 draft: false

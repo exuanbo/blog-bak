@@ -2,10 +2,8 @@
 title: "关于死亡、生活和爱情"
 date: 2019-08-25
 tags: [随笔]
-isCJKLanguage: true
 toc: false
 comment: true
-bgm: "31140336"
 ---
 
 这半年里我对于「死亡」这个略沉重的话题有了新的思考，主要因为:

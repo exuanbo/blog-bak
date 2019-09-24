@@ -2,9 +2,6 @@
 title: "每周分享第 4 期"
 description: ""
 date: 2019-03-15
-categories: []
-tags: []
-isCJKLanguage: true
 comment: true
 toc: true
 draft: true

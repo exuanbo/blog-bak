@@ -4,7 +4,6 @@ date: 2019-08-25
 type: "page"
 layout: "about"
 draft: false
-isCJKLanguage: true
 comment: true
 ---
 

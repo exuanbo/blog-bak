@@ -2,7 +2,6 @@
 title: "Mac 使用日记（1）系统设置"
 date: 2019-01-11
 tags: [mac]
-isCJKLanguage: true
 comment: true
 toc: true
 draft: false
