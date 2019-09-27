@@ -2,7 +2,7 @@
  * Utils
  */
 
-document.body.addEventListener('touchstart', function () {})
+document.body.addEventListener('touchstart', () => {})
 
 // Load and run script via AJAX
 //
@@ -21,7 +21,7 @@ const loadScript = (source, beforeEl, async = true, defer = true) => {
         script = undefined
 
         if (isAbort) {
-          reject(new Error('Failed to load'))
+          reject()
         } else {
           resolve()
         }
@@ -112,7 +112,7 @@ const animateCSS = (element, animationName, callback) => {
   }
 
   listen(element, 'animationend', handleAnimationEnd)
-}
+};
 
 // Fix toc
 //
@@ -203,9 +203,13 @@ if (math.test(document.head.innerHTML)) {
 const comments = document.getElementById('vcomments')
 if (comments) {
   const commentsLoader = document.getElementById('comments-loader')
+  const loading = document.getElementById('nest1')
   const valineJsUrl = '/js/Valine.min.js'
 
   const loadComments = () => {
+    commentsLoader.style.display = 'none'
+    loading.style.display = 'block'
+
     loadScript(valineJsUrl).then(() => {
       var valine = new Valine()
       valine.init({
@@ -217,11 +221,11 @@ if (comments) {
         verify: false,
         avatar: 'robohash'
       })
-      animateCSS(commentsLoader, 'fadeOutDown', () => {
-        commentsLoader.style.display = 'none'
+
+      setTimeout(() => {
+        loading.style.display = 'none'
         comments.style.display = 'block'
-        animateCSS(comments, 'fadeInDown')
-      })
+      }, 1500)
     }, () => {
       console.log('Failed to load Valine.min.js')
     })

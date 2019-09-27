@@ -11,10 +11,10 @@
     <div id="orig">
       <i>本文为翻译，版权归原文作者所有</i><br>
       <br>
-      标题 (Title) : {{ .Params.sourceTitle }}<br>
-      作者 (Author) : {{ .Params.author }} (<a href="{{ .Params.authorLink }}">@{{ .Params.author }}</a>)<br>
-      日期 (Date) : {{ .Params.sourceDate }}<br>
-      链接 (Link) : <a href="{{ .Params.sourceLink }}">{{ .Params.sourceLink }}</a>
+      标题 (Title)：{{ .Params.sourceTitle }}<br>
+      作者 (Author)：{{ .Params.author }} (<a href="{{ .Params.authorLink }}">@{{ .Params.author }}</a>)<br>
+      日期 (Date)：{{ .Params.sourceDate }}<br>
+      链接 (Link)：<a href="{{ .Params.sourceLink }}">{{ .Params.sourceLink }}</a>
     </div>
   {{ else }}
     <div id="orig">原文地址：<a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></div>
