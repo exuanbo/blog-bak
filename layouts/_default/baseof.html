@@ -36,6 +36,8 @@
   {{ partialCached "footer.html" . }}
   {{ $script := resources.Get "js/main.js" | minify }}
   <script src="{{ $script.RelPermalink }}"></script>
+  {{ $instantpage := resources.Get "js/instantpage.js" | minify }}
+  <script src="{{ $instantpage.RelPermalink }}" type="module" defer></script>
 </body>
 
 </html>
