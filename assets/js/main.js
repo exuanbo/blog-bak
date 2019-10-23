@@ -242,7 +242,7 @@ let showHeader = true
 
 const autoHideHeader = () => {
   let currentScrollPosition = Math.max(window.pageYOffset, 0)
-  if (currentScrollPosition > lastScrollPosition) {
+  if (currentScrollPosition > lastScrollPosition && !showToc) {
     header.classList.remove('slideInUp')
     header.classList.add('slideOutDown')
     showHeader = false
@@ -266,13 +266,13 @@ let clickArrow = false
 
 listen(window, 'scroll', throttle(() => {
   if (window.pageYOffset > 200) {
-    if (showArrow === false && showHeader === true) {
+    if (!showArrow && showHeader) {
       arrowUp.style.display = 'block'
       animateCSS(arrowUp, 'bounceInUp', () => {
         showArrow = true
       })
     }
-  } else if (showArrow === true && clickArrow === false) {
+  } else if (showArrow && !clickArrow) {
     animateCSS(arrowUp, 'fadeOutUp', () => {
       arrowUp.style.display = 'none'
       showArrow = false
@@ -293,6 +293,7 @@ listen(arrowUp, 'click', () => {
 // Toggle toc
 //
 const toc = document.getElementById('TableOfContents')
+let showToc = false
 if (toc) {
   const tocA = toc.querySelectorAll('a')
 
@@ -300,9 +301,11 @@ if (toc) {
     if (window.getComputedStyle(toc, null).getPropertyValue('display') === 'none' || toc.style.display === 'none') {
       toc.style.display = 'block'
       animateCSS(toc, 'bounceInLeft')
+      showToc = true
     } else {
       animateCSS(toc, 'bounceOutLeft', () => {
         toc.style.display = 'none'
+        showToc = false
       })
     }
   }
