@@ -33,11 +33,12 @@
     </div>
   </div>
   <div id="more">
-    {{ with .Site.RegularPages.Prev . }}
-    <span id="prev">⇤ <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
+    {{ $articles := where .Site.RegularPages "Section" "!=" "" }}
+    {{ with $articles.Next . }}
+      <span id="next">⇤ <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
     {{ end }}
-    {{ with .Site.RegularPages.Next . }}
-      <span id="next"><a href="{{ .RelPermalink }}">{{ .Title }}</a> ⇥</span>
+    {{ with $articles.Prev . }}
+      <span id="prev"><a href="{{ .RelPermalink }}">{{ .Title }}</a> ⇥</span>
     {{ end }}
   </div>
   {{ if and .Site.Params.valine .Params.comment }}

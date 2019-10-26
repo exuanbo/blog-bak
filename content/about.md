@@ -7,7 +7,7 @@ draft: false
 comment: true
 ---
 
-本博客由 [Hugo](https://gohugo.io/) 生成，设计模仿了 [Hermit](https://hugo-theme-hermit.netlify.com/posts/)，托管于 Github Pages，AWS Cloudfront CDN 加速，域名为 [exuanbo.xyz](https://exuanbo.xyz)
+本博客由 [Hugo](https://gohugo.io/) 生成，主题设计模仿了 [Hermit](https://hugo-theme-hermit.netlify.com/posts/)，托管于 Github Pages，AWS Cloudfront CDN 加速，域名为 [exuanbo.xyz](https://exuanbo.xyz)
 
 ## 我
 

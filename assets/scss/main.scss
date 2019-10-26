@@ -248,6 +248,7 @@ hr {
 }
 
 #more {
+  margin-bottom: 2em;
   display: flex;
 
   span {
@@ -261,11 +262,11 @@ hr {
 }
 
 #next {
-  text-align: end;
+  text-align: start;
 }
 
 #prev {
-  text-align: start;
+  text-align: end;
 }
 
 footer {
