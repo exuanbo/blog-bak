@@ -21,7 +21,7 @@ const loadScript = (source, beforeEl, async = true, defer = true) => {
         script = undefined
 
         if (isAbort) {
-          reject()
+          reject(new Error('something bad happened'))
         } else {
           resolve()
         }
@@ -241,7 +241,7 @@ let lastScrollPosition = window.pageYOffset
 let showHeader = true
 
 const autoHideHeader = () => {
-  let currentScrollPosition = Math.max(window.pageYOffset, 0)
+  const currentScrollPosition = Math.max(window.pageYOffset, 0)
   if (currentScrollPosition > lastScrollPosition && !showToc) {
     header.classList.remove('slideInUp')
     header.classList.add('slideOutDown')
