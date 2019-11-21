@@ -13,9 +13,11 @@
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="//us.avoscloud.com">
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify }}
+  <link rel="preload" href="{{ $style.RelPermalink }}" as="style">
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  {{ if ge (findRE "<p>.*?\\$.+?\\$.*?</p>" .Content) 1 }}
+  {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
     {{ $katex := resources.Get "scss/katex.scss" | resources.ExecuteAsTemplate "css/katex.css" . | toCSS | minify }}
+    <link rel="preload" href="{{ $katex.RelPermalink }}" as="style">
     <link rel="stylesheet" href="{{ $katex.RelPermalink }}">
   {{ end }}
   {{ template "_internal/schema.html" . }}

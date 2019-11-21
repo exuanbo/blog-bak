@@ -181,19 +181,14 @@ if (document.getElementsByTagName('img').length > 0) {
 
 // Load katex
 //
-const math = /<link rel="stylesheet" href="\.\.\/\.\.\/css\/katex\.min\.css">/
+const math = /katex/
 if (math.test(document.head.innerHTML)) {
   const katexUrl = '/js/katex/katex.min.js'
   const autoRenderUrl = '/js/katex/contrib/auto-render.min.js'
 
   loadScript(katexUrl).then(() => {
     loadScript(autoRenderUrl).then(() => {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false }
-        ]
-      })
+      renderMathInElement(document.body)
     })
   })
 }
