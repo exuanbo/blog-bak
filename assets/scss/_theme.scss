@@ -1,0 +1,18 @@
+@mixin color($property, $var, $fallback) {
+  #{$property}: $fallback; // This is a fallback for browsers that don't support the next line.
+  #{$property}: var($var, $fallback);
+}
+
+.theme-dark {
+  --bg-color: #{$base00};
+  --text-color: #{$base07};
+  --orig-color: #{$base01};
+  --vbtn-color: #{$base04};
+}
+
+.theme-light {
+  --bg-color: #{$base07};
+  --text-color: #{$base00};
+  --orig-color: #{$base06};
+  --vbtn-color: #{$base06};
+}

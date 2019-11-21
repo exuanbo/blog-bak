@@ -3,6 +3,7 @@
 @import "_animate.scss";
 @import "_hover.scss";
 @import "_syntax.scss";
+@import "_theme.scss";
 
 /* Webkit Scrollbar Customize */
 ::-webkit-scrollbar {
@@ -28,14 +29,14 @@ body {
   margin: 4em auto 0;
   padding: 1em;
   font: 1em/1.75 $fonts;
-  background: $base00;
-  color: $base07;
+  @include color(background-color, --bg-color, $base00);
+  @include color(color, --text-color, $base07);
 }
 
 h1,
 h2,
 h3 {
-  color: $base0C;
+  color: $base0CS;
 }
 
 h1 {
@@ -58,7 +59,7 @@ a {
   &:link,
   &:visited,
   &:active {
-    color: $base07;
+    @include color(color, --text-color, $base07);
   }
 
   @include withBackground;
@@ -188,6 +189,7 @@ hr {
   }
 
   a {
+    color: $base07;
     @include noBackground;
   }
 }
@@ -207,6 +209,8 @@ hr {
   z-index: 2;
 
   a {
+    margin-right: 1em;
+    color: $base07;
     @include noBackground;
   }
 
@@ -219,11 +223,19 @@ hr {
   }
 }
 
+#theme {
+  padding: 0;
+  position: fixed;
+  bottom: 2.75px;
+  left: 16px;
+  z-index: 2;
+}
+
 #toggle-toc {
   padding: 0;
   position: fixed;
   bottom: 2px;
-  left: 16px;
+  left: 60px;
   z-index: 2;
 }
 
@@ -242,7 +254,6 @@ hr {
 
 #article-meta {
   margin: 2em 0 2em;
-  color: $base05;
 }
 
 #more {
@@ -325,9 +336,7 @@ blockquote {
 
 #orig {
   margin: 1em auto 1.5em;
-  padding: 2px 4px;
   display: inline-block;
-  background: $base01;
 
   a {
     @include noBackground;
@@ -340,12 +349,20 @@ blockquote {
   text-align: center;
 
   button {
-    color: $base07;
+    @include color(color, --text-color, $base07);
 
     &:hover {
-      color: $base0C;
+      color: $base0CS;
     }
   }
+}
+
+#path1 {
+  fill: none;
+}
+
+#path2 {
+  @include color(fill, --text-color, $base07);
 }
 
 #nest1 {
@@ -353,7 +370,7 @@ blockquote {
   height: 50px;
   width: 50px;
   border: 2px solid transparent;
-  border-top-color: $base07;
+  @include color(border-top-color, --text-color, $base07);
   border-radius: 50%;
   -webkit-animation: spin7 1.5s ease infinite;
           animation: spin7 1.5s ease infinite;
@@ -367,8 +384,8 @@ blockquote {
   bottom: 7px;
   left: 7px;
   border: 2px solid transparent;
+  @include color(border-top-color, --text-color, $base07);
   border-radius: 50%;
-  border-top-color: $base07;
   -webkit-animation: spin7 3s linear infinite;
           animation: spin7 3s linear infinite;
 }
@@ -380,7 +397,7 @@ blockquote {
   right: 15px;
   bottom: 15px;
   left: 15px;
-  border: 2px solid transparent;
+  @include color(border-top-color, --text-color, $base07);
   border-radius: 50%;
   border-top-color: $base07;
   -webkit-animation: spin7 1.5s ease infinite;
@@ -414,7 +431,7 @@ blockquote {
 
 #vcomments {
   * {
-    color: $base07;
+    @include color(color, --text-color, $base07);
   }
 
   a {
@@ -424,7 +441,7 @@ blockquote {
 
   .vsys,
   .vbtn {
-    background: $base04;
+    @include color(background-color, --vbtn-color, $base04);
   }
 
   .vsys {
@@ -432,6 +449,15 @@ blockquote {
   }
 
   .vwrap {
-    border-color: $base07;
+    @include color(border-color, --text-color, $base07);
   }
+}
+
+#cat {
+  @include color(fill, --text-color, $base07);
+  @include color(color, --bg-color, $base00);
+  position:absolute;
+  top: 2.5px;
+  border: 0;
+  right: 0;
 }
