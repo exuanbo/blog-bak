@@ -12,7 +12,6 @@
 // Listen to preference changes. The event only fires in inactive tabs, so theme changes aren't applied twice.
 function syncBetweenTabs () {
   window.addEventListener('storage', (e) => {
-    const root = document.documentElement
     if (e.key === 'preference-theme') {
       if (e.newValue === 'light') enableTheme('light', true, false)
       else if (e.newValue === 'dark') enableTheme('dark', true, false) // The third argument makes sure the state isn't saved again.
@@ -80,7 +79,7 @@ function enableTheme (newTheme = 'dark', withTransition = false, save = true) {
   let otherTheme
   newTheme === 'dark' ? otherTheme = 'light' : otherTheme = 'dark'
   let currentTheme
-  (root.classList.contains('theme-light')) ? currentTheme = 'light' : 'dark'
+  root.classList.contains('theme-light') ? currentTheme = 'light' : currentTheme = 'dark'
 
   if (withTransition === true && newTheme !== currentTheme) animateThemeTransition()
 
@@ -102,7 +101,7 @@ function saveToLocalStorage (key, value) {
 function animateThemeTransition () {
   const root = document.documentElement
   root.classList.remove('theme-change-active')
-  void root.offsetWidth // Trigger reflow to cancel the animation
+  root.offsetWidth = undefined // Trigger reflow to cancel the animation
   root.classList.add('theme-change-active')
 }
 (function removeAnimationClass () {
@@ -119,12 +118,12 @@ function supportedAnimationEvent () {
     WebkitAnimation: 'webkitAnimationEnd'
   }
 
-  for (t in animations) {
+  for (const t in animations) {
     if (el.style[t] !== undefined) return animations[t] // Return the name of the event fired by the browser to indicate a CSS animation has ended
   }
 }
 
-(function swithButton () {
+(function switchButton () {
   const btn = document.getElementById('theme')
   btn.onclick = () => {
     let newTheme
