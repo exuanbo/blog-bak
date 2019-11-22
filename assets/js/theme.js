@@ -1,5 +1,5 @@
 // Find if user has set a preference and react to changes
-(function initializeTheme () {
+function initializeTheme () {
   syncBetweenTabs()
   listenToOSChanges()
   enableTheme(
@@ -7,7 +7,7 @@
       returnThemeBasedOnOS() ||
       returnThemeBasedOnTime(),
     false)
-}())
+}
 
 // Listen to preference changes. The event only fires in inactive tabs, so theme changes aren't applied twice.
 function syncBetweenTabs () {

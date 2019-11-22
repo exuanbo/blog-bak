@@ -1,12 +1,11 @@
-/*! instant.page v2.0.1 - (C) 2019 Alexandre Dieulot - https://instant.page/license */
+/*! instant.page v3.0.0 - (C) 2019 Alexandre Dieulot - https://instant.page/license */
 
-let urlToPreload
 let mouseoverTimer
 let lastTouchTimestamp
-
-const prefetcher = document.createElement('link')
-const isSupported = prefetcher.relList && prefetcher.relList.supports && prefetcher.relList.supports('prefetch')
-const isDataSaverEnabled = navigator.connection && navigator.connection.saveData
+const prefetches = new Set()
+const prefetchElement = document.createElement('link')
+const isSupported = prefetchElement.relList && prefetchElement.relList.supports && prefetchElement.relList.supports('prefetch')
+                    && window.IntersectionObserver && 'isIntersecting' in IntersectionObserverEntry.prototype
 const allowQueryString = 'instantAllowQueryString' in document.body.dataset
 const allowExternalLinks = 'instantAllowExternalLinks' in document.body.dataset
 const useWhitelist = 'instantWhitelist' in document.body.dataset
@@ -14,25 +13,40 @@ const useWhitelist = 'instantWhitelist' in document.body.dataset
 let delayOnHover = 65
 let useMousedown = false
 let useMousedownOnly = false
+let useViewport = false
 if ('instantIntensity' in document.body.dataset) {
-  if (document.body.dataset.instantIntensity.substr(0, 'mousedown'.length) == 'mousedown') {
+  const intensity = document.body.dataset.instantIntensity
+
+  if (intensity.substr(0, 'mousedown'.length) == 'mousedown') {
     useMousedown = true
-    if (document.body.dataset.instantIntensity == 'mousedown-only') {
+    if (intensity == 'mousedown-only') {
       useMousedownOnly = true
     }
   }
+  else if (intensity.substr(0, 'viewport'.length) == 'viewport') {
+    if (!(navigator.connection && (navigator.connection.saveData || navigator.connection.effectiveType.includes('2g')))) {
+      if (intensity == "viewport") {
+        /* Biggest iPhone resolution (which we want): 414 × 896 = 370944
+         * Small 7" tablet resolution (which we don’t want): 600 × 1024 = 614400
+         * Note that the viewport (which we check here) is smaller than the resolution due to the UI’s chrome */
+        if (document.documentElement.clientWidth * document.documentElement.clientHeight < 450000) {
+          useViewport = true
+        }
+      }
+      else if (intensity == "viewport-all") {
+        useViewport = true
+      }
+    }
+  }
   else {
-    const milliseconds = parseInt(document.body.dataset.instantIntensity)
+    const milliseconds = parseInt(intensity)
     if (!isNaN(milliseconds)) {
       delayOnHover = milliseconds
     }
   }
 }
 
-if (isSupported && !isDataSaverEnabled) {
-  prefetcher.rel = 'prefetch'
-  document.head.appendChild(prefetcher)
-
+if (isSupported) {
   const eventListenersOptions = {
     capture: true,
     passive: true,
@@ -48,6 +62,40 @@ if (isSupported && !isDataSaverEnabled) {
   else {
     document.addEventListener('mousedown', mousedownListener, eventListenersOptions)
   }
+
+  if (useViewport) {
+    let triggeringFunction
+    if (window.requestIdleCallback) {
+      triggeringFunction = (callback) => {
+        requestIdleCallback(callback, {
+          timeout: 1500,
+        })
+      }
+    }
+    else {
+      triggeringFunction = (callback) => {
+        callback()
+      }
+    }
+
+    triggeringFunction(() => {
+      const intersectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const linkElement = entry.target
+            intersectionObserver.unobserve(linkElement)
+            preload(linkElement.href)
+          }
+        })
+      })
+
+      document.querySelectorAll('a').forEach((linkElement) => {
+        if (isPreloadable(linkElement)) {
+          intersectionObserver.observe(linkElement)
+        }
+      })
+    })
+  }
 }
 
 function touchstartListener(event) {
@@ -61,16 +109,7 @@ function touchstartListener(event) {
     return
   }
 
-  linkElement.addEventListener('touchcancel', touchendAndTouchcancelListener, {passive: true})
-  linkElement.addEventListener('touchend', touchendAndTouchcancelListener, {passive: true})
-
-  urlToPreload = linkElement.href
   preload(linkElement.href)
-}
-
-function touchendAndTouchcancelListener() {
-  urlToPreload = undefined
-  stopPreloading()
 }
 
 function mouseoverListener(event) {
@@ -86,8 +125,6 @@ function mouseoverListener(event) {
 
   linkElement.addEventListener('mouseout', mouseoutListener, {passive: true})
 
-  urlToPreload = linkElement.href
-
   mouseoverTimer = setTimeout(() => {
     preload(linkElement.href)
     mouseoverTimer = undefined
@@ -101,10 +138,6 @@ function mousedownListener(event) {
     return
   }
 
-  linkElement.addEventListener('mouseout', mouseoutListener, {passive: true})
-
-  urlToPreload = linkElement.href
-
   preload(linkElement.href)
 }
 
@@ -117,18 +150,10 @@ function mouseoutListener(event) {
     clearTimeout(mouseoverTimer)
     mouseoverTimer = undefined
   }
-
-  urlToPreload = undefined
-
-  stopPreloading()
 }
 
 function isPreloadable(linkElement) {
   if (!linkElement || !linkElement.href) {
-    return
-  }
-
-  if (urlToPreload == linkElement.href) {
     return
   }
 
@@ -164,9 +189,14 @@ function isPreloadable(linkElement) {
 }
 
 function preload(url) {
-  prefetcher.href = url
-}
+  if (prefetches.has(url)) {
+    return
+  }
 
-function stopPreloading() {
-  prefetcher.removeAttribute('href')
+  const prefetcher = document.createElement('link')
+  prefetcher.rel = 'prefetch'
+  prefetcher.href = url
+  document.head.appendChild(prefetcher)
+
+  prefetches.add(url)
 }
