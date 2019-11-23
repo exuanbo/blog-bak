@@ -147,9 +147,13 @@ draft: false
 
 ## 2. 修养篇
 
-### 2.1. [What are some of the most basic things every programmer should know?](https://www.quora.com/What-are-some-of-the-most-basic-things-every-programmer-should-know)
+### 2.1. What are some of the most basic things every programmer should know?
 
-### 2.2. [97 Things Every Programmer Should Know](https://97-things-every-x-should-know.gitbooks.io/97-things-every-programmer-should-know/content/en/index.html)
+<https://www.quora.com/What-are-some-of-the-most-basic-things-every-programmer-should-know>
+
+### 2.2. 97 Things Every Programmer Should Know
+
+<https://97-things-every-x-should-know.gitbooks.io/97-things-every-programmer-should-know/content/en/index.html>
 
 ### 2.3. 英文能力
 

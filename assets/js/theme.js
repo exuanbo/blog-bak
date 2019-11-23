@@ -123,8 +123,8 @@ function supportedAnimationEvent () {
   }
 }
 
-(function switchButton () {
-  const btn = document.getElementById('theme')
+(function switchTheme () {
+  const btn = document.getElementById('btnTheme')
   btn.onclick = () => {
     let newTheme
     if (localStorage.getItem('preference-theme') === 'dark') {

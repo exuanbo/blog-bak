@@ -75,7 +75,7 @@ button {
 hr {
   border: 0;
   margin: 2em auto 4em;
-  color: $base07;
+  @include color(color, --text-color, $base07);
 
   &::after {
     content: "· · ·";
@@ -223,12 +223,16 @@ hr {
   }
 }
 
-#theme {
+#btnTheme {
   padding: 0;
   position: fixed;
   bottom: 2.75px;
   left: 16px;
   z-index: 2;
+
+  &:hover #btnTheme-color {
+      fill: #fff;
+  }
 }
 
 #toggle-toc {
@@ -399,7 +403,6 @@ blockquote {
   left: 15px;
   @include color(border-top-color, --text-color, $base07);
   border-radius: 50%;
-  border-top-color: $base07;
   -webkit-animation: spin7 1.5s ease infinite;
           animation: spin7 1.5s ease infinite;
 }
