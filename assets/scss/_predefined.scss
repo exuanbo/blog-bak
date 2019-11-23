@@ -39,17 +39,6 @@ $base0F: #be5046;
   }
 }
 
-@font-face {
-  font-family: "Source Han Serif CN";
-  font-display: swap;
-  src: local("Source Han Serif CN"), local("Source Han Serif SC"),
-    local("SourceHanSerifCN-Regular"), local("SourceHanSerifSC-Regular"),
-    url("../fonts/SourceHanSerifCN-Regular.woff2") format("woff2"),
-    url("../fonts/SourceHanSerifCN-Regular.woff") format("woff"),
-    url("../fonts/SourceHanSerifCN-Regular.ttf") format("truetype"),
-    url("../fonts/SourceHanSerifCN-Regular.svg#SourceHanSerifCN") format("svg");
-}
-
 $fonts: Palatino, Palatino Linotype, Palatino Lt Std, Georgia,
   "Source Han Serif CN", "Songti SC", "Noto Serif CJK SC", STSong,
   "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung",

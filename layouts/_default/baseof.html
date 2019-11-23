@@ -5,20 +5,28 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="google-site-verification" content="dq1h9DPOSfOEVYwYpWaX3eQwpfPIsJHqQcN9TIUcqNQ">
   {{ $title := .Title }}
   {{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
   <title>{{ $title }}</title>
-  <link rel="preload" href="/fonts/SourceHanSerifCN-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="//us.avoscloud.com">
+  <link rel="preload" href="/js/bundle.min.js" as="script">
+  <link rel="preload" href="/js/instantpage.min.js" as="script" crossorigin="anonymous">
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify }}
   <link rel="preload" href="{{ $style.RelPermalink }}" as="style">
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
     {{ $katex := resources.Get "scss/katex.scss" | resources.ExecuteAsTemplate "css/katex.css" . | toCSS | minify }}
     <link rel="preload" href="{{ $katex.RelPermalink }}" as="style">
+    <link rel="preload" href="/js/katex/katex.min.js" as="script">
+    <link rel="preload" href="/js/katex/contrib/auto-render.min.js" as="script">
     <link rel="stylesheet" href="{{ $katex.RelPermalink }}">
+  {{ end }}
+  <meta name="google-site-verification" content="dq1h9DPOSfOEVYwYpWaX3eQwpfPIsJHqQcN9TIUcqNQ">
+  {{ if .Description }}
+    <meta name="description" content="{{ .Description }}">
+  {{ else if .IsPage }}
+    <meta name="description" content="{{ .Summary | plainify }}">
   {{ end }}
   {{ template "_internal/schema.html" . }}
   {{ template "_internal/opengraph.html" . }}

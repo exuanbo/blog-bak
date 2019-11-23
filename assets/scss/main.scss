@@ -451,6 +451,10 @@ blockquote {
   .vwrap {
     @include color(border-color, --text-color, $base07);
   }
+
+   .vinput {
+    @include color(border-color, --text-color, $base07);
+  }
 }
 
 #cat {
