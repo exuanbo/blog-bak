@@ -10,28 +10,32 @@
   <title>{{ $title }}</title>
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="//us.avoscloud.com">
-  <link rel="preload" href="/js/bundle.min.js" as="script">
-  <link rel="preload" href="/js/instantpage.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" as="script" href="/js/bundle.min.js">
+  <link rel="preload" as="script" href="/js/instantpage.min.js" crossorigin>
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify }}
-  <link rel="preload" href="{{ $style.RelPermalink }}" as="style">
+  <link rel="preload" as="style" href="{{ $style.RelPermalink }}">
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
     {{ $katex := resources.Get "scss/katex.scss" | resources.ExecuteAsTemplate "css/katex.css" . | toCSS | minify }}
-    <link rel="preload" href="{{ $katex.RelPermalink }}" as="style">
-    <link rel="preload" href="/js/katex/katex.min.js" as="script">
-    <link rel="preload" href="/js/katex/contrib/auto-render.min.js" as="script">
+    <link rel="preload" as="style" href="{{ $katex.RelPermalink }}">
+    <link rel="preload" as="script" href="/js/katex/katex.min.js">
+    <link rel="preload" as="script" href="/js/katex/contrib/auto-render.min.js">
     <link rel="stylesheet" href="{{ $katex.RelPermalink }}">
   {{ end }}
   <meta name="google-site-verification" content="dq1h9DPOSfOEVYwYpWaX3eQwpfPIsJHqQcN9TIUcqNQ">
-  {{ if .Description }}
-    <meta name="description" content="{{ .Description }}">
-  {{ else if .IsPage }}
-    <meta name="description" content="{{ .Summary | plainify }}">
+  {{ $description := .Description }}
+  {{ if (not $description) and .IsPage }}
+    {{ $description = (.Summary | plainify) }}
+  {{ else if .IsHome }}
+    {{ $description = .Site.Description }}
+  {{ end }}
+  {{ if $description }}
+    <meta name="description" content="{{ $description }}">
   {{ end }}
   {{ template "_internal/schema.html" . }}
   {{ template "_internal/opengraph.html" . }}
   {{ with .OutputFormats.Get "rss" }}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end }}
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
