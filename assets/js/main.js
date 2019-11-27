@@ -196,42 +196,6 @@ const loadKatex = () => {
   }
 }
 
-// Load comments
-//
-const comments = document.getElementById('vcomments')
-const loadComments = () => {
-  document.getElementById('comments-loader').style.display = 'none'
-  const loading = document.getElementById('nest1')
-  loading.style.display = 'block'
-  const valineJsUrl = '/js/Valine.min.js'
-
-  loadScript(valineJsUrl).then(() => {
-    var valine = new Valine()
-    valine.init({
-      el: '#vcomments',
-      appId: '89VYThwE6PdkAYLdYXE8jIMK-MdYXbMMI',
-      appKey: 'cq3bSJa9tmdhLuTQ7PT6rpzM',
-      lang: 'zh-cn',
-      notify: false,
-      verify: false,
-      avatar: 'robohash'
-    })
-
-    setTimeout(() => {
-      loading.style.display = 'none'
-      document.getElementById('vcomments').style.display = 'block'
-    }, 1500)
-  }, () => {
-    console.log('Failed to load Valine.min.js')
-  })
-}
-
-const listenComment = () => {
-  if (comments) {
-    listen(document.getElementById('comments-loader').children[0], 'click', loadComments)
-  }
-}
-
 // Auto Hide Header
 //
 let showHeader = true
@@ -330,7 +294,6 @@ const main = () => {
   setTimeout(() => centerImages(), 0)
   setTimeout(() => loadMediumZoom(), 0)
   setTimeout(() => loadKatex(), 0)
-  setTimeout(() => listenComment(), 0)
   setTimeout(() => listenHeader(), 0)
   setTimeout(() => toTop(), 0)
   setTimeout(() => toggleToc(), 0)

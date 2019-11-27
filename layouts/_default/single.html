@@ -41,7 +41,4 @@
       <span id="prev"><a href="{{ .RelPermalink }}">{{ .Title }}</a> ⇥</span>
     {{ end }}
   </div>
-  {{ if and .Site.Params.valine .Params.comment }}
-    {{ partialCached "comment.html" . }}
-  {{ end }}
 {{ end }}

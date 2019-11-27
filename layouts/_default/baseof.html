@@ -8,12 +8,10 @@
   {{ $title := .Title }}
   {{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
   <title>{{ $title }}</title>
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="//us.avoscloud.com">
-  <link rel="preload" as="script" href="/js/bundle.min.js">
-  <link rel="preload" as="script" href="/js/instantpage.min.js" crossorigin>
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify }}
   <link rel="preload" as="style" href="{{ $style.RelPermalink }}">
+  <link rel="preload" as="script" href="/js/bundle.min.js">
+  <link rel="preload" as="script" href="/js/instantpage.min.js" crossorigin>
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
     {{ $katex := resources.Get "scss/katex.scss" | resources.ExecuteAsTemplate "css/katex.css" . | toCSS | minify }}

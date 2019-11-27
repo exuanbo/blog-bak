@@ -20,7 +20,4 @@
         {{ . | markdownify }}
     {{ end }}
   </div>
-  {{ if and .Site.Params.valine .Params.comment }}
-    {{ partialCached "comment.html" . }}
-  {{ end }}
 {{ end }}
