@@ -306,8 +306,8 @@ pre {
 code:not([class]) {
   padding: 2px 4px;
   font-family: $code-fonts;
-  background: $base04;
-  color: #fff;
+  @include color(background-color, --code-bg-color, $base04);
+  @include color(color, --code-text-color, #fff);
 }
 
 /* misc elements */

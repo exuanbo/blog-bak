@@ -17,14 +17,14 @@ comment: true
 find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 ```
 
-1. 更新项目
+2. 更新项目
 
 ```bash
 git add -A
 git commit -m '.DS_Store banished!'
 ```
 
-如果你只需要删除磁盘上的 `.DS_Store`，可以使用下面的命令来删除当前目录及其子目录下的所有 `.DS_Store` 文件
+可以使用下面的命令来删除本地磁盘中当前目录及其子目录下的所有 `.DS_Store` 文件
 
 ```bash
 find . -name ‘*.DS_Store’ -type f -delete
@@ -42,7 +42,7 @@ find . -name ‘*.DS_Store’ -type f -delete
 excludesfile = ~/.gitignore_global
 ```
 
-    也可以通过这个命令来实现
+也可以通过这个命令来实现
 
 ```bash
 git config --global core.excludesfile ~/.gitignore_global

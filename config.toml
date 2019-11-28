@@ -9,17 +9,21 @@ hasCJKLanguage = true
 enableRobotsTXT = true
 enableEmoji = true
 
-pygmentsuseclasses = true
-pygmentscodefences = true
-
 [taxonomies]
   tag = "tags"
 
 [params]
   footer = "&copy; 2019 [Exuanbo's](https://exuanbo.xyz)"
   copyright = "License: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)"
-  isso = false
-  valine = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
 
 [language.zh]
   languageName = "Chinese"

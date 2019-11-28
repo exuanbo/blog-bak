@@ -113,19 +113,6 @@ const animateCSS = (element, animationName, callback) => {
   listen(element, 'animationend', handleAnimationEnd)
 }
 
-// Fix toc
-//
-const fixToc = () => {
-  const toc = document.getElementById('TableOfContents')
-  if (!toc) return
-  const ul = toc.querySelector('ul')
-  if (ul.childElementCount !== 1) return
-  const li = ul.firstElementChild
-  if (li.tagName !== 'LI') return
-  // remove <ul><li></li></ul> where only <ul> only contains one <li>
-  ul.outerHTML = li.innerHTML
-}
-
 // Open external link in new tab
 //
 const newTab = () => {
@@ -289,7 +276,6 @@ const toggleToc = () => {
 
 const main = () => {
   initializeTheme()
-  setTimeout(() => fixToc(), 0)
   setTimeout(() => newTab(), 0)
   setTimeout(() => centerImages(), 0)
   setTimeout(() => loadMediumZoom(), 0)
