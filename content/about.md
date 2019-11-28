@@ -1,6 +1,6 @@
 ---
 title: "关于"
-date: 2019-09-26
+date: 2019-11-28
 type: "page"
 layout: "about"
 draft: false
@@ -13,7 +13,7 @@ comment: true
 
 目前在意大利米兰理工大学（Politecnico di Milano）读本科，宅
 
-- Email: exuanbo (at) pm.me
+- Email: exuanbo [at] pm [dot] me
 - 豆瓣: [Exuanbo](https://www.douban.com/people/121508967/)
 - [Ask me anything](https://peing.net/zh-CN/exuanbo?event=0)
 
