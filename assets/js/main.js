@@ -204,11 +204,7 @@ const autoHideHeader = () => {
   lastScrollPosition = currentScrollPosition
 }
 
-const listenHeader = () => {
-  listen(window, 'scroll', throttle(() => {
-    autoHideHeader()
-  }, 250))
-}
+const listenHeader = () => listen(window, 'scroll', autoHideHeader)
 
 // Back to top
 //
