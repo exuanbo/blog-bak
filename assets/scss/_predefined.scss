@@ -12,10 +12,24 @@ $base09: #d19a66;
 $base0A: #e5c07b;
 $base0B: #98c379;
 $base0C: #56b6c2;
-$base0CS: #3b97a3;
+$base0C1: #40a4b1;
+$base0C2: #358a94;
 $base0D: #61afef;
 $base0E: #c678dd;
 $base0F: #be5046;
+
+$fonts: Palatino, Palatino Linotype, Palatino Lt Std, Georgia,
+  "Source Han Serif CN", "Songti SC", "Noto Serif CJK SC", STSong,
+  "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung",
+  "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW",
+  "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
+
+$code-fonts: "Lucida Console", Monaco, monospace;
+
+@mixin color($property, $var, $fallback) {
+  #{$property}: $fallback; // This is a fallback for browsers that don't support the next line.
+  #{$property}: var($var, $fallback);
+}
 
 @mixin noBackground {
   box-shadow: none;
@@ -23,7 +37,7 @@ $base0F: #be5046;
   transition-duration: .4s;
 
   &:hover {
-    color: $base0CS;
+    color: $base0C1;
     box-shadow: none;
   }
 }
@@ -38,11 +52,3 @@ $base0F: #be5046;
     box-shadow: inset 0 -1.25em 0 $base0C;
   }
 }
-
-$fonts: Palatino, Palatino Linotype, Palatino Lt Std, Georgia,
-  "Source Han Serif CN", "Songti SC", "Noto Serif CJK SC", STSong,
-  "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung",
-  "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW",
-  "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
-
-$code-fonts: "Lucida Console", Monaco, monospace;
