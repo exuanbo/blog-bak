@@ -32,13 +32,13 @@
       {{ end }}
     </div>
   </div>
-  <div id="more">
+  <nav id="post-nav">
     {{ $articles := where .Site.RegularPages "Section" "!=" "" }}
     {{ with $articles.Next . }}
-      <span id="next">⇤ <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
+      <div id="next"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
     {{ end }}
     {{ with $articles.Prev . }}
-      <span id="prev"><a href="{{ .RelPermalink }}">{{ .Title }}</a> ⇥</span>
+      <div id="prev"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
     {{ end }}
-  </div>
+  </nav>
 {{ end }}

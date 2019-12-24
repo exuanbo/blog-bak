@@ -245,13 +245,13 @@ hr {
   margin: 2em 0 2em;
 }
 
-#more {
+#post-nav {
   margin-bottom: 2em;
   display: flex;
+  flex-wrap: wrap;
 
-  span {
+  div {
     flex-grow:1;
-    flex-basis: 0;
 
     a {
       @include noBackground;
@@ -260,11 +260,21 @@ hr {
 }
 
 #next {
+  margin: 0 0.5em 0.25em 0;
   text-align: start;
+
+  &::before {
+    content: "← ";
+  }
 }
 
 #prev {
+  margin: 0 0 0.25em 0.5em;
   text-align: end;
+
+  &::after {
+    content: " →";
+  }
 }
 
 footer {
@@ -326,10 +336,6 @@ blockquote {
 #orig {
   margin: 1em auto 1.5em;
   display: inline-block;
-
-  a {
-    @include noBackground;
-  }
 }
 
 #cat {
