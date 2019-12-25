@@ -27,7 +27,7 @@ draft: false
 
 例如 Google 的 [Blogger](https://www.blogger.com/about/?hl=zh-CN) (大陆地区无法访问), [WordPress.com](https://wordpress.com/), [Drupal](https://www.drupal.org/), [Wix](https://www.wix.com/) 提供了拖拽工具。
 
-[Bitcron](https://www.bitcron.com/) 和前面列出的几个有些不同，可以读一下少数派上的这篇文章[《用 Bitcron 搭博客：你只管写作，它负责呈现》
+[Bitcron](https://www.bitcron.com/) 和前面列出的几个有些不同，少数派上有篇介绍文章[《用 Bitcron 搭博客：你只管写作，它负责呈现》
 ](https://sspai.com/post/40675)
 
 👍 优点：
@@ -51,7 +51,17 @@ draft: false
 
 例如 [Github Pages](https://pages.github.com/), [Coding Pages](https://coding.net/help/doc/pages), [Netlify](https://www.netlify.com/) 等，
 
-和 1. Blog Hosting (博客托管) 服务的区别是前者负责把你的文字“渲染”为网站，后者需要你自己提供"渲染"完成的网站静态文件 (html, css, javascript...)。
+和 1. Blog Hosting (博客托管) 服务的区别是后者负责把你的文字“渲染”为网站，前者需要你自己提供"渲染"完成的网站静态文件 (html, css, javascript...)，
+
+因此需要额外学习 [Static Site Generator](https://www.staticgen.com/) (静态网站生成程序) 的使用，例如 [Jekyll](https://jekyllrb.com/), [Hexo](https://hexo.io/), [Hugo](https://gohugo.io/)，同时还有 Markdown 编辑器 [MWeb](https://zh.mweb.im/)
+
+![MWeb](/images/posts/mweb.jpg)
+
+和自带 GUI 的 [Gridea](https://gridea.dev/)
+
+![Gridea](/images/posts/gridea.png)
+
+这两个工具上手难度较低，作者都是国人。
 
 👍 优点：
 
@@ -62,8 +72,8 @@ draft: false
 👎 缺点：
 
 1. 建站学习成本比 1 高
-1. 需要额外学习 [Static Site Generator](https://www.staticgen.com/) (静态网站生成程序) 的使用，例如 [Hexo](https://hexo.io/), [Hugo](https://gohugo.io/)
 1. 只能在本地写作然后推送到远端
+1. 数据统计系统和评论系统需要自己添加
 1. 外观自定义需要基础前端 (html, css, javascript) 知识
 1. Github Pages 服务器位于美国，直接访问速度不佳，需要一些 tricks 才能被百度爬虫抓取；Coding Pages 只能绑定备案过的域名，有审查
 
