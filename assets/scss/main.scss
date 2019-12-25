@@ -21,11 +21,20 @@ body {
 h1,
 h2,
 h3 {
-  @include color(color, --h-color, $base0C1);
+  margin-left: -16px;
+  font-weight: 800;
 }
 
 h1 {
   margin-top: 0;
+}
+
+@media (max-width: 880px) {
+  h1,
+  h2,
+  h3 {
+    margin-left: 0;
+  }
 }
 
 p,

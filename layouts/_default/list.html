@@ -4,7 +4,7 @@
 
 {{ define "main" }}
   {{ if .IsHome }}
-    <h1>WRITINGS</h1>
+    <h1 style="margin-left:0;">WRITINGS</h1>
   {{ else }}
     <h1>#&nbsp;{{ .Title }}</h1>
   {{ end }}
@@ -15,7 +15,7 @@
   {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
   {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
     <div class="year-group">
-      <h2>{{ .Key }}</h2>
+      <h2 style="margin-left:0;">{{ .Key }}</h2>
       <ul class="list">
         {{ range .Pages }}
           <li>

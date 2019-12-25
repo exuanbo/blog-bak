@@ -12,8 +12,7 @@ $base09: #d19a66;
 $base0A: #e5c07b;
 $base0B: #98c379;
 $base0C: #56b6c2;
-$base0C1: #40a4b1;
-$base0C2: #358a94;
+$base0CS: #40a4b1;
 $base0D: #61afef;
 $base0E: #c678dd;
 $base0F: #be5046;
@@ -37,7 +36,7 @@ $code-fonts: "Lucida Console", Monaco, monospace;
   transition-duration: .4s;
 
   &:hover {
-    color: $base0C1;
+    color: $base0CS;
     box-shadow: none;
   }
 }
