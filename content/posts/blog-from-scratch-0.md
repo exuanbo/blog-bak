@@ -85,7 +85,7 @@ draft: false
 
 ### 3. VPS (Virtual private server 虚拟专用服务器)
 
-国内如某某云的 VPS 建站需要备案，要保持独立性就买国外的 VPS，例如我用来搭建 RSSHub 的 [Vultr](https://www.vultr.com/?ref=7802098), [Linode](https://www.linode.com/) 等，[阿里云国际版](https://www.alibabacloud.com/) 或 [腾讯云国际版](https://intl.cloud.tencent.com/) 没有问题但小贵。
+国内如某某云的 VPS 建站需要备案，要保持独立性就买国外的 VPS，例如我用来搭建 RSSHub 的 [Vultr](https://www.vultr.com/?ref=7802098), [Linode](https://www.linode.com/) 等，[阿里云国际版](https://www.alibabacloud.com/) 或 [腾讯云国际版](https://intl.cloud.tencent.com/) 无需备案但小贵。
 
 👍 优点：
 

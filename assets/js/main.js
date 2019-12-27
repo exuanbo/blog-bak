@@ -113,18 +113,6 @@ const animateCSS = (element, animationName, callback) => {
   listen(element, 'animationend', handleAnimationEnd)
 }
 
-// Open external link in new tab
-//
-const newTab = () => {
-  const links = document.getElementsByTagName('a')
-  for (let i = 0, length = links.length; i < length; i++) {
-    if (links[i].hostname !== window.location.hostname) {
-      links[i].target = '_blank'
-      links[i].rel = 'noreferrer'
-    }
-  }
-}
-
 // Center images
 //
 const centerImages = () => {
@@ -272,13 +260,12 @@ const toggleToc = () => {
 
 const main = () => {
   initializeTheme()
-  setTimeout(() => newTab(), 0)
   setTimeout(() => centerImages(), 0)
-  setTimeout(() => loadMediumZoom(), 0)
-  setTimeout(() => loadKatex(), 0)
   setTimeout(() => listenHeader(), 0)
   setTimeout(() => toTop(), 0)
   setTimeout(() => toggleToc(), 0)
+  setTimeout(() => loadKatex(), 0)
+  setTimeout(() => loadMediumZoom(), 0)
 }
 
 main()
