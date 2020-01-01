@@ -3,42 +3,44 @@
 {{ end }}
 
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ if (gt .Params.date 0) }}
-    <div id="article-date">{{ .Date.Format "2006 Jan 02" }}</div>
-  {{ end }}
-  {{ if eq .File.Dir "trans/" }}
-    <div id="orig">
-      <i>本文为翻译，版权归原文作者所有</i><br>
-      <br>
-      标题 (Title)：{{ .Params.sourceTitle }}<br>
-      作者 (Author)：{{ .Params.author }} (<a href="{{ .Params.authorLink }}">@{{ .Params.author }}</a>)<br>
-      日期 (Date)：{{ .Params.sourceDate }}<br>
-      链接 (Link)：<a href="{{ .Params.sourceLink }}">{{ .Params.sourceLink }}</a>
-    </div>
-  {{ else }}
-    <div id="orig">原文地址：<a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></div>
-  {{ end }}
-  {{ .Content }}
-  <div id="article-meta">
-    <div class="list">
-      {{ with .Params.tags }}
-        Tags: {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/"> #{{.}}</a>{{ end }}
-      {{ end }}
-    </div>
-    <div>
-      {{ with .Site.Params.copyright }}
-        {{ . | markdownify }}
-      {{ end }}
-    </div>
-  </div>
-  <nav id="post-nav">
-    {{ $articles := where .Site.RegularPages "Section" "!=" "" }}
-    {{ with $articles.Next . }}
-      <div id="next"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+  <main>
+    <h1>{{ .Title }}</h1>
+    {{ if (gt .Params.date 0) }}
+      <div id="article-date">{{ .Date.Format "2006 Jan 02" }}</div>
     {{ end }}
-    {{ with $articles.Prev . }}
-      <div id="prev"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+    {{ if eq .File.Dir "trans/" }}
+      <div id="orig">
+        <i>本文为翻译，版权归原文作者所有</i><br>
+        <br>
+        标题 (Title)：{{ .Params.sourceTitle }}<br>
+        作者 (Author)：{{ .Params.author }} (<a href="{{ .Params.authorLink }}">@{{ .Params.author }}</a>)<br>
+        日期 (Date)：{{ .Params.sourceDate }}<br>
+        链接 (Link)：<a href="{{ .Params.sourceLink }}">{{ .Params.sourceLink }}</a>
+      </div>
+    {{ else }}
+      <div id="orig">原文地址：<a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></div>
     {{ end }}
-  </nav>
+    {{ .Content }}
+    <div id="article-meta">
+      <div class="list">
+        {{ with .Params.tags }}
+          Tags: {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/"> #{{.}}</a>{{ end }}
+        {{ end }}
+      </div>
+      <div>
+        {{ with .Site.Params.copyright }}
+          {{ . | markdownify }}
+        {{ end }}
+      </div>
+    </div>
+    <nav id="post-nav">
+      {{ $articles := where .Site.RegularPages "Section" "!=" "" }}
+      {{ with $articles.Next . }}
+        <div id="next"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+      {{ end }}
+      {{ with $articles.Prev . }}
+        <div id="prev"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+      {{ end }}
+    </nav>
+  </main>
 {{ end }}

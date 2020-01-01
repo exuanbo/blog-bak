@@ -3,29 +3,31 @@
 {{ end }}
 
 {{ define "main" }}
-  {{ if .IsHome }}
-    <h1 style="margin-left:0;">WRITINGS</h1>
-  {{ else }}
-    <h1>#&nbsp;{{ .Title }}</h1>
-  {{ end }}
-  {{ if .Content }}
-    {{ .Content }}
-  {{ end }}
-  {{ $pages := .Pages }}
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
-  {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
-    <div class="year-group">
-      <h2 style="margin-left:0;">{{ .Key }}</h2>
-      <ul class="list">
-        {{ range .Pages }}
-          <li>
-            <a href="{{ .RelPermalink }}">
-              <span>{{ .Title }}</span>
-              <span class="list-date">{{ .Date.Format "Jan 02" }}</span>
-            </a>
-          </li>
-        {{ end }}
-      </ul>
-    </div>
-  {{ end }}
+  <main>
+    {{ if .IsHome }}
+      <h1 style="margin-left:0;">WRITINGS</h1>
+    {{ else }}
+      <h1>#&nbsp;{{ .Title }}</h1>
+    {{ end }}
+    {{ if .Content }}
+      {{ .Content }}
+    {{ end }}
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+    {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
+      <div class="year-group">
+        <h2 style="margin-left:0;">{{ .Key }}</h2>
+        <ul class="list">
+          {{ range .Pages }}
+            <li>
+              <a href="{{ .RelPermalink }}">
+                <span>{{ .Title }}</span>
+                <span class="list-date">{{ .Date.Format "Jan 02" }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </main>
 {{ end }}
