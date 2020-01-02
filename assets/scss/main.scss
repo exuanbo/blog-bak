@@ -6,7 +6,7 @@
 @import "_theme.scss";
 
 html {
-  border-top: 2.5px solid $base0C;
+  border-top: 4px solid $KURENAI;
 }
 
 body {
@@ -14,8 +14,8 @@ body {
   margin: 4em auto 0;
   padding: 1em;
   font: 1em/1.75 $fonts;
-  @include color(background-color, --bg-color, $base00);
-  @include color(color, --text-color, $base07);
+  @include color(background-color, --bg-color, $SHIRONERI);
+  @include color(color, --text-color, #000);
 }
 
 h1,
@@ -53,7 +53,7 @@ a {
   &:link,
   &:visited,
   &:active {
-    @include color(color, --text-color, $base07);
+    @include color(color, --text-color, #000);
   }
 
   @include withBackground;
@@ -69,7 +69,7 @@ button {
 hr {
   border: 0;
   margin: 2em auto 4em;
-  @include color(color, --text-color, $base07);
+  @include color(color, --text-color, #000);
 
   &::after {
     content: "· · ·";
@@ -165,8 +165,7 @@ hr {
   left: 0;
   height: 48px;
   width: 100%;
-  background-color: $base01;
-  opacity: 0.95;
+  @include color(background-color, --nav-color, $BINROJIZOME);
   box-shadow: 3px 0 5px -1px rgba(0, 0, 0, 0.2),
     6px 0 10px 0 rgba(0, 0, 0, 0.14), 1px 0 18px 0 rgba(0, 0, 0, 0.12);
   z-index: 1;
@@ -183,8 +182,8 @@ hr {
   }
 
   a {
-    color: $base07;
-    @include noBackground;
+    @include color(color, --nav-text-color, #FCFAF2);
+    box-shadow: none;
   }
 }
 
@@ -192,19 +191,17 @@ hr {
   position: fixed;
   bottom: 56px;
   left: 8px;
-  background-color: $base01;
-  color: #fff;
+  background-color: $SHIRONERI-shade;
   border-radius: 4px;
   opacity: 0.95;
   max-height: 85%;
   max-width: 95%;
-  overflow-y: auto;
+  overflow: scroll;
   display: none;
   z-index: 2;
 
   a {
     margin-right: 1em;
-    color: $base07;
     @include noBackground;
   }
 
@@ -217,23 +214,24 @@ hr {
   }
 }
 
-#btnTheme {
-  padding: 0;
-  position: fixed;
-  bottom: 2.75px;
-  left: 16px;
-  z-index: 2;
+// #btnTheme {
+//   padding: 0;
+//   position: fixed;
+//   bottom: 2.75px;
+//   left: 16px;
+//   z-index: 2;
 
-  &:hover #btnTheme-color {
-      fill: #fff;
-  }
-}
+//   &:hover #btnTheme-color {
+//       fill: #fff;
+//   }
+// }
 
 #toggle-toc {
   padding: 0;
   position: fixed;
   bottom: 2px;
-  left: 60px;
+  // left: 60px;
+  left: 16px;
   z-index: 2;
 }
 
@@ -310,21 +308,16 @@ pre {
 code:not([class]) {
   padding: 2px 4px;
   font-family: $code-fonts;
-  @include color(background-color, --code-bg-color, $base04);
-  @include color(color, --code-text-color, #fff);
+  border: 1px solid #eee;
+  @include color(background-color, --code-bg-color, $SHIRONERI-shade);
+  // background-color: $SHIRONERI-shade;
+  @include color(color, --code-text-color, #000);
 }
 
 /* misc elements */
 img {
-  height: 50%;
-  width: 50%;
-}
-
-@media (max-width: 720px) {
-  img {
-    height: 75%;
-    width: 75%;
-  }
+  height: 75%;
+  width: 75%;
 }
 
 iframe,
@@ -338,7 +331,7 @@ main {
 
 blockquote {
   margin: 0;
-  border-left: 2.5px solid $base0C;
+  border-left: 2.5px solid $HIWAMOEGI;
   padding-left: 12px;
 }
 
@@ -348,10 +341,10 @@ blockquote {
 }
 
 #cat {
-  @include color(fill, --text-color, $base07);
-  @include color(color, --bg-color, $base00);
+  @include color(fill, --text-color, #000);
+  @include color(color, --bg-color, $SHIRONERI);
   position:absolute;
-  top: 2.5px;
+  top: 4px;
   border: 0;
   right: 0;
 }
