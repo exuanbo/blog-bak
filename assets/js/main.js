@@ -259,7 +259,6 @@ const toggleToc = () => {
 }
 
 const main = () => {
-  initializeTheme()
   setTimeout(() => centerImages(), 0)
   setTimeout(() => listenHeader(), 0)
   setTimeout(() => toTop(), 0)

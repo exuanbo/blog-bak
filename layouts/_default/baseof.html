@@ -10,7 +10,7 @@
   <title>{{ $title }}</title>
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify }}
   <link rel="preload" as="style" href="{{ $style.RelPermalink }}">
-  <link rel="preload" as="script" href="/js/bundle.min.js">
+  <link rel="preload" as="script" href="/js/main.min.js">
   <link rel="preload" as="script" href="/js/instantpage.min.js" crossorigin>
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
@@ -47,10 +47,8 @@
   {{ block "header" . }}{{ end }}
   {{ block "main" . }}{{ end }}
   {{ partialCached "footer.html" . }}
-  {{ $main := resources.Get "js/main.js"}}
-  {{ $theme := resources.Get "js/theme.js"}}
-  {{ $script := slice $main $theme | resources.Concat "js/bundle.js" | minify }}
-  <script src="{{ $script.RelPermalink }}"></script>
+  {{ $main := resources.Get "js/main.js" | minify }}
+  <script src="{{ $main.RelPermalink }}"></script>
   {{ $instantpage := resources.Get "js/instantpage.js" | minify }}
   <script src="{{ $instantpage.RelPermalink }}" type="module" defer></script>
 </body>
