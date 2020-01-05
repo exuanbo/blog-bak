@@ -1,5 +1,6 @@
 baseurl = "https://exuanbo.xyz"
 title = "Exuanbo's"
+description = "大杂烩般的个人博客"
 languageCode = "zh-CN"
 defaultcontentlanguage = "zh"
 
@@ -13,8 +14,6 @@ enableEmoji = true
   tag = "tags"
 
 [params]
-  footer = "&copy; 2019 [Exuanbo's](https://exuanbo.xyz)"
-  copyright = "License: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)"
 
 [markup]
   [markup.goldmark]

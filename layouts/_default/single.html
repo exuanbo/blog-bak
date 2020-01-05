@@ -24,13 +24,11 @@
     <div id="article-meta">
       <div class="list">
         {{ with .Params.tags }}
-          Tags: {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/"> #{{.}}</a>{{ end }}
+          标签：{{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{.}}</a>{{ end }}
         {{ end }}
       </div>
       <div>
-        {{ with .Site.Params.copyright }}
-          {{ . | markdownify }}
-        {{ end }}
+        协议：<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
       </div>
     </div>
     <nav id="post-nav">
