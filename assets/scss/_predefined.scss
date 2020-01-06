@@ -21,8 +21,6 @@ $code-fonts: "Lucida Console", Monaco, monospace;
 
 @mixin noBackground {
   box-shadow: none;
-  transition-property: color;
-  transition-duration: .4s;
 
   &:hover {
     color: $AIMIRUCHA;

@@ -113,32 +113,6 @@ const animateCSS = (element, animationName, callback) => {
   listen(element, 'animationend', handleAnimationEnd)
 }
 
-// Center images
-//
-const centerImages = () => {
-  const centerEl = (tagName) => {
-    const tags = document.getElementsByTagName(tagName)
-    for (let i = 0; i < tags.length; i++) {
-      const tag = tags[i]
-      let parent = tag.parentElement
-      // center an image if it is the only element of its parent
-      if (parent.childNodes.length === 1) {
-        // if there is a link on image, check grandparent
-        if (parent.nodeName === 'A') {
-          parent = parent.parentElement
-          if (parent.childNodes.length !== 1) continue
-        }
-        if (parent.nodeName === 'P') parent.style.textAlign = 'center'
-      }
-    }
-  }
-
-  const tagNames = ['img', 'embed', 'object']
-  for (let i = 0; i < tagNames.length; i++) {
-    centerEl(tagNames[i])
-  }
-}
-
 // Load Medium-zoom.js
 //
 const loadMediumZoom = () => {
@@ -259,7 +233,6 @@ const toggleToc = () => {
 }
 
 const main = () => {
-  setTimeout(() => centerImages(), 0)
   setTimeout(() => listenHeader(), 0)
   setTimeout(() => toTop(), 0)
   setTimeout(() => toggleToc(), 0)

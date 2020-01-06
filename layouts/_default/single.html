@@ -6,10 +6,10 @@
   <main>
     <h1>{{ .Title }}</h1>
     {{ if (gt .Params.date 0) }}
-      <div id="article-date">{{ .Date.Format "2006 Jan 02" }}</div>
+      <div class="article-date">{{ .Date.Format "2006 Jan 02" }}</div>
     {{ end }}
     {{ if eq .File.Dir "trans/" }}
-      <div id="orig">
+      <div class="orig">
         <i>本文为翻译，版权归原文作者所有</i><br>
         <br>
         标题 (Title)：{{ .Params.sourceTitle }}<br>
@@ -18,26 +18,26 @@
         链接 (Link)：<a href="{{ .Params.sourceLink }}">{{ .Params.sourceLink }}</a>
       </div>
     {{ else }}
-      <div id="orig">本文链接：<a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></div>
+      <div class="orig">本文链接：<a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></div>
     {{ end }}
     {{ .Content }}
-    <div id="article-meta">
+    <div class="article-meta">
       <div class="list">
         {{ with .Params.tags }}
-          标签：{{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{.}}</a>{{ end }}
+          Tags: {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{.}}</a>{{ end }}
         {{ end }}
       </div>
       <div>
-        协议：<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+        License: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
       </div>
     </div>
-    <nav id="post-nav">
+    <nav class="post-nav">
       {{ $articles := where .Site.RegularPages "Section" "!=" "" }}
       {{ with $articles.Next . }}
-        <div id="next"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+        <div class="next"><a href="{{ .RelPermalink }}"><i class="arrow-left"></i> {{ .Title }}</a></div>
       {{ end }}
       {{ with $articles.Prev . }}
-        <div id="prev"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+        <div class="prev"><a href="{{ .RelPermalink }}">{{ .Title }} <i class="arrow-right"></i></a></div>
       {{ end }}
     </nav>
   </main>

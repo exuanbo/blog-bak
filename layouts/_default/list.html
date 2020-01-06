@@ -16,7 +16,7 @@
     {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
     {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
       <div class="year-group">
-        <h2 style="margin-left:0;">{{ .Key }}</h2>
+        <h2>{{ .Key }}</h2>
         <ul class="list">
           {{ range .Pages }}
             <li>
