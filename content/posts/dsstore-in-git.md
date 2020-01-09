@@ -1,7 +1,7 @@
 ---
 draft: false
 date: 2019-01-13T11:36:32+01:00
-title: "如何处理 Git 中 .DS_Store 文件"
+title: "处理 Git 中的 .DS_Store 文件"
 tags: [mac, git]
 toc: true
 comment: true

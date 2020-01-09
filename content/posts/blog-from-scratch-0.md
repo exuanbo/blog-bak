@@ -1,5 +1,5 @@
 ---
-title: 独立博客建立指南（0）选择
+title: 独立博客建立指南 0 | 选择
 date: 2019-12-25
 tags: [blog]
 toc: true

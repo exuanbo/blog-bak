@@ -1,9 +1,10 @@
 ---
 draft: false
 date: 2019-01-12T09:19:09+01:00
-title: "Mac 使用日记（2）常用软件"
+title: "Mac 使用日记 2 | 常用软件"
 toc: true
 comment: true
+draft: true
 ---
 
 ## 系统

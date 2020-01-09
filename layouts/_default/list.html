@@ -13,8 +13,8 @@
       {{ .Content }}
     {{ end }}
     {{ $pages := .Pages }}
-    {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
-    {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
+    {{ if .IsHome }}{{ $pages = where .Site.RegularPages "Section" "posts" }}{{ end }}
+    {{ range $pages.GroupByDate "2006" }}
       <div class="year-group">
         <h2>{{ .Key }}</h2>
         <ul class="list">

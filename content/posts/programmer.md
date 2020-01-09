@@ -1,5 +1,5 @@
 ---
-title: 程序员技术练级攻略「转」
+title: 转 | 程序员技术练级攻略
 date: 2019-09-24T22:42:50+02:00
 tags: [转载]
 toc: true
@@ -7,7 +7,7 @@ comment: true
 draft: false
 ---
 
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 <https://www.codetd.com/article/4196914>
+本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 <https://www.codetd.com/article/4196914>
 
 根据极客时间 @左耳朵耗子 整理
 

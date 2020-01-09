@@ -1,5 +1,5 @@
 ---
-title: "在合工大的一年"
+title: "在合工大的一年：转折点"
 date: 2017-09-26
 tags: [随笔]
 comment: true

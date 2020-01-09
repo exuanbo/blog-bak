@@ -17,6 +17,9 @@ enableEmoji = true
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
@@ -41,10 +44,7 @@ enableEmoji = true
   name = "关于"
   url = "/about/"
   weight = 2
-[[languages.zh.menu.main]]
-  name = "订阅"
-  url = "https://exuanbo.xyz/index.xml"
-  weight = 3
+
 
 [[language.en.menu.main]]
   name = "HOME"
@@ -54,7 +54,4 @@ enableEmoji = true
   name = "ABOUT"
   url = "/about/"
   weight = 2
-[[language.en.menu.main]]
-  name = "RSS"
-  url = "https://exuanbo.xyz/index.xml"
-  weight = 3
+

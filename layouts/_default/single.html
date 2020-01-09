@@ -17,14 +17,14 @@
         日期 (Date)：{{ .Params.sourceDate }}<br>
         链接 (Link)：<a href="{{ .Params.sourceLink }}">{{ .Params.sourceLink }}</a>
       </div>
-    {{ else }}
+    {{ else if not (hasPrefix .Title "转" ) }}
       <div class="orig">本文链接：<a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></div>
     {{ end }}
     {{ .Content }}
     <div class="article-meta">
       <div class="list">
         {{ with .Params.tags }}
-          Tags: {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{.}}</a>{{ end }}
+          Tags: {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{.}} </a>{{ end }}
         {{ end }}
       </div>
       <div>

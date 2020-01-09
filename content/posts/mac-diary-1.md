@@ -1,10 +1,10 @@
 ---
-title: "Mac 使用日记（1）系统设置"
+title: "Mac 使用日记 1 | 系统设置"
 date: 2019-01-11
 tags: [mac]
 comment: true
 toc: true
-draft: false
+draft: true
 ---
 
 ## 菜单栏

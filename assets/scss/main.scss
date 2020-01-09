@@ -87,13 +87,13 @@ hr {
 
   h2 {
     margin: 0;
-    opacity: 0.5;
+    opacity: 0.325;
   }
 
   .list {
     flex: 1;
     margin-top: 2px;
-    line-height: 2.5;
+    line-height: 2.25;
   }
 }
 
@@ -184,6 +184,7 @@ hr {
   position: fixed;
   bottom: 5px;
   left: 8px;
+  display: none;
   z-index: 2;
 }
 
@@ -224,7 +225,7 @@ hr {
 }
 
 .arrow-left::before {
-  content: "←";
+  content: "⇦ ";
 }
 
 .prev {
@@ -233,7 +234,7 @@ hr {
 }
 
 .arrow-right::after {
-  content: "→";
+  content: " ⇨";
 }
 
 footer {
@@ -269,14 +270,15 @@ code:not([class]) {
 /* misc elements */
 img {
   display: block;
-  margin: 0 auto;
   max-width: 100%;
+  max-height: 800px;
 }
 
 blockquote {
   margin: 0;
   border-left: 2.5px solid $HIWAMOEGI;
   padding-left: 12px;
+  background-color: #f6f9f1;
 }
 
 .orig {

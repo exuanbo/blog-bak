@@ -209,7 +209,8 @@ let showToc = false
 const toggleToc = () => {
   const toc = document.getElementById('TableOfContents')
   if (toc) {
-    const tocA = toc.querySelectorAll('a')
+    const tocBtn = document.getElementById('toggle-toc')
+    tocBtn.style.display = 'block'
 
     const toggleToc = () => {
       if (window.getComputedStyle(toc, null).getPropertyValue('display') === 'none' || toc.style.display === 'none') {
@@ -224,8 +225,9 @@ const toggleToc = () => {
       }
     }
 
-    listen(document.getElementById('toggle-toc'), 'click', toggleToc)
+    listen(tocBtn, 'click', toggleToc)
 
+    const tocA = toc.querySelectorAll('a')
     tocA.forEach(a => {
       listen(a, 'click', toggleToc)
     })
@@ -233,9 +235,9 @@ const toggleToc = () => {
 }
 
 const main = () => {
+  setTimeout(() => toggleToc(), 0)
   setTimeout(() => listenHeader(), 0)
   setTimeout(() => toTop(), 0)
-  setTimeout(() => toggleToc(), 0)
   setTimeout(() => loadKatex(), 0)
   setTimeout(() => loadMediumZoom(), 0)
 }
