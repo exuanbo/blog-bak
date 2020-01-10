@@ -10,7 +10,11 @@
   <title>{{ $title }}</title>
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify }}
   <link rel="preload" as="style" href="{{ $style.RelPermalink }}">
+  <link rel="preload" as="script" href="https://ackee.exuanbo.xyz/privacy%20respected.js">
   <link rel="preload" as="script" href="/js/main.min.js">
+  {{ if ge (findRE "<img.*?>" .Content) 1 }}
+    <link rel="preload" as="script" href="/js/medium-zoom.min.js">
+  {{ end }}
   <link rel="preload" as="script" href="/js/instantpage.min.js" crossorigin>
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
