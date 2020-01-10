@@ -21,6 +21,13 @@
       <div class="orig">本文链接：<a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></div>
     {{ end }}
     {{ .Content }}
+    <!-- <div style="width:300px;height:150px;margin:0 auto;">
+      <iframe id="like" scrolling="no" frameborder="0" width="100%"></iframe>
+    </div>
+    <script>
+      const likeBtn = document.getElementById('like')
+      likeBtn.src = 'https://button.like.co/in/embed/exuanbo/button?referrer=' + encodeURIComponent(window.location.href)
+    </script> -->
     <div class="article-meta">
       <div class="list">
         {{ with .Params.tags }}
@@ -32,12 +39,12 @@
       </div>
     </div>
     <nav class="post-nav">
-      {{ $articles := where .Site.RegularPages "Section" "!=" "" }}
+      {{ $articles := where .Site.RegularPages "Section" .Section }}
       {{ with $articles.Next . }}
-        <div class="next"><a href="{{ .RelPermalink }}"><i class="arrow-left"></i> {{ .Title }}</a></div>
+        <div class="next"><a href="{{ .RelPermalink }}"><span class="arrow-left"></span> {{ .Title }}</a></div>
       {{ end }}
       {{ with $articles.Prev . }}
-        <div class="prev"><a href="{{ .RelPermalink }}">{{ .Title }} <i class="arrow-right"></i></a></div>
+        <div class="prev"><a href="{{ .RelPermalink }}">{{ .Title }} <span class="arrow-right"></span></a></div>
       {{ end }}
     </nav>
   </main>
