@@ -6,7 +6,7 @@ document.body.addEventListener('touchstart', () => {})
 
 // Load and run script via AJAX
 //
-const loadScript = (source, beforeEl, async = true, defer = true) => {
+const loadScript = (source, beforeEl, async = false, defer = false) => {
   return new Promise((resolve, reject) => {
     let script = document.createElement('script')
     const prior = beforeEl || document.getElementsByTagName('script')[0]
@@ -21,7 +21,7 @@ const loadScript = (source, beforeEl, async = true, defer = true) => {
         script = undefined
 
         if (isAbort) {
-          reject(new Error('something bad happened'))
+          reject(new Error())
         } else {
           resolve()
         }
@@ -111,6 +111,17 @@ const animateCSS = (element, animationName, callback) => {
   }
 
   listen(element, 'animationend', handleAnimationEnd)
+}
+
+// Load Ackee-tracker
+//
+const loadAckee = () => {
+  loadScript('/js/privacy-respected.js').then(() => {
+    ackeeTracker.create({
+      server: 'https://ackee.exuanbo.xyz',
+      domainId: '46cf7ffb-a271-4f07-9f5d-e3df97a4d5ef'
+    }).record()
+  })
 }
 
 // Load Medium-zoom.js
@@ -235,6 +246,7 @@ const toggleToc = () => {
 }
 
 const main = () => {
+  setTimeout(() => loadAckee(), 0)
   setTimeout(() => toggleToc(), 0)
   setTimeout(() => listenHeader(), 0)
   setTimeout(() => toTop(), 0)
