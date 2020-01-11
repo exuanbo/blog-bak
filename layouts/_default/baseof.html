@@ -56,6 +56,9 @@
 <body>
   {{ block "header" . }}{{ end }}
   {{ block "main" . }}{{ end }}
+  {{ if .Params.comment }}
+    {{ partialCached "comment.html" . }}
+  {{ end }}
   {{ partialCached "footer.html" . }}
   {{ $main := resources.Get "js/main.js" | minify }}
   <script src="{{ $main.RelPermalink }}"></script>
