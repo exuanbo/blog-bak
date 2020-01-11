@@ -19,20 +19,18 @@ main {
   margin: 4em auto 0;
   max-width: 800px;
   hyphens: auto;
-}
 
-h1,
-h2,
-h3 {
-  margin-left: -16px;
-  font-weight: 800;
+  h1, h2, h3 {
+    margin-left: -16px;
+    font-weight: 800;
+  }
 }
 
 @media (max-width: 880px) {
-  h1,
-  h2,
-  h3 {
-    margin-left: 0;
+  main {
+    h1, h2, h3 {
+      margin-left: 0;
+    }
   }
 }
 
