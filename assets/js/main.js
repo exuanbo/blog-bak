@@ -128,15 +128,21 @@ const loadAckee = () => {
 //
 const loadMediumZoom = () => {
   if (document.getElementsByTagName('img').length > 0) {
-    loadScript('/js/medium-zoom.min.js').then(() => {
-      mediumZoom('img', {
-        background: 'rgba(0, 0, 0, 0.5)',
-        container: {
-          height: window.innerHeight - 52,
-          top: 4
-        }
-      })
-    })
+    const imgObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadScript('/js/medium-zoom.min.js').then(() => {
+          mediumZoom('img', {
+            background: 'rgba(0, 0, 0, 0.5)',
+            container: {
+              height: window.innerHeight - 52,
+              top: 4
+            }
+          })
+        })
+        imgObserver.disconnect()
+      }
+    }, { threshold: [0] })
+    imgObserver.observe(document.getElementsByTagName('img')[0])
   }
 }
 
@@ -247,11 +253,11 @@ const toggleToc = () => {
 
 const main = () => {
   setTimeout(() => loadAckee(), 0)
+  setTimeout(() => loadKatex(), 0)
   setTimeout(() => toggleToc(), 0)
   setTimeout(() => listenHeader(), 0)
   setTimeout(() => toTop(), 0)
-  setTimeout(() => loadKatex(), 0)
-  setTimeout(() => loadMediumZoom(), 0)
+  setTimeout(() => loadMediumZoom(), 1)
 }
 
 main()

@@ -27,9 +27,9 @@
   {{ end }}
   <!-- end -->
   {{ if .Params.comment }}
-    {{ $issoStyle := resources.Get "scss/isso.scss" | resources.ExecuteAsTemplate "css/isso.css" . | toCSS | minify }}
-    <link rel="stylesheet" href="{{ $issoStyle.RelPermalink }}">
-    <link rel="preload" as="script" href="/js/isso.min.js">
+    {{ $disqusStyle := resources.Get "scss/disqusjs.scss" | resources.ExecuteAsTemplate "css/disqusjs.css" . | toCSS | minify }}
+    <link rel="stylesheet" href="{{ $disqusStyle.RelPermalink }}">
+    <link rel="preload" as="script" href="/js/disqus.js">
   {{ end }}
   <meta name="google-site-verification" content="dq1h9DPOSfOEVYwYpWaX3eQwpfPIsJHqQcN9TIUcqNQ">
   {{ $description := .Description }}
@@ -57,7 +57,7 @@
   {{ block "header" . }}{{ end }}
   {{ block "main" . }}{{ end }}
   {{ if .Params.comment }}
-    {{ partialCached "comment.html" . }}
+    {{ partial "comment.html" . }}
   {{ end }}
   {{ partialCached "footer.html" . }}
   {{ $main := resources.Get "js/main.js" | minify }}

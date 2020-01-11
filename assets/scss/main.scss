@@ -303,3 +303,12 @@ blockquote {
     animation: octocat-wave 560ms ease-in-out;
   }
 }
+
+#disqus_thread {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#dsqjs #dsqjs-msg a {
+  box-shadow: none;
+}
