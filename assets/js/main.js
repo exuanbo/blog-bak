@@ -1,41 +1,5 @@
 document.body.addEventListener('touchstart', () => {})
 
-/**
- * Utils
- */
-
-// Load and run script via AJAX
-//
-const loadScript = (source, beforeEl, async = false, defer = false) => {
-  return new Promise((resolve, reject) => {
-    let script = document.createElement('script')
-    const prior = beforeEl || document.getElementsByTagName('script')[0]
-
-    script.async = async
-    script.defer = defer
-
-    function onloadHander (_, isAbort) {
-      if (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) {
-        script.onload = null
-        script.onreadystatechange = null
-        script = undefined
-
-        if (isAbort) {
-          reject(new Error())
-        } else {
-          resolve()
-        }
-      }
-    }
-
-    script.onload = onloadHander
-    script.onreadystatechange = onloadHander
-
-    script.src = source
-    prior.parentNode.insertBefore(script, prior)
-  })
-}
-
 // Throttle
 //
 const throttle = (callback, limit) => {
@@ -113,17 +77,6 @@ const animateCSS = (element, animationName, callback) => {
   listen(element, 'animationend', handleAnimationEnd)
 }
 
-// Load Ackee-tracker
-//
-const loadAckee = () => {
-  loadScript('/js/privacy-respected.js').then(() => {
-    ackeeTracker.create({
-      server: 'https://ackee.exuanbo.xyz',
-      domainId: '46cf7ffb-a271-4f07-9f5d-e3df97a4d5ef'
-    }).record()
-  })
-}
-
 // Load Medium-zoom.js
 //
 const loadMediumZoom = () => {
@@ -149,13 +102,9 @@ const loadMediumZoom = () => {
 // Load katex
 //
 const loadKatex = () => {
-  const math = /katex/
-  if (math.test(document.head.innerHTML)) {
-    const katexUrl = '/js/katex/katex.min.js'
-    const autoRenderUrl = '/js/katex/contrib/auto-render.min.js'
-
-    loadScript(katexUrl).then(() => {
-      loadScript(autoRenderUrl).then(() => {
+  if (/katex/.test(document.head.innerHTML)) {
+    loadScript('/js/katex/katex.min.js').then(() => {
+      loadScript('/js/katex/contrib/auto-render.min.js').then(() => {
         renderMathInElement(document.body)
       })
     })
@@ -206,7 +155,7 @@ const toTop = () => {
         showArrow = false
       })
     }
-  }, 500))
+  }, 250))
 
   listen(arrowUp, 'click', () => {
     clickArrow = true
@@ -252,12 +201,11 @@ const toggleToc = () => {
 }
 
 const main = () => {
-  setTimeout(() => loadAckee(), 0)
-  setTimeout(() => loadKatex(), 0)
-  setTimeout(() => toggleToc(), 0)
-  setTimeout(() => listenHeader(), 0)
-  setTimeout(() => toTop(), 0)
-  setTimeout(() => loadMediumZoom(), 1)
+  loadKatex()
+  toggleToc()
+  listenHeader()
+  toTop()
+  loadMediumZoom()
 }
 
 main()
