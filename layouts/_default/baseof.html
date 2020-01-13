@@ -11,7 +11,7 @@
   <!-- preload scripts -->
   <link href="/js/main.min.js" rel="preload" as="script">
   <link href="/js/instantpage.min.js" rel="preload" as="script" crossorigin>
-  {{ if ge (findRE "<img.*?>" .Content) 1 }}
+  {{ if ge (findRE "<img.+?>" .Content) 1 }}
     <link href="/js/medium-zoom.min.js" rel="preload" as="script">
   {{ end }}
   <link href="/js/privacy-respected.js" rel="preload" as="script">
@@ -55,12 +55,13 @@
     const loadScript = (source, beforeEl, async = true, defer = true) => new Promise((resolve, reject) => {
       function onloadHander(_, isAbort) {
         (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) && (script.onload = null, script.onreadystatechange = null, script = undefined, isAbort ? reject(new Error()) : resolve());
-      }
+      };
 
       let script = document.createElement('script');
       const prior = beforeEl || document.getElementsByTagName('script')[0];
       script.async = async, script.defer = defer, script.onload = onloadHander, script.onreadystatechange = onloadHander, script.src = source, prior.parentNode.insertBefore(script, prior);
     });
+
     loadScript('/js/privacy-respected.js').then(() => {
       ackeeTracker.create({
         server: 'https://ackee.exuanbo.xyz',
