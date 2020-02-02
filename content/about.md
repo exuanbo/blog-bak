@@ -1,6 +1,6 @@
 ---
 title: "关于"
-date: 2020-01-08
+date: 2020-02-02
 type: "page"
 layout: "about"
 draft: false
@@ -15,12 +15,11 @@ comment: true
 - 豆瓣: [Exuanbo](https://www.douban.com/people/121508967/)
 - [Ask me anything](https://peing.net/zh-CN/exuanbo?event=0)
 
-## 期望
+## 性格
 
-成为一个：
+INFP-T
 
-- 知行合一的理想主义者
-- 温和坚定的自由主义者
+Introverted – 97%, Intuitive – 92%, Feeling – 88%, Prospecting – 81%, Turbulent – 75%
 
 ## 爱好
 
