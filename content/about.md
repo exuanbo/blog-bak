@@ -19,8 +19,8 @@ Introverted – 97%, Intuitive – 92%, Feeling – 88%, Prospecting – 81%, Tu
 
 ## 爱好
 
-- 电影、英美剧、动画、漫画 | 科幻, 悬疑, 恐怖; Marvel, DC
-- 主机游戏 (Nintendo Switch, Xbox One) | 独立游戏 | Metroidvania
+- 电影, 英美剧, 动画, 漫画 / 科幻, 悬疑, 恐怖 | Marvel, DC
+- 主机游戏 (Nintendo Switch, Xbox One) | 独立游戏 / Metroidvania
 - 长跑 | 半马
 
 ## 联系

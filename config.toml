@@ -1,6 +1,5 @@
 baseurl = "https://exuanbo.xyz"
 title = "Exuanbo's"
-description = "大杂烩般的个人博客"
 languageCode = "zh-CN"
 defaultcontentlanguage = "zh"
 
@@ -14,6 +13,7 @@ enableEmoji = true
   tag = "tags"
 
 [params]
+  description = "Exuanbo的个人博客"
 
 [markup]
   [markup.goldmark]
