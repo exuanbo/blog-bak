@@ -5,33 +5,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{ $title := .Title }}
-  {{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
-  <title>{{ $title }}</title>
-  <!-- preload scripts -->
-  <link href="/js/main.min.js" rel="preload" as="script">
-  <link href="/js/instantpage.min.js" rel="preload" as="script" crossorigin>
-  {{ if ge (findRE "<img.+?>" .Content) 1 }}
-    <link href="/js/medium-zoom.min.js" rel="preload" as="script">
-  {{ end }}
-  <link href="/js/privacy-respected.js" rel="preload" as="script">
-  <!-- end -->
-  {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  <!-- load Katex -->
-  {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
-    {{ $katex := resources.Get "scss/katex.scss" | resources.ExecuteAsTemplate "css/katex.css" . | toCSS | minify }}
-    <link href="{{ $katex.RelPermalink }}" rel="preload" as="style" onload="this.onload=null,this.rel='stylesheet'">
-    <link href="/js/katex/katex.min.js" rel="preload" as="script">
-    <link href="/js/katex/contrib/auto-render.min.js" rel="preload" as="script">
-  {{ end }}
-  <!-- end -->
-  {{ if .Params.comment }}
-    {{ $disqusStyle := resources.Get "scss/disqusjs.scss" | resources.ExecuteAsTemplate "css/disqusjs.css" . | toCSS | minify }}
-    <link href="{{ $disqusStyle.RelPermalink }}" rel="preload" as="style" onload="this.onload=null,this.rel='stylesheet'">
-    <link href="/js/disqus.js" rel="preload" as="script">
-  {{ end }}
-  <meta name="google-site-verification" content="dq1h9DPOSfOEVYwYpWaX3eQwpfPIsJHqQcN9TIUcqNQ">
   {{ $description := .Description }}
   {{ if .IsHome }}
     {{ $description = .Site.Params.Description }}
@@ -42,13 +15,37 @@
   {{ template "_internal/twitter_cards.html" . }}
   {{ template "_internal/opengraph.html" . }}
   {{ template "_internal/schema.html" . }}
-  {{ with .OutputFormats.Get "rss" }}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  <meta name="google-site-verification" content="dq1h9DPOSfOEVYwYpWaX3eQwpfPIsJHqQcN9TIUcqNQ">
+  {{ $title := .Title }}
+  {{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
+  <title>{{ $title }}</title>
+  <!-- preload scripts -->
+  <link href="/js/privacy-respected.js" rel="preload" as="script">
+  {{ if .Params.comment }}
+    {{ $disqusStyle := resources.Get "scss/disqusjs.scss" | resources.ExecuteAsTemplate "css/disqusjs.css" . | toCSS | minify }}
+    <link href="{{ $disqusStyle.RelPermalink }}" rel="preload" as="style" onload="this.onload=null,this.rel='stylesheet'">
+    <link href="/js/disqus.js" rel="preload" as="script">
   {{ end }}
+  {{ if ge (findRE "<img.+?>" .Content) 1 }}
+    <link href="/js/medium-zoom.min.js" rel="preload" as="script">
+  {{ end }}
+  {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
+    {{ $katex := resources.Get "scss/katex.scss" | resources.ExecuteAsTemplate "css/katex.css" . | toCSS | minify }}
+    <link href="{{ $katex.RelPermalink }}" rel="preload" as="style" onload="this.onload=null,this.rel='stylesheet'">
+    <link href="/js/katex/katex.min.js" rel="preload" as="script">
+    <link href="/js/katex/contrib/auto-render.min.js" rel="preload" as="script">
+  {{ end }}
+  <link href="/js/instantpage.min.js" rel="preload" as="script" crossorigin>
+  <!-- end -->
+  {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+  {{ with .OutputFormats.Get "rss" }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end }}
   <script>
     const loadScript = (source, beforeEl, async = true, defer = true) => new Promise((resolve, reject) => {
       function onloadHander(_, isAbort) {
@@ -70,14 +67,34 @@
 </head>
 
 <body>
-  {{ block "header" . }}{{ end }}
   {{ block "main" . }}{{ end }}
+  {{ if .Params.toc }}
+    <aside>{{ .TableOfContents }}</aside>
+  {{ end }}
   {{ if .Params.comment }}
     {{ partial "comment.html" . }}
   {{ end }}
-  {{ partialCached "footer.html" . }}
-  {{ $main := resources.Get "js/main.js" | minify }}
-  <script src="{{ $main.RelPermalink }}"></script>
+  {{ if not .IsHome }}{{ partialCached "footer.html" . }}{{ end }}
+  <script>
+    if (document.body.addEventListener('touchstart', () => {}), document.getElementsByTagName('img').length > 0) {
+      const imgObserver = new IntersectionObserver(entries => {
+        entries[0].isIntersecting && (loadScript('/js/medium-zoom.min.js').then(() => {
+          mediumZoom('img', {
+            background: 'rgba(0, 0, 0, 0.5)'
+          });
+        }), imgObserver.disconnect());
+      }, {
+        threshold: [0]
+      });
+      imgObserver.observe(document.getElementsByTagName('img')[0]);
+    }
+
+    /katex/.test(document.head.innerHTML) && loadScript('/js/katex/katex.min.js').then(() => {
+      loadScript('/js/katex/contrib/auto-render.min.js').then(() => {
+        renderMathInElement(document.body);
+      });
+    });
+  </script>
   {{ $instantpage := resources.Get "js/instantpage.js" | minify }}
   <script src="{{ $instantpage.RelPermalink }}" type="module" defer></script>
 </body>

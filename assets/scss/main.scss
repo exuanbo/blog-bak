@@ -1,15 +1,13 @@
 @import "_predefined.scss";
 @import "_sanitize.scss";
-@import "_animate.scss";
-@import "_hover.scss";
 @import "_syntax.scss";
 
 html {
-  border-top: 4px solid $KURENAI;
+  box-shadow: inset 0 4px $KURENAI;
 }
 
 body {
-  padding: 0.75em;
+  padding: 0 0.75em;
   font: 1em/1.75 $fonts;
   @include color(background-color, --bg-color, $SHIRONERI);
   @include color(color, --text-color, #000);
@@ -20,17 +18,24 @@ main {
   max-width: 800px;
   hyphens: auto;
 
-  h1, h2, h3 {
-    margin-left: -16px;
-    font-weight: 800;
-  }
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+h2, h3 {
+  margin-left: -16px;
+  font-weight: 800;
 }
 
 @media (max-width: 880px) {
-  main {
-    h1, h2, h3 {
-      margin-left: 0;
-    }
+  h2, h3 {
+    margin-left: 0;
   }
 }
 
@@ -58,6 +63,10 @@ a {
   }
 
   @include withBackground;
+}
+
+nav a {
+  @include noBackground;
 }
 
 hr {
@@ -91,14 +100,14 @@ hr {
   .list {
     flex: 1;
     margin-top: 2px;
-    line-height: 2.25;
+    line-height: 2;
   }
 }
 
 .list-date {
   opacity: 0.5;
   float: right;
-  margin-right: 64px;
+  margin-right: 56px;
 }
 
 @media (max-width: 800px) {
@@ -117,59 +126,18 @@ hr {
 }
 
 /* header and footer areas */
-#site-nav {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 48px;
-  width: 100%;
-  @include color(background-color, --nav-color, $BINROJIZOME);
-  box-shadow: 3px 0 5px -1px rgba(0, 0, 0, 0.2),
-    6px 0 10px 0 rgba(0, 0, 0, 0.14), 1px 0 18px 0 rgba(0, 0, 0, 0.12);
-  z-index: 1;
-
-  a {
-    @include noBackground;
-    @include color(color, --nav-text-color, $SHIRONERI);
-
-    &:hover {
-      color: $SHIRONERI;
-    }
-  }
-}
-
-.nav-list {
-  margin: 10px auto 10px;
-  text-align: center;
-
-  li {
-    display: inline-block;
-    margin: 0 8px 0;
-  }
-}
-
 #TableOfContents {
   position: fixed;
-  bottom: 56px;
+  top: 4px;
   left: 8px;
-  max-height: 85%;
-  max-width: 95%;
-  overflow-y: scroll;
-  display: none;
-  z-index: 2;
-  background-color: $SHIRONERI-shade;
-  border: 1.25px solid;
-  border-radius: 12px;
-  opacity: 0.95;
+  max-width: 17.5%;
+  max-height: 100%;
   line-height: 1.5em;
-
-  a {
-    @include noBackground;
-  }
+  font-size: 15px;
+  overflow-y: auto;
 
   ul {
-    padding: 0 8px 0 12px;
+    padding: 0 4px 0 8px;
   }
 
   ul li ul {
@@ -177,30 +145,16 @@ hr {
   }
 }
 
-#toggle-toc {
-  padding: 0;
-  position: fixed;
-  bottom: 5px;
-  left: 8px;
-  display: none;
-  z-index: 2;
+@media (max-width: 1350px) {
+  #TableOfContents {
+    display: none;
+  }
 }
 
-#top {
-  padding: 0;
-  position: fixed;
-  bottom: 5px;
-  right: 8px;
-  display: none;
-  z-index: 2;
-}
-
-.article-date {
-  opacity: 0.75;
-}
-
-.article-meta {
-  margin: 2em 0 2em;
+.post-meta {
+  margin-bottom: 2em;
+  opacity: 0.6;
+  font-size: 15px;
 }
 
 .post-nav {
@@ -210,10 +164,6 @@ hr {
 
   div {
     flex-grow:1;
-
-    a {
-      @include noBackground;
-    }
   }
 }
 
@@ -237,7 +187,8 @@ hr {
 
 footer {
   text-align: center;
-  margin: 3em 0 7em;
+  margin: 4em 0 2em;
+  font-size: 15px;
 
   a {
     @include noBackground;
@@ -261,11 +212,16 @@ code:not([class]) {
   font-family: $code-fonts;
   border: 1px solid #eee;
   @include color(background-color, --code-bg-color, $SHIRONERI-shade);
-  // background-color: $SHIRONERI-shade;
   @include color(color, --code-text-color, #000);
 }
 
 /* misc elements */
+.feather {
+  vertical-align: -.125em;
+  width: 1em;
+  height: 1em;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -277,11 +233,6 @@ blockquote {
   border-left: 2.5px solid $HIWAMOEGI;
   padding-left: 12px;
   background-color: #f6f9f1;
-}
-
-.orig {
-  margin: 1em auto 1.5em;
-  display: inline-block;
 }
 
 .github-corner:hover .octo-arm {
@@ -311,4 +262,30 @@ blockquote {
 
 #dsqjs #dsqjs-msg a {
   box-shadow: none;
+}
+
+
+.home {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+#home-center {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#home-nav a {
+  display: block;
+  text-align: center;
+}
+
+#home-footer {
+  margin: 0 auto;
 }

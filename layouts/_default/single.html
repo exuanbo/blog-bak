@@ -1,13 +1,10 @@
-{{ define "header" }}
-  {{ partial "header.html" . }}
-{{ end }}
-
 {{ define "main" }}
   <main>
     <h1>{{ .Title }}</h1>
-    {{ if (gt .Params.date 0) }}
-      <div class="article-date">{{ .Date.Format "2006 Jan 02" }}</div>
-    {{ end }}
+    <div class="post-meta">
+      {{ if (gt .Params.date 0) }}{{ .Date.Format "2006 Jan 02" }}&nbsp;|&nbsp;{{ end }}
+      {{ partialCached "nav.html" . }}
+    </div>
     {{ if eq .File.Dir "trans/" }}
       <div class="orig">
         <i>本文为翻译，版权归原文作者所有</i><br>
@@ -17,18 +14,9 @@
         日期 (Date)：{{ .Params.sourceDate }}<br>
         链接 (Link)：<a href="{{ .Params.sourceLink }}">{{ .Params.sourceLink }}</a>
       </div>
-    {{ else if not (hasPrefix .Title "转" ) }}
-      <div class="orig">本文链接：<a href="https://exuanbo.xyz{{ .RelPermalink }}">https://exuanbo.xyz{{ .RelPermalink }}</a></div>
     {{ end }}
     {{ .Content }}
-    <!-- <div style="width:300px;height:150px;margin:0 auto;">
-      <iframe id="like" scrolling="no" frameborder="0" width="100%"></iframe>
-    </div>
-    <script>
-      const likeBtn = document.getElementById('like')
-      likeBtn.src = 'https://button.like.co/in/embed/exuanbo/button?referrer=' + encodeURIComponent(window.location.href)
-    </script> -->
-    <div class="article-meta">
+    <div class="post-meta">
       <div class="list">
         {{ with .Params.tags }}
           Tags: {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{.}} </a>{{ end }}
