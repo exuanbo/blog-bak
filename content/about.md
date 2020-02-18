@@ -1,6 +1,5 @@
 ---
-title: "关于"
-date: 2020-02-03
+title: "About"
 type: "page"
 layout: "about"
 draft: false

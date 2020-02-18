@@ -1,6 +1,9 @@
 {{ define "main" }}
   <main>
     <h1>{{ .Title }}</h1>
+    <div class="post-meta">
+      {{ partialCached "nav.html" . }}
+    </div>
     <ul class="list">
       {{ range .Data.Terms }}
         <li>

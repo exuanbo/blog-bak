@@ -151,14 +151,21 @@ hr {
   }
 }
 
+#site-nav {
+  display: inline;
+}
+
 .post-meta {
   margin-bottom: 2em;
   opacity: 0.6;
   font-size: 15px;
+
+  * {
+    margin-right: 4px;
+  }
 }
 
 .post-nav {
-  margin-bottom: 2em;
   display: flex;
   flex-wrap: wrap;
 
@@ -257,7 +264,7 @@ blockquote {
 
 #disqus_thread {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 2em auto 0;
 }
 
 #dsqjs #dsqjs-msg a {
@@ -284,8 +291,4 @@ blockquote {
 #home-nav a {
   display: block;
   text-align: center;
-}
-
-#home-footer {
-  margin: 0 auto;
 }
