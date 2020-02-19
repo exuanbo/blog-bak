@@ -1,5 +1,4 @@
 ---
-draft: false
 date: 2019-02-01
 title: "每周分享第 0 期"
 comment: true

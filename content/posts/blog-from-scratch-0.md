@@ -4,7 +4,6 @@ date: 2019-12-25
 tags: [blog]
 toc: true
 comment: true
-draft: false
 ---
 
 本系列文章面向无相关计算机基础但对独立博客感兴趣的人。

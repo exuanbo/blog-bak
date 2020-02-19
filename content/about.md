@@ -2,13 +2,12 @@
 title: "About"
 type: "page"
 layout: "about"
-draft: false
 comment: true
 ---
 
-本站由 [Hugo](https://gohugo.io/) 生成，外观设计模仿了 [Hermit](https://hugo-theme-hermit.netlify.com/posts/)，配色选自 [日本の伝統色](https://nipponcolors.com/)，静态网页托管于 Github。
+本站由 [Hugo](https://gohugo.io/) 生成，外观设计模仿了 [Hermit](https://hugo-theme-hermit.netlify.com/)，配色选自 [日本の伝統色](https://nipponcolors.com/)，静态网页托管于 Github。
 
-我想在这里展现自己最真实的一面，我想用创作来抵抗生活的无意义感。
+我想用创作来抵抗生活的无意义感。
 
 ## 性格
 
