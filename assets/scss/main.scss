@@ -151,17 +151,25 @@ hr {
   }
 }
 
-#site-nav {
-  display: inline;
-}
-
 .post-meta {
   margin-bottom: 2em;
   opacity: 0.6;
   font-size: 15px;
 
-  * {
-    margin-right: 4px;
+  svg {
+    margin-right: 6px;
+  }
+}
+
+#post-date {
+  margin-right: 6px;
+}
+
+#site-nav {
+  display: inline;
+
+  a {
+    margin-right: 2px;
   }
 }
 
