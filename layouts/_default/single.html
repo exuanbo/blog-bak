@@ -8,16 +8,6 @@
       {{ end }}
       {{ partialCached "nav.html" . }}
     </div>
-    {{ if eq .File.Dir "trans/" }}
-      <div class="post-meta">
-        <i>本文为翻译，版权归原文作者所有</i><br>
-        <br>
-        标题 (Title)：{{ .Params.sourceTitle }}<br>
-        作者 (Author)：{{ .Params.author }} (<a href="{{ .Params.authorLink }}">@{{ .Params.author }}</a>)<br>
-        日期 (Date)：{{ .Params.sourceDate }}<br>
-        链接 (Link)：<a href="{{ .Params.sourceLink }}">{{ .Params.sourceLink }}</a>
-      </div>
-    {{ end }}
     {{ .Content }}
     <div class="post-meta">
       <div class="list">

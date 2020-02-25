@@ -61,6 +61,9 @@
       ackeeTracker.create({
         server: 'https://ackee.exuanbo.xyz',
         domainId: '46cf7ffb-a271-4f07-9f5d-e3df97a4d5ef'
+      }, {
+        ignoreLocalhost: true,
+        detailed: false
       }).record();
     });
   </script>
@@ -87,7 +90,7 @@
         threshold: [0]
       });
       imgObserver.observe(document.getElementsByTagName('img')[0]);
-    }
+    };
 
     /katex/.test(document.head.innerHTML) && loadScript('/js/katex/katex.min.js').then(() => {
       loadScript('/js/katex/contrib/auto-render.min.js').then(() => {
