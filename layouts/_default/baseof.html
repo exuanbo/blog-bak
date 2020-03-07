@@ -98,8 +98,7 @@
       });
     });
   </script>
-  {{ $instantpage := resources.Get "js/instantpage.js" | minify }}
-  <script src="{{ $instantpage.RelPermalink }}" type="module" defer></script>
+  <script src="/js/instantpage.min.js" type="module" defer></script>
 </body>
 
 </html>
