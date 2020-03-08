@@ -5,12 +5,15 @@
     {{ else }}
     <h1>#&nbsp;{{ .Title }}</h1>
     {{ end }}
+
     <div class="post-meta">
       {{ partialCached "nav.html" . }}
     </div>
+
     {{ if .Content }}
       {{ .Content }}
     {{ end }}
+
     {{ range .Pages.GroupByDate "2006" }}
       <div class="year-group">
         <h2>{{ .Key }}</h2>

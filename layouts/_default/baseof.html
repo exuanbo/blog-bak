@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   {{ $description := .Description }}
   {{ if .IsHome }}
     {{ $description = .Site.Params.Description }}
@@ -12,46 +13,57 @@
     {{ $description = (.Summary | plainify) }}
   {{ end }}
   <meta name="description" content="{{ $description }}">
+
   {{ template "_internal/twitter_cards.html" . }}
   {{ template "_internal/opengraph.html" . }}
   {{ template "_internal/schema.html" . }}
+
   <meta name="google-site-verification" content="dq1h9DPOSfOEVYwYpWaX3eQwpfPIsJHqQcN9TIUcqNQ">
+
   {{ $title := .Title }}
   {{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
   <title>{{ $title }}</title>
-  <!-- preload scripts -->
+
+  <!-- preload -->
   <link href="/js/privacy-respected.js" rel="preload" as="script">
-  {{ if .Params.comment }}
-    {{ $disqusStyle := resources.Get "scss/disqusjs.scss" | resources.ExecuteAsTemplate "css/disqusjs.css" . | toCSS | minify }}
-    <link href="{{ $disqusStyle.RelPermalink }}" rel="preload" as="style" onload="this.onload=null,this.rel='stylesheet'">
-    <link href="/js/disqus.js" rel="preload" as="script">
-  {{ end }}
-  {{ if ge (findRE "<img.+?>" .Content) 1 }}
-    <link href="/js/medium-zoom.min.js" rel="preload" as="script">
-  {{ end }}
+
   {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
     {{ $katex := resources.Get "scss/katex.scss" | resources.ExecuteAsTemplate "css/katex.css" . | toCSS | minify }}
     <link href="{{ $katex.RelPermalink }}" rel="preload" as="style" onload="this.onload=null,this.rel='stylesheet'">
     <link href="/js/katex/katex.min.js" rel="preload" as="script">
     <link href="/js/katex/contrib/auto-render.min.js" rel="preload" as="script">
   {{ end }}
+
+  {{ if ge (findRE "<img.+?>" .Content) 1 }}
+    <link href="/js/medium-zoom.min.js" rel="preload" as="script">
+  {{ end }}
+
+  {{ if .Params.comment }}
+    {{ $disqusStyle := resources.Get "scss/disqusjs.scss" | resources.ExecuteAsTemplate "css/disqusjs.css" . | toCSS | minify }}
+    <link href="{{ $disqusStyle.RelPermalink }}" rel="preload" as="style" onload="this.onload=null,this.rel='stylesheet'">
+    <link href="/js/disqus.js" rel="preload" as="script">
+  {{ end }}
+
   <link href="/js/instantpage.min.js" rel="preload" as="script" crossorigin>
   <!-- end -->
+
   {{ $style := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify }}
+
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+
   {{ with .OutputFormats.Get "rss" }}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end }}
+
   <script>
     const loadScript = (source, beforeEl, async = true, defer = true) => new Promise((resolve, reject) => {
       function onloadHander(_, isAbort) {
         (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) && (script.onload = null, script.onreadystatechange = null, script = undefined, isAbort ? reject(new Error()) : resolve());
       };
-
       let script = document.createElement('script');
       const prior = beforeEl || document.getElementsByTagName('script')[0];
       script.async = async, script.defer = defer, script.onload = onloadHander, script.onreadystatechange = onloadHander, script.src = source, prior.parentNode.insertBefore(script, prior);
@@ -71,15 +83,27 @@
 
 <body>
   {{ block "main" . }}{{ end }}
+
   {{ if .Params.toc }}
     <aside>{{ .TableOfContents }}</aside>
   {{ end }}
+
   {{ if .Params.comment }}
-    {{ partial "comment.html" . }}
+    <div id="disqus_thread"></div>
   {{ end }}
+
   {{ if not .IsHome }}{{ partialCached "footer.html" . }}{{ end }}
+
   <script>
-    if (document.body.addEventListener('touchstart', () => {}), document.getElementsByTagName('img').length > 0) {
+    {{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
+      loadScript('/js/katex/katex.min.js').then(() => {
+        loadScript('/js/katex/contrib/auto-render.min.js').then(() => {
+          renderMathInElement(document.body);
+        });
+      });
+    {{ end }}
+
+    {{ if ge (findRE "<img.+?>" .Content) 1 }}
       const imgObserver = new IntersectionObserver(entries => {
         entries[0].isIntersecting && (loadScript('/js/medium-zoom.min.js').then(() => {
           mediumZoom('img', {
@@ -90,13 +114,36 @@
         threshold: [0]
       });
       imgObserver.observe(document.getElementsByTagName('img')[0]);
-    };
+    {{ end }}
 
-    /katex/.test(document.head.innerHTML) && loadScript('/js/katex/katex.min.js').then(() => {
-      loadScript('/js/katex/contrib/auto-render.min.js').then(() => {
-        renderMathInElement(document.body);
+    {{ if .Params.comment }}
+    loadScript('/js/disqus.js').then(() => {
+        const loadDisqus = () => {
+          (() => new DisqusJS({
+            shortname: 'exuanbos',
+            siteName: 'Exuanbo&#39;s',
+            identifier: '{{ .Permalink }}',
+            url: '{{ .Permalink }}',
+            title: '{{ .Title }}',
+            api: 'https://disqus.exuanbo.xyz/',
+            apikey: 'BgQNLwMb5CNsHCWWQt0ENC0BHzt1DkszGjBOWiTH5S5MQ7k6WRNeFFUbRULH90L9'
+          }))();
+        };
+        const runningOnBrowser = typeof window !== 'undefined';
+        const isBot = runningOnBrowser && !('onscroll' in window) || typeof navigator !== 'undefined' && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        const supportsIntersectionObserver = runningOnBrowser && 'IntersectionObserver' in window;
+        setTimeout(() => {
+          if (!isBot && supportsIntersectionObserver) {
+            const disqusObserver = new IntersectionObserver(entries => {
+              entries[0].isIntersecting && (loadDisqus(), disqusObserver.disconnect());
+            }, {
+              threshold: [0]
+            });
+            disqusObserver.observe(document.getElementById('disqus_thread'));
+          } else loadDisqus();
+        }, 1);
       });
-    });
+    {{ end }}
   </script>
   <script src="/js/instantpage.min.js" type="module" defer></script>
 </body>

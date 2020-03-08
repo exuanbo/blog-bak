@@ -23,5 +23,5 @@ Introverted – 97%, Intuitive – 92%, Feeling – 88%, Prospecting – 81%, Tu
 
 ## 联系
 
-- exuanbo {at} pm {dot} me
-- [豆瓣](https://www.douban.com/people/121508967/) / [知乎](https://www.zhihu.com/people/cheng-xuan-bo-55-47)
+- exuanbo {at} protonmail {dot} com
+- [Douban](https://www.douban.com/people/121508967/) / [Zhihu](https://www.zhihu.com/people/cheng-xuan-bo-55-47)

@@ -8,7 +8,9 @@
       {{ end }}
       {{ partialCached "nav.html" . }}
     </div>
+
     {{ .Content }}
+
     <div class="post-meta">
       <div class="list">
         Tags:&nbsp;{{ range (.GetTerms "tags") }}<a href="{{ .Permalink }}">#{{ .LinkTitle }}&nbsp;</a>{{ end }}
