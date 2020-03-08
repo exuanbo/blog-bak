@@ -1,0 +1,27 @@
+{
+  "name": "hugo-tailwindcss",
+  "version": "1.0.0",
+  "description": "Hugo with Tailwindcss",
+  "main": "index.js",
+  "scripts": {
+    "start": "hugo --gc --minify"
+  },
+  "repository": "https://github.com/exuanbo/blog",
+  "author": "exuanbo",
+  "license": "MIT",
+  "homepage": "https://github.com/exuanbo/blog#readme",
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "autoprefixer": "^9.7.4",
+    "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.0",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^1.2.0"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
+}
