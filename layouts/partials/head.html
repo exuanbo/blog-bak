@@ -1,0 +1,82 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{{ $description := .Description }}
+{{ if .IsHome }}
+  {{ $description = .Site.Params.Description }}
+{{ else if not $description }}
+  {{ $description = (.Summary | plainify) }}
+{{ end }}
+<meta name="description" content="{{ $description }}">
+
+{{ template "_internal/twitter_cards.html" . }}
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/schema.html" . }}
+
+<meta name="google-site-verification" content="dq1h9DPOSfOEVYwYpWaX3eQwpfPIsJHqQcN9TIUcqNQ">
+
+{{ $title := .Title }}
+{{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
+<title>{{ $title }}</title>
+
+<!-- preload -->
+<link href="/js/privacy-respected.js" rel="preload" as="script">
+
+{{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
+  {{ $katex := resources.Get "css/katex.css" | minify }}
+  <link href="{{ $katex.RelPermalink }}" rel="preload" as="style" onload="this.onload=null,this.rel='stylesheet'">
+  <link href="/js/katex/katex.min.js" rel="preload" as="script">
+  <link href="/js/katex/contrib/auto-render.min.js" rel="preload" as="script">
+{{ end }}
+
+{{ if ge (findRE "<img.+?>" .Content) 1 }}
+  <link href="/js/medium-zoom.min.js" rel="preload" as="script">
+{{ end }}
+
+{{ if .Params.comment }}
+  {{ $disqusStyle := resources.Get "css/disqusjs.css" | minify }}
+  <link href="{{ $disqusStyle.RelPermalink }}" rel="preload" as="style" onload="this.onload=null,this.rel='stylesheet'">
+  <link href="/js/disqus.min.js" rel="preload" as="script">
+{{ end }}
+
+<link href="/js/instantpage.min.js" rel="preload" as="script" crossorigin>
+<!-- end -->
+
+{{ if .Site.IsServer }}
+  {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/dev/postcss.config.js") }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ else }}
+  {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+{{ end }}
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+{{ with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end }}
+
+<script>
+  const loadScript = (source, beforeEl, async = true, defer = true) => new Promise((resolve, reject) => {
+    function onloadHander(_, isAbort) {
+      (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) && (script.onload = null, script.onreadystatechange = null, script = undefined, isAbort ? reject(new Error()) : resolve());
+    };
+    let script = document.createElement('script');
+    const prior = beforeEl || document.getElementsByTagName('script')[0];
+    script.async = async, script.defer = defer, script.onload = onloadHander, script.onreadystatechange = onloadHander, script.src = source, prior.parentNode.insertBefore(script, prior);
+  });
+
+  loadScript('/js/privacy-respected.js').then(() => {
+    ackeeTracker.create({
+      server: 'https://ackee.exuanbo.xyz',
+      domainId: '46cf7ffb-a271-4f07-9f5d-e3df97a4d5ef'
+    }, {
+      ignoreLocalhost: true,
+      detailed: false
+    }).record();
+  });
+</script>

@@ -1,1 +1,1 @@
-<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if not (strings.HasPrefix .Destination "https://exuanbo.xyz") }} rel="nofollow noopener noreferrer" target="_blank"{{ end }}>{{ .Text | safeHTML }}</a>
+<a class="shadow-a transition-shadow duration-100 hover:shadow-a-hover" href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if not (strings.HasPrefix .Destination "https://exuanbo.xyz") }} rel="nofollow noopener noreferrer" target="_blank"{{ end }}>{{ .Text | safeHTML }}</a>

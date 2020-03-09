@@ -1,0 +1,110 @@
+html {
+  box-shadow: inset 0 4px #CB1B45;
+}
+
+main {
+  @apply mt-16 mx-auto max-w-screen-md;
+}
+
+footer {
+  font-size: .9325rem;
+}
+
+h1 {
+  @apply text-2xl;
+}
+
+h2 {
+  @apply text-xl;
+}
+
+h3 {
+  @apply text-lg;
+}
+
+h1, h2, h3 {
+  @apply font-bold;
+}
+
+h1, h2, h3, p, pre {
+  @apply my-4;
+}
+
+p, div {
+  overflow-wrap: break-word;
+}
+
+ul, ol {
+  @apply pl-6;
+}
+
+ul {
+  @apply list-disc;
+}
+
+ul ul, ol ul {
+  list-style-type: circle;
+}
+
+ol {
+  @apply list-decimal;
+}
+
+ul ol, ol ol {
+  list-style-type: lower-alpha;
+}
+
+hr {
+  @apply mt-4 mx-auto mb-8 border-none text-black;
+}
+
+hr::after {
+  @apply block text-center;
+  content: "· · ·";
+}
+
+svg {
+  @apply inline;
+  vertical-align: -.1325rem;
+}
+
+pre {
+  @apply p-4 overflow-x-auto;
+}
+
+code {
+  @apply font-mono bg-transparent text-sm;
+}
+
+code:not([class]) {
+  @apply font-mono bg-shironeri-shade border-2 border-solid border-gray-500;
+  padding: 2px 4px;
+  border: 2px solid #eee;
+}
+
+blockquote {
+  @apply pl-3 border-l-4 border-solid border-hiwamoegi;
+  background-color: #f6f9f1;
+}
+
+#TableOfContents {
+  @apply fixed pt-4 max-h-full leading-normal overflow-y-auto;
+  top: .25rem;
+  left: .5rem;
+  max-width: 17.5%;
+  font-size: 15px;
+}
+
+#TableOfContents ul {
+  @apply list-none pb-4 px-3;
+}
+
+#TableOfContents a:hover {
+  @apply text-aimirucha;
+}
+
+@media (max-width: 1280px) {
+  #TableOfContents {
+    display: none;
+  }
+}

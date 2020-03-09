@@ -2,10 +2,6 @@
   "name": "hugo-tailwindcss",
   "version": "1.0.0",
   "description": "Hugo with Tailwindcss",
-  "main": "index.js",
-  "scripts": {
-    "start": "hugo --gc --minify"
-  },
   "repository": "https://github.com/exuanbo/blog",
   "author": "exuanbo",
   "license": "MIT",

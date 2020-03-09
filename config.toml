@@ -1,7 +1,6 @@
 baseurl = "https://exuanbo.xyz"
 title = "Exuanbo's"
-languageCode = "zh-CN"
-defaultcontentlanguage = "zh"
+languageCode = "en"
 
 relativeURLs = true
 rssLimit = 10
@@ -27,31 +26,13 @@ enableEmoji = true
   [markup.tableOfContents]
     startLevel = 2
 
-[language.zh]
-  languageName = "Chinese"
-  weight = 1
+[menu]
+  [[menu.main]]
+    name = "POSTS"
+    url = "/posts/"
+    weight = 2
 
-[language.en]
-  languageName = "English"
-  weight = 2
-
-# Menu links
-[[languages.zh.menu.main]]
-  name = "首页"
-  url = "/"
-  weight = 1
-[[languages.zh.menu.main]]
-  name = "关于"
-  url = "/about/"
-  weight = 2
-
-
-[[language.en.menu.main]]
-  name = "HOME"
-  url = "/"
-  weight = 1
-[[language.en.menu.main]]
-  name = "ABOUT"
-  url = "/about/"
-  weight = 2
-
+  [[menu.main]]
+    name = "ABOUT"
+    url = "/about/"
+    weight = 3

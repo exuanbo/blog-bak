@@ -1,31 +1,27 @@
 {{ define "main" }}
   <main>
     <h1>{{ .Title }}</h1>
-    <div class="post-meta">
-      {{ if (gt .Params.date 0) }}
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-        <span id="post-date">{{ .Date.Format "Jan 02, 2006" }}</span>
-      {{ end }}
-      {{ partialCached "nav.html" . }}
+    <div class="mb-8 opacity-60">
+      {{ if (gt .Params.date 0) }}<span class="mr-2">{{ .Date.Format "Jan 02, 2006" }}</span>{{ end }}{{ partial "nav.html" . }}
     </div>
 
     {{ .Content }}
 
-    <div class="post-meta">
-      <div class="list">
-        Tags:&nbsp;{{ range (.GetTerms "tags") }}<a href="{{ .Permalink }}">#{{ .LinkTitle }}&nbsp;</a>{{ end }}
+    <div class="mt-8 mb-4 opacity-60">
+      <div>
+        Tags:&nbsp;{{ range (.GetTerms "tags") }}<a class="hover:text-aimirucha" href="{{ .Permalink }}">#&nbsp;{{ .LinkTitle }}&nbsp;</a>{{ end }}
       </div>
       <div>
-        License:&nbsp;<a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="nofollow noopener noreferrer" target="_blank">CC BY-NC 4.0</a>
+        License:&nbsp;<a class="shadow-a hover:shadow-a-hover" href="https://creativecommons.org/licenses/by-nc/4.0/" rel="nofollow noopener noreferrer" target="_blank">CC BY-NC 4.0</a>
       </div>
     </div>
-    <nav class="post-nav">
+    <nav class="flex flex-wrap">
       {{ $articles := where .Site.RegularPages "Section" .Section }}
       {{ with $articles.Next . }}
-        <div class="next"><a href="{{ .RelPermalink }}"><span class="arrow-left"></span> {{ .Title }}</a></div>
+        <div class="flex-grow mr-4 text-left"><a class="hover:text-aimirucha" href="{{ .RelPermalink }}"><span class="font-bold">NEXT</span>&nbsp;:&nbsp;{{ .Title }}</a></div>
       {{ end }}
       {{ with $articles.Prev . }}
-        <div class="prev"><a href="{{ .RelPermalink }}">{{ .Title }} <span class="arrow-right"></span></a></div>
+        <div class="flex-grow ml-4 text-right"><a class="hover:text-aimirucha" href="{{ .RelPermalink }}">{{ .Title }}&nbsp;:&nbsp;<span class="font-bold">PREV</span></a></div>
       {{ end }}
     </nav>
   </main>

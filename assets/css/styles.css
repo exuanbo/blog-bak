@@ -2,6 +2,7 @@
 @import "node_modules/tailwindcss/base";
 /* Site Specific */
 @import "assets/css/site";
+@import "assets/css/syntax";
 /* Tailwind component classes registered by plugins*/
 @import "node_modules/tailwindcss/components";
 /* Tailwind's utility classes - generated based on config file */
