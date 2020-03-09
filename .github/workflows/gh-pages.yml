@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v2
 
@@ -17,9 +17,18 @@ jobs:
         with:
           node-version: '10.x'
 
-      - name: Setup PostCSS
+      - name: Setup PostCSS for Hugo
         run: npm install -g postcss-cli autoprefixer
-      - run: npm install
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -28,8 +37,9 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --gc
-      - run: hugo --minify
+        run: |
+          hugo --gc
+          hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
