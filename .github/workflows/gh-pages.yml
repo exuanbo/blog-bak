@@ -4,12 +4,22 @@ on:
   push:
     branches:
     - master
+    - dev
 
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Setup PostCSS
+        run: npm install -g postcss-cli autoprefixer
+      - run: npm install
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -18,7 +28,8 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: hugo --gc
+      - run: hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
