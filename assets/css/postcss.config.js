@@ -16,6 +16,9 @@ module.exports = {
       defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
       fontFace: true
     }),
+    require('cssnano')({
+      preset: 'default'
+    }),
     require('autoprefixer')({
       grid: true
     }),

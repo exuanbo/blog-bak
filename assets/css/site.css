@@ -1,14 +1,10 @@
-html {
-  box-shadow: inset 0 4px #CB1B45;
-}
+html { box-shadow: inset 0 4px #CB1B45; }
 
 main {
   @apply mt-16 mx-auto max-w-screen-md;
 }
 
-footer {
-  font-size: .9325rem;
-}
+footer { font-size: .9325rem; }
 
 h1 {
   @apply text-2xl;
@@ -26,15 +22,17 @@ h1, h2, h3 {
   @apply font-bold;
 }
 
-h1, h2, h3, p, pre {
+h1, h2, h3,
+p,
+pre {
   @apply my-4;
 }
 
-p, div {
-  overflow-wrap: break-word;
-}
+p,
+div { overflow-wrap: break-word; }
 
-ul, ol {
+ul,
+ol {
   @apply pl-6;
 }
 
@@ -42,7 +40,8 @@ ul {
   @apply list-disc;
 }
 
-ul ul, ol ul {
+ul ul,
+ol ul {
   list-style-type: circle;
 }
 
@@ -50,12 +49,13 @@ ol {
   @apply list-decimal;
 }
 
-ul ol, ol ol {
+ul ol,
+ol ol {
   list-style-type: lower-alpha;
 }
 
 hr {
-  @apply mt-4 mx-auto mb-8 border-none text-black;
+  @apply mt-4 mx-auto mb-8 text-black border-none;
 }
 
 hr::after {
@@ -73,7 +73,7 @@ pre {
 }
 
 code {
-  @apply font-mono bg-transparent text-sm;
+  @apply font-mono text-sm bg-transparent;
 }
 
 code:not([class]) {
@@ -96,7 +96,7 @@ blockquote {
 }
 
 #TableOfContents ul {
-  @apply list-none pb-4 px-3;
+  @apply pb-4 px-3 list-none;
 }
 
 #TableOfContents a:hover {
