@@ -47,8 +47,9 @@
   {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/dev/postcss.config.js") }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 {{ else }}
-  {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+  {{ with resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") | minify }}
+    <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
 {{ end }}
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
