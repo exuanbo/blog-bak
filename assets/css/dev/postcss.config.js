@@ -4,6 +4,7 @@ module.exports = {
       path: [__dirname]
     }),
     require('tailwindcss')('assets/css/tailwind.config.js'),
-    require('autoprefixer')
+    require('autoprefixer'),
+    require('postcss-reporter')({ clearReportedMessages: true })
   ]
 }

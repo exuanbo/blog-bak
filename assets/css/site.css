@@ -77,9 +77,9 @@ code {
 }
 
 code:not([class]) {
-  @apply font-mono bg-shironeri-shade border-2 border-solid border-gray-500;
+  @apply font-mono bg-shironeri-shade;
   padding: 2px 4px;
-  border: 2px solid #eee;
+  border: 1px solid #eee;
 }
 
 blockquote {
@@ -107,4 +107,8 @@ blockquote {
   #TableOfContents {
     display: none;
   }
+}
+
+.katex * {
+  @apply border-black;
 }

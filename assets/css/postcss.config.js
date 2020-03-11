@@ -14,14 +14,12 @@ module.exports = {
       ],
       // Include any special characters you're using in this regular expression
       defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+      // Remove unused @font-face rules
       fontFace: true
     }),
-    require('cssnano')({
-      preset: 'default'
-    }),
-    require('autoprefixer')({
-      grid: true
-    }),
-    require('postcss-reporter')
+    // Let cssnano do the minification instead of Hugo Pipes
+    require('cssnano')({ preset: 'default' }),
+    require('autoprefixer'),
+    require('postcss-reporter')({ clearReportedMessages: true })
   ]
 }
