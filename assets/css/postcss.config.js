@@ -1,8 +1,6 @@
 module.exports = {
   plugins: [
-    require('postcss-import')({
-      path: [__dirname]
-    }),
+    require('postcss-import')({ path: [__dirname] }),
     require('tailwindcss')('assets/css/tailwind.config.js'),
     // Configuration of purgecss for Tailwindcss
     // see https://tailwindcss.com/docs/controlling-file-size/#setting-up-purgecss
@@ -18,8 +16,8 @@ module.exports = {
       fontFace: true
     }),
     // Let cssnano do the minification instead of Hugo Pipes
-    require('cssnano')({ preset: 'default' }),
+    require('cssnano')({ preset: ['default', { discardComments: { removeAll: true } }] }),
     require('autoprefixer'),
-    require('postcss-reporter')({ clearReportedMessages: true })
+    require('postcss-reporter')()
   ]
 }
