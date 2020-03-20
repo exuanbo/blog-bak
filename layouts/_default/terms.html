@@ -2,10 +2,6 @@
   <main>
     <h1>{{ .Title }}</h1>
 
-    <div class="mb-8 opacity-60">
-      {{ partial "nav.html" . }}
-    </div>
-
     <ul class="pl-0 list-none leading-loose">
       {{ range .Data.Terms }}
         <li>

@@ -1,8 +1,8 @@
 {{ define "main" }}
   <main>
     <h1>{{ .Title }}</h1>
-    <div class="mb-8 opacity-60">
-      {{ if (gt .Params.date 0) }}<span class="mr-2">{{ .Date.Format "Jan 02, 2006" }}</span>{{ end }}{{ partial "nav.html" . }}
+    <div class="opacity-60">
+      {{ if (gt .Params.date 0) }}{{ .Date.Format "Jan 02, 2006" }}{{ end }}
     </div>
 
     {{ .Content }}
@@ -15,14 +15,5 @@
         License:&nbsp;<a class="shadow-a hover:shadow-a-hover" href="https://creativecommons.org/licenses/by-nc/4.0/" rel="nofollow noopener noreferrer" target="_blank">CC BY-NC 4.0</a>
       </div>
     </div>
-    <nav class="flex flex-wrap">
-      {{ $articles := where .Site.RegularPages "Section" .Section }}
-      {{ with $articles.Next . }}
-        <div class="flex-grow mr-4 text-left"><a class="hover:text-aimirucha" href="{{ .RelPermalink }}"><span class="font-bold">NEXT</span>&nbsp;:&nbsp;{{ .Title }}</a></div>
-      {{ end }}
-      {{ with $articles.Prev . }}
-        <div class="flex-grow ml-4 text-right"><a class="hover:text-aimirucha" href="{{ .RelPermalink }}">{{ .Title }}&nbsp;:&nbsp;<span class="font-bold">PREV</span></a></div>
-      {{ end }}
-    </nav>
   </main>
-{{ end }}
+  {{ end }}

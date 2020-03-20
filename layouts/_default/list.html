@@ -1,14 +1,6 @@
 {{ define "main" }}
   <main>
-    {{ if eq .Title "Posts" }}
-    <h1>{{ upper .Title }}</h1>
-    {{ else }}
-    <h1>#&nbsp;{{ .Title }}</h1>
-    {{ end }}
-
-    <div class="mb-8 opacity-60">
-      {{ partial "nav.html" . }}
-    </div>
+    <h1>{{ if eq .Title "Posts" }}{{ upper .Title }}{{ else }}#&nbsp;{{ .Title }}{{ end }}</h1>
 
     {{ if .Content }}
       {{ .Content }}
@@ -16,10 +8,10 @@
 
     {{ range .Pages.GroupByDate "2006" }}
       <div class="flex sm:flex-row flex-col mb-4">
-        <h2 class="m-0 opacity-40">{{ .Key }}</h2>
-        <ul class="flex-1 sm:pl-6 pl-0 list-none leading-loose">
+        <h2 class="-mt-1 mb-2 opacity-40">{{ .Key }}</h2>
+        <ul class="flex-1 sm:pl-6 pl-0 list-none">
           {{ range .Pages }}
-            <li><a class="hover:text-aimirucha" href="{{ .RelPermalink }}">{{ .Title }}<span class="float-right opacity-50">{{ .Date.Format "Jan 02" }}</span></a></li>
+            <li class="mb-1"><a class="hover:text-aimirucha" href="{{ .RelPermalink }}">{{ .Title }}<span class="float-right opacity-50">{{ .Date.Format "Jan 02" }}</span></a></li>
           {{ end }}
         </ul>
       </div>
