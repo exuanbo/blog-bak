@@ -8,12 +8,7 @@
     {{ .Content }}
 
     <div class="mt-8 mb-4 opacity-60">
-      <div>
-        Tags:&nbsp;{{ range (.GetTerms "tags") }}<a class="hover:text-aimirucha" href="{{ .Permalink }}">#&nbsp;{{ .LinkTitle }}&nbsp;</a>{{ end }}
-      </div>
-      <div>
-        License:&nbsp;<a class="shadow-a hover:shadow-a-hover" href="https://creativecommons.org/licenses/by-nc/4.0/" rel="nofollow noopener noreferrer" target="_blank">CC BY-NC 4.0</a>
-      </div>
+      Tags:&nbsp;{{ range (.GetTerms "tags") }}<a class="hover:text-aimirucha" href="{{ .Permalink }}">#&nbsp;{{ .LinkTitle }}&nbsp;</a>{{ end }}
     </div>
   </main>
   {{ end }}

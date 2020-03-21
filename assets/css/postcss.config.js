@@ -17,7 +17,6 @@ module.exports = {
     }),
     // Let cssnano do the minification instead of Hugo Pipes
     require('cssnano')({ preset: ['default', { discardComments: { removeAll: true } }] }),
-    require('autoprefixer'),
-    require('postcss-reporter')()
+    require('autoprefixer')
   ]
 }
