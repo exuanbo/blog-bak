@@ -1,1 +1,9 @@
-<a class="hover:text-aimirucha" href="../"><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="14 9 9 4 4 9"></polyline><path d="M20 20h-7a4 4 0 0 1-4-4V4"></path></svg>BACK</a>
+<nav class="pt-4 mx-auto max-w-screen-md">
+  <a class="mr-2 fill-current hover:text-aimirucha" href="/">
+    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="vertical-align:-.75px;"><path d="M12 9.185l7 6.514v6.301h-14v-6.301l7-6.514zm0-2.732l-9 8.375v9.172h18v-9.172l-9-8.375zm2 14.547h-4v-6h4v6zm10-8.852l-1.361 1.465-10.639-9.883-10.639 9.868-1.361-1.465 12-11.133 12 11.148z"/></svg>
+  </a>
+  {{ range .Site.Menus.main }}
+  <a class="mr-1 hover:text-aimirucha" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+  {{ end }}
+  <a class="hover:text-aimirucha" href="https://wiki.exuanbo.xyz" target="_blank">WIKI</a>
+</nav>

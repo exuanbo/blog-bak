@@ -1,6 +1,9 @@
 module.exports = {
   theme: {
     extend: {
+      margin: {
+        14: '3.5rem'
+      },
       colors: {
         shironeri: '#FCFAF2',
         'shironeri-shade': '#F8F4E2',

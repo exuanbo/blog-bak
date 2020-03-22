@@ -1,6 +1,6 @@
 {{ define "main" }}
   <main>
-    <h1>{{ if eq .Title "Posts" }}{{ upper .Title }}{{ else }}#&nbsp;{{ .Title }}{{ end }}</h1>
+    <h1 class="mb-14">{{ if eq .Title "Posts" }}{{ upper .Title }}{{ else }}#&nbsp;{{ .Title }}{{ end }}</h1>
 
     {{ if .Content }}
       {{ .Content }}

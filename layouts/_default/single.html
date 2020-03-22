@@ -1,7 +1,7 @@
 {{ define "main" }}
   <main>
     <h1>{{ .Title }}</h1>
-    <div class="opacity-60">
+    <div class="-mt-4 mb-8 opacity-60">
       {{ if (gt .Params.date 0) }}{{ .Date.Format "Jan 02, 2006" }}{{ end }}
     </div>
 
