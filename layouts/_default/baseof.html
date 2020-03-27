@@ -6,7 +6,7 @@
 </head>
 
 <body class="px-3 bg-shironeri leading-relaxed font-serif">
-  {{ if .Params.toc }}<aside>{{ .TableOfContents }}</aside>{{ end }}
+  {{ if .Params.toc }}{{ partial "toc.html" . }}{{ end }}
   {{ if not .IsHome }}{{ partialCached "nav.html" . }}{{ end }}
   {{ block "main" . }}{{ end }}
   {{ if .Params.comment }}{{ partialCached "comment.html" . }}{{ end }}
