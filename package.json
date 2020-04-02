@@ -1,15 +1,23 @@
 {
-  "name": "hugo-tailwindcss",
+  "name": "blog",
   "version": "1.0.0",
-  "description": "Hugo with Tailwindcss",
-  "repository": "https://github.com/exuanbo/blog",
+  "description": "My blog built with Hugo, PostCSS and TailwindCSS",
+  "scripts": {
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exuanbo/blog.git"
+  },
   "author": "exuanbo",
   "license": "MIT",
-  "homepage": "https://github.com/exuanbo/blog#readme",
-  "dependencies": {
+  "homepage": "https://github.com/exuanbo/blog",
+  "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^9.7.5",
     "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
     "postcss": "^7.0.27",
     "postcss-import": "^12.0.1",
     "tailwindcss": "^1.2.0"
