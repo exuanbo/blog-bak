@@ -2,9 +2,6 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "My blog built with Hugo, PostCSS and TailwindCSS",
-  "scripts": {
-    "build": "gulp"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/exuanbo/blog.git"
@@ -19,6 +16,7 @@
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.0",
     "postcss-import": "^12.0.1",
     "tailwindcss": "^1.2.0"
   },

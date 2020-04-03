@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: macos-10.15
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
 
@@ -17,7 +17,7 @@ jobs:
           node-version: '12.x'
 
       - name: Install Dependency
-        run: npm install
+        run: npm ci
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -26,7 +26,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: npm run build
+        run: npx gulp
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

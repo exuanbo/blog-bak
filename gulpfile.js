@@ -6,17 +6,10 @@ function clean() {
   return del(['public'])
 }
 
-function hugo() {
+function hugo(cb) {
   return exec('hugo --gc && hugo --minify', (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`)
-      return
-    }
-
-    if (stderr) {
-      console.log(`stderr: ${stderr}`)
-      return
-    }
+    console.log(stderr)
+    cb(error)
   })
 }
 
