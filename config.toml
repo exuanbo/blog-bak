@@ -8,6 +8,9 @@ hasCJKLanguage = true
 enableRobotsTXT = true
 enableEmoji = true
 
+[build]
+  writeStats = true
+
 [taxonomies]
   tag = "tags"
 

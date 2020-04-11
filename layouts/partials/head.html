@@ -45,7 +45,7 @@
   {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/dev/postcss.config.js") }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 {{ else }}
-  {{ with resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+  {{ with resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") | resources.PostProcess }}
     <style>{{ .Content | safeCSS }}</style>
   {{ end }}
 {{ end }}
