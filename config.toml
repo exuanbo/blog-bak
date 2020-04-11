@@ -39,9 +39,3 @@ enableEmoji = true
     noClasses = false
   [markup.tableOfContents]
     startLevel = 2
-
-[minify]
-  disableCSS = true
-  [minify.tdewolff]
-    [minify.tdewolff.html]
-      keepConditionalComments = false
