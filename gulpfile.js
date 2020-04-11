@@ -7,7 +7,7 @@ function clean() {
 }
 
 function hugo(cb) {
-  return exec('hugo --gc --minify', (error) => cb(error))
+  return exec('hugo --gc', (error) => cb(error))
 }
 
 exports.default = series(clean, hugo)
