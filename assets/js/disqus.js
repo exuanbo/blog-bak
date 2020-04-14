@@ -1,4 +1,4 @@
-loadScript('/js/disqus.min.js').then(() => {
+loadScript('https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqus.js').then(() => {
   const loadDisqus = () => {
     (() => new DisqusJS({
       shortname: 'exuanbos',

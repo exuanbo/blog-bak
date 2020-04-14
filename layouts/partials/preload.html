@@ -14,12 +14,11 @@
 {{ end }}
 
 {{ if .Params.comment }}
-  {{ $disqusStyle := resources.Get "css/disqusjs.css" | minify }}
   <link
     rel="preload"
-    href="{{ $disqusStyle.RelPermalink }}"
+    href="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqusjs.css"
     as="style"
     onload="this.onload=null,this.rel='stylesheet'"
   >
-  <link rel="preload" href="/js/disqus.min.js" as="script">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqus.js" as="script">
 {{ end }}
