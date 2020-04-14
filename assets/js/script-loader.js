@@ -1,3 +1,5 @@
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+
 const loadScript = (source, options) => {
   return new Promise((resolve, reject) => {
     let script = document.createElement('script')
@@ -9,11 +11,7 @@ const loadScript = (source, options) => {
         script.onreadystatechange = null
         script = undefined
 
-        if (isAbort) {
-          reject(new Error())
-        } else {
-          resolve()
-        }
+        isAbort ? reject(new Error('Failed to load script')) : resolve()
       }
     }
 
