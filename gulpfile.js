@@ -1,10 +1,17 @@
 const del = require('del')
 const { exec } = require('child_process')
 const { src, dest, series } = require('gulp')
+const uglify = require('gulp-uglify-es').default
 const htmlmin = require('gulp-htmlmin')
 
 function clean() {
-  return del(['public'])
+  return del(['build', 'public'])
+}
+
+function js() {
+  return src('assets/js/*.js')
+    .pipe(uglify({ output: { comments: false } }))
+    .pipe(dest('assets/build/js'))
 }
 
 function hugo(cb) {
@@ -20,4 +27,4 @@ function html() {
     .pipe(dest('.'))
 }
 
-exports.default = series(clean, hugo, html)
+exports.default = series(clean, js, hugo, html)

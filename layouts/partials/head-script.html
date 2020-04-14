@@ -1,0 +1,9 @@
+<script>
+  {{- with resources.Get "build/js/script-loader.js" -}}
+    {{- .Content | safeJS -}}
+  {{- end -}}
+
+  {{- with resources.Get "build/js/ackee.js" -}}
+    {{- .Content | safeJS -}}
+  {{- end -}}
+</script>

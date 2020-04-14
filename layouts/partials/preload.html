@@ -1,0 +1,25 @@
+<link rel="preload" href="/js/privacy-respected.js" as="script">
+
+{{ if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 }}
+  <link
+    rel="preload"
+    href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+    as="style"
+    onload="this.onload=null,this.rel='stylesheet'"
+  >
+{{ end }}
+
+{{ if ge (findRE "<img.+?>" .Content) 1 }}
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.5/dist/medium-zoom.min.js" as="script">
+{{ end }}
+
+{{ if .Params.comment }}
+  {{ $disqusStyle := resources.Get "css/disqusjs.css" | minify }}
+  <link
+    rel="preload"
+    href="{{ $disqusStyle.RelPermalink }}"
+    as="style"
+    onload="this.onload=null,this.rel='stylesheet'"
+  >
+  <link rel="preload" href="/js/disqus.min.js" as="script">
+{{ end }}

@@ -11,7 +11,7 @@
   {{ block "main" . }}{{ end }}
   {{ if .Params.comment }}{{ partialCached "comment.html" . }}{{ end }}
   {{ if not .IsHome }}{{ partialCached "footer.html" . }}{{ end }}
-  {{ partial "script.html" . }}
+  {{ partial "footer-script.html" . }}
 </body>
 
 </html>

@@ -8,7 +8,8 @@ module.exports = {
         let els = JSON.parse(content).htmlElements
         return els.tags.concat(els.classes, els.ids)
       },
-      fontFace: true
+      fontFace: true,
+      whitelist: ['katex']
     }),
     require('cssnano')({ preset: ['default', { discardComments: { removeAll: true } }] }),
     require('autoprefixer')
