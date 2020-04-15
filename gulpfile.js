@@ -1,7 +1,8 @@
 const del = require('del')
-const { exec } = require('child_process')
 const { src, dest, series } = require('gulp')
 const uglify = require('gulp-uglify-es').default
+const { execFile } = require('child_process')
+const hugo = require('hugo-bin')
 const htmlmin = require('gulp-htmlmin')
 
 function clean() {
@@ -14,8 +15,11 @@ function js() {
     .pipe(dest('assets/build/js'))
 }
 
-function hugo(cb) {
-  return exec('hugo --gc', (error) => cb(error))
+function build(cb) {
+  return execFile(hugo, ['--gc'], (error, stdout) => {
+    if (error) cb(error)
+    console.log('\n' + stdout)
+  })
 }
 
 function html() {
@@ -27,4 +31,4 @@ function html() {
     .pipe(dest('.'))
 }
 
-exports.default = series(clean, js, hugo, html)
+exports.default = series(clean, js, build, html)

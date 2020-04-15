@@ -12,9 +12,13 @@
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-uglify-es": "^2.0.0",
+    "hugo-bin": "^0.57.0",
     "postcss-cli": "^7.1.0",
     "postcss-import": "^12.0.1",
     "tailwindcss": "^1.2.0"
+  },
+  "hugo-bin": {
+    "buildTags": "extended"
   },
   "browserslist": [
     "last 1 version"
