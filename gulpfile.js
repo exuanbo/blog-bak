@@ -6,7 +6,7 @@ const hugo = require('hugo-bin')
 const htmlmin = require('gulp-htmlmin')
 
 function clean() {
-  return del(['build', 'public'])
+  return del(['assets/build', 'public'])
 }
 
 function js() {
@@ -32,3 +32,4 @@ function html() {
 }
 
 exports.default = series(clean, js, build, html)
+exports.js = js
