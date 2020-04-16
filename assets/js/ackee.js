@@ -1,4 +1,4 @@
-loadScript('/js/privacy-respected.js', { async: true })
+loadScript('https://ackee.exuanbo.xyz/privacy-respected.js', { async: true })
   .then(() => {
     ackeeTracker.create({
       server: 'https://ackee.exuanbo.xyz',
