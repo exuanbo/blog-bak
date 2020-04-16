@@ -15,10 +15,19 @@ const loadScript = (source, options) => {
       }
     }
 
+    const attributes = {
+      async: false,
+      defer: true
+    }
+
     if (options) {
       for (const i in options) {
-        script[i] = options[i]
+        attributes[i] = options[i]
       }
+    }
+
+    for (const i in attributes) {
+      script[i] = attributes[i]
     }
 
     script.onload = onloadHander
