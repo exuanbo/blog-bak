@@ -1,24 +1,16 @@
 <script>
   {{- if ge (findRE "\\$\\$(.|\n)+?\\$\\$|\\\\\\((.|\n)+?\\\\\\)|\\\\\\[(.|\n)+?\\\\\\]" .Content) 1 -}}
-    {{- with resources.Get "build/js/katex.js" -}}
-      {{- .Content | safeJS -}}
-    {{- end -}}
+    {{- "/* inject-inline: /assets/build/js/katex.js */" | safeJS -}}
   {{- end -}}
 
   {{- if ge (findRE "<img.+?>" .Content) 1 -}}
-    {{- with resources.Get "build/js/medium-zoom.js" -}}
-      {{- .Content | safeJS -}}
-    {{- end -}}
+    {{- "/* inject-inline: /assets/build/js/medium-zoom.js */" | safeJS -}}
   {{- end -}}
 
   {{- if .Params.comment -}}
-    {{- with resources.Get "build/js/disqus.js" -}}
-      {{- .Content | safeJS -}}
-    {{- end -}}
+    {{- "/* inject-inline: /assets/build/js/disqus.js */" | safeJS -}}
   {{- end -}}
 </script>
 <script type="module">
-  {{- with resources.Get "build/js/instantpage.js" -}}
-    {{- .Content | safeJS -}}
-  {{- end -}}
+  {{- "/* inject-inline: /assets/build/js/instantpage.js */" | safeJS -}}
 </script>

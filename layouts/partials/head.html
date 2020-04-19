@@ -20,15 +20,6 @@
 {{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
 <title>{{ $title }}</title>
 
-{{ if .Site.IsServer }}
-  {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/dev/postcss.config.js") }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-{{ else }}
-  {{ with resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") | resources.PostProcess }}
-    <style>{{ .Content | safeCSS }}</style>
-  {{ end }}
-{{ end }}
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,6 +29,4 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end }}
 
-{{ partial "head-preload.html" . }}
-
-{{ partial "head-script.html" . }}
+<style>{{ "/* inject-inline: /assets/build/css/styles.css */" | safeCSS }}</style>

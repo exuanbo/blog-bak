@@ -3,6 +3,8 @@
 
 <head>
   {{ partial "head.html" . }}
+  {{ partial "head-preload.html" . }}
+  {{ partialCached "head-script.html" . }}
 </head>
 
 <body class="px-3 bg-shironeri leading-relaxed font-serif">
