@@ -8,12 +8,15 @@ const htmlmin = require('gulp-htmlmin')
 const postcss = require('gulp-postcss')
 const browserSync = require('browser-sync').create()
 
+let isDev = false
+
 function clean() {
   return del(['assets/build', 'public'])
 }
 
 function build(cb) {
-  return execFile(hugo, ['--gc', '--quiet'], (error) => cb(error))
+  const hugoArgs = isDev ? ['--gc', '-e', 'dev'] : ['--gc']
+  return execFile(hugo, hugoArgs, error => cb(error))
 }
 
 function js() {
@@ -28,30 +31,31 @@ function js() {
 }
 
 function css() {
-  const plugins = [
+  let plugins = [
     require('postcss-import')({ path: [process.cwd()] }),
-    require('tailwindcss')('assets/css/tailwind.config.js'),
-    require('@fullhuman/postcss-purgecss')({
-      content: ['hugo_stats.json'],
-      defaultExtractor: content => {
-        let els = JSON.parse(content).htmlElements
-        return els.tags.concat(els.classes, els.ids)
-      },
-      fontFace: true,
-      whitelist: ['katex']
-    }),
-    require('cssnano')({
-      preset: [
-        'default',
-        { discardComments: { removeAll: true } }
-      ]
-    }),
-    require('autoprefixer')
+    require('tailwindcss')('assets/css/tailwind.config.js')
   ]
 
-  return src('assets/css/styles.css')
-    .pipe(postcss(plugins))
-    .pipe(dest('assets/build/css'))
+  if (!isDev) {
+    plugins = plugins.concat([
+      require('@fullhuman/postcss-purgecss')({
+        content: ['hugo_stats.json'],
+        defaultExtractor: content => {
+          const els = JSON.parse(content).htmlElements
+          return els.tags.concat(els.classes, els.ids)
+        },
+        fontFace: true,
+        whitelist: ['katex']
+      }),
+      require('cssnano')({
+        preset: ['default', { discardComments: { removeAll: true } }]
+      }),
+      require('autoprefixer')
+    ])
+  }
+
+  const cssDir = isDev ? 'public/css' : 'assets/build/css'
+  return src('assets/css/styles.css').pipe(postcss(plugins)).pipe(dest(cssDir))
 }
 
 function html() {
@@ -60,18 +64,23 @@ function html() {
     .pipe(
       htmlmin({
         collapseWhitespace: true,
-        conservativeCollapse: true,
+        conservativeCollapse: true
       })
     )
     .pipe(dest('.'))
 }
 
 function server() {
+  isDev = true
+
   browserSync.init({
     server: {
-      baseDir: './public',
+      baseDir: './public'
     },
+    open: false,
+    reloadDelay: 2000
   })
+
   watch(
     [
       'assets/**',
@@ -79,7 +88,7 @@ function server() {
       'content/**',
       'layouts/**',
       'static/**',
-      'config.toml',
+      'config.toml'
     ],
     { ignoreInitial: false },
     series('default')
@@ -88,7 +97,7 @@ function server() {
 }
 
 exports.default = series(clean, parallel(series(build, css), js), html)
-exports.build = build
+exports.hugo = build
 exports.css = css
 exports.js = js
 exports.html = html
