@@ -13,11 +13,16 @@ loadScript('https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqus.js').then(()
   setTimeout(() => {
     if (!isBot && supportsIntersectionObserver) {
       const disqusObserver = new IntersectionObserver(entries => {
-        entries[0].isIntersecting && (loadDisqus(), disqusObserver.disconnect())
+        if (entries[0].isIntersecting) {
+          loadDisqus()
+          disqusObserver.disconnect()
+        }
       }, {
         threshold: [0]
       })
       disqusObserver.observe(document.getElementById('disqus_thread'))
-    } else loadDisqus()
+    } else {
+      loadDisqus()
+    }
   }, 1)
 })
