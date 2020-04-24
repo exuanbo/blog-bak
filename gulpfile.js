@@ -1,11 +1,11 @@
-const del = require('del')
 const { src, dest, series, parallel, watch } = require('gulp')
-const uglify = require('gulp-uglify-es').default
+const del = require('del')
 const { execFile } = require('child_process')
 const hugo = require('hugo-bin')
+const uglify = require('gulp-uglify-es').default
+const postcss = require('gulp-postcss')
 const injectInline = require('@exuanbo/gulp-inject-inline')
 const htmlmin = require('gulp-htmlmin')
-const postcss = require('gulp-postcss')
 const browserSync = require('browser-sync').create()
 
 let isDev = false

@@ -6,7 +6,7 @@ _build:
   list: false
 ---
 
-This website is built with [Hugo](https://gohugo.io/) and [PostCSS](https://postcss.org/). Colors are picked from [日本の伝統色](https://nipponcolors.com/).
+This website is built with [Hugo](https://gohugo.io/) and [Gulp.js](https://gulpjs.com/). Colors are picked from [日本の伝統色](https://nipponcolors.com/).
 
 我想用创作来抵抗生活的无意义感。
 
@@ -21,3 +21,7 @@ Introverted – 97%, Intuitive – 92%, Feeling – 88%, Prospecting – 81%, Tu
 - Email: exuanbo {at} protonmail {dot} com
 - [Github](https://github.com/exuanbo/)
 - [Douban](https://www.douban.com/people/121508967/) / [Zhihu](https://www.zhihu.com/people/cheng-xuan-bo-55-47)
+
+## Friends
+
+Well, obviously I don't have any friends.
