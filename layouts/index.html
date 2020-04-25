@@ -2,8 +2,11 @@
   <main class="flex flex-col items-center justify-center h-screen m-auto">
     <div class="flex flex-col justify-center flex-grow">
       <h1>Exuanbo's</h1>
-      <nav>
-        {{ range .Site.Menus.main }}<a class="block mb-1 text-center hover:text-aimirucha" href="{{ .URL }}">{{ .Name }}</a>{{ end }}<a class="block text-center hover:text-aimirucha" href="https://wiki.exuanbo.xyz" target="_blank">WIKI</a>
+      <nav class="space-y-1">
+        {{ range .Site.Menus.main }}
+          <a class="block text-center hover:text-aimirucha" href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+        <a class="block text-center hover:text-aimirucha" href="https://wiki.exuanbo.xyz" target="_blank">WIKI</a>
       </nav>
     </div>
     {{ partialCached "footer" . }}
