@@ -61,12 +61,7 @@ function css() {
 function html() {
   return src('public/**/*.html', { base: '.' })
     .pipe(injectInline())
-    .pipe(
-      htmlmin({
-        collapseWhitespace: true,
-        conservativeCollapse: true
-      })
-    )
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(dest('.'))
 }
 
