@@ -22,7 +22,12 @@ h1, h2, h3 {
   @apply font-bold;
 }
 
-h1, h2, h3,
+.content h2,
+.content h3 {
+  @apply my-8;
+}
+
+h1,
 p,
 pre {
   @apply my-4;
@@ -55,7 +60,7 @@ ol ol {
 }
 
 hr {
-  @apply mt-4 mx-auto mb-8 text-black border-none;
+  @apply mt-4 mx-auto mb-12 text-black border-none;
 }
 
 hr::after {

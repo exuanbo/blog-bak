@@ -5,7 +5,9 @@
       {{ if (gt .Params.date 0) }}{{ .Date.Format "Jan 02, 2006" }}{{ end }}
     </div>
 
-    {{ .Content }}
+    <div class="content">
+      {{ .Content }}
+    </div>
 
     <div class="mt-8 mb-4 opacity-60">
       Tags:&nbsp;{{ range (.GetTerms "tags") }}<a class="hover:text-aimirucha" href="{{ .Permalink }}">#&nbsp;{{ .LinkTitle }}&nbsp;</a>{{ end }}

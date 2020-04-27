@@ -3,7 +3,9 @@
     <h1 class="mb-14">{{ if eq .Title "Posts" }}{{ upper .Title }}{{ else }}#&nbsp;{{ .Title }}{{ end }}</h1>
 
     {{ if .Content }}
-      {{ .Content }}
+      <div class="content">
+        {{ .Content }}
+      </div>
     {{ end }}
 
     {{ range .Pages.GroupByDate "2006" }}
