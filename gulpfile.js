@@ -72,8 +72,7 @@ function server() {
     server: {
       baseDir: './public'
     },
-    open: false,
-    reloadDelay: 2000
+    open: false
   })
 
   watch(
@@ -92,8 +91,4 @@ function server() {
 }
 
 exports.default = series(clean, parallel(series(build, css), js), html)
-exports.hugo = build
-exports.css = css
-exports.js = js
-exports.html = html
 exports.server = server
