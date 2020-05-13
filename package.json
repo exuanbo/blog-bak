@@ -10,7 +10,7 @@
     "start": "gulp server"
   },
   "devDependencies": {
-    "@exuanbo/gulp-inject-inline": "^1.1.0",
+    "@exuanbo/gulp-inject-inline": "^1.1.1",
     "@fullhuman/postcss-purgecss": "^2.2.0",
     "autoprefixer": "^9.7.6",
     "browser-sync": "^2.26.7",
