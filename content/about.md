@@ -12,7 +12,7 @@ This website is built with [Hugo](https://gohugo.io/) and [Gulp.js](https://gulp
 
 ## Me
 
-INFP-T, latest tested on 02 Feb 2020
+INFP-T, tested on 02 Feb 2020
 
 Introverted – 97%, Intuitive – 92%, Feeling – 88%, Prospecting – 81%, Turbulent – 75%
 
@@ -24,4 +24,4 @@ Introverted – 97%, Intuitive – 92%, Feeling – 88%, Prospecting – 81%, Tu
 
 ## Friends
 
-Well, obviously I don't have any friends.
+Well, obviously I have no friends.
