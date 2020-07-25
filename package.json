@@ -10,19 +10,19 @@
     "start": "gulp server"
   },
   "devDependencies": {
-    "@exuanbo/gulp-inject-inline": "^1.1.2",
-    "@fullhuman/postcss-purgecss": "^2.3.0",
-    "autoprefixer": "^9.8.5",
-    "browser-sync": "^2.26.10",
-    "cssnano": "^4.1.10",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-uglify-es": "^2.0.0",
-    "hugo-bin": "^0.57.0",
-    "postcss-import": "^12.0.1",
-    "tailwindcss": "^1.5.2"
+    "@exuanbo/gulp-inject-inline": "1.1.2",
+    "@fullhuman/postcss-purgecss": "2.3.0",
+    "autoprefixer": "9.8.5",
+    "browser-sync": "2.26.10",
+    "cssnano": "4.1.10",
+    "del": "5.1.0",
+    "gulp": "4.0.2",
+    "gulp-htmlmin": "5.0.1",
+    "gulp-postcss": "8.0.0",
+    "gulp-uglify-es": "2.0.0",
+    "hugo-bin": "0.57.0",
+    "postcss-import": "12.0.1",
+    "tailwindcss": "1.5.2"
   },
   "browserslist": [
     "last 1 version"
