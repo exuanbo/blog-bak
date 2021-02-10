@@ -1,0 +1,126 @@
+html { box-shadow: inset 0 2px #CB1B45; }
+
+main {
+  @apply mt-16 mx-auto max-w-screen-md;
+}
+
+footer { font-size: .9325rem; }
+
+h1 {
+  @apply text-2xl;
+}
+
+h2 {
+  @apply text-xl;
+}
+
+h3 {
+  @apply text-lg;
+}
+
+h1, h2, h3 {
+  @apply font-bold;
+}
+
+.content h2,
+.content h3 {
+  @apply my-8;
+}
+
+h1,
+p,
+pre {
+  @apply my-4;
+}
+
+p,
+div { overflow-wrap: break-word; }
+
+ul,
+ol {
+  @apply pl-6;
+}
+
+ul {
+  @apply list-disc;
+}
+
+ul ul,
+ol ul {
+  list-style-type: circle;
+}
+
+ol {
+  @apply list-decimal;
+}
+
+ul ol,
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+hr {
+  @apply mt-4 mx-auto mb-12 text-black border-none;
+}
+
+hr::after {
+  @apply block text-center;
+  content: "· · ·";
+}
+
+svg {
+  @apply inline;
+}
+
+pre {
+  @apply p-4 overflow-x-auto;
+}
+
+code {
+  @apply font-mono text-sm bg-transparent;
+}
+
+code:not([class]) {
+  @apply font-mono bg-shironeri-shade;
+  padding: 2px 4px;
+  border: 1px solid #eee;
+}
+
+blockquote {
+  @apply pl-3 border-l-4 border-solid border-hiwamoegi;
+}
+
+blockquote p {
+  @apply mt-2;
+}
+
+blockquote::before {
+  @apply w-4 h-4 block;
+  content: "";
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 100 100'%3E%3Cpath fill='%2390B44B' d='M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z'/%3E%3C/svg%3E") no-repeat;
+}
+
+.toc {
+  top: 2px;
+  left: .5rem;
+  max-width: 17.5%;
+  font-size: 15px;
+}
+
+@media (max-width: 1280px) {
+  .toc {
+    display: none;
+  }
+}
+
+#TableOfContents ul {
+  @apply pb-4 px-3 list-none;
+}
+
+#TableOfContents a:hover {
+  @apply text-aimirucha;
+}
+
+.katex * {
+  @apply border-black;
+}

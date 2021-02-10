@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <main>
+    <h1>{{ .Title }}</h1>
+    <div class="-mt-4 mb-8 opacity-60">
+      {{ if (gt .Params.date 0) }}{{ .Date.Format "Jan 02, 2006" }}{{ end }}
+    </div>
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    <div class="mt-8 mb-4 opacity-60">
+      Tags:&nbsp;{{ range (.GetTerms "tags") }}<a class="hover:text-aimirucha" href="{{ .Permalink }}">#&nbsp;{{ .LinkTitle }}&nbsp;</a>{{ end }}
+    </div>
+  </main>
+{{ end }}

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  {{ partial "head.html" . }}
+  {{ partial "head-preload.html" . }}
+  {{ partialCached "head-script.html" . }}
+</head>
+
+<body class="px-3 bg-shironeri leading-relaxed font-serif">
+  {{ if .Params.toc }}{{ partial "toc.html" . }}{{ end }}
+  {{ if not .IsHome }}{{ partialCached "nav.html" . }}{{ end }}
+  {{ block "main" . }}{{ end }}
+  {{ if .Params.comment }}{{ partialCached "comment.html" . }}{{ end }}
+  {{ if not .IsHome }}{{ partialCached "footer.html" . }}{{ end }}
+  {{ partial "footer-script.html" . }}
+</body>
+
+</html>

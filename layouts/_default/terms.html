@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <main>
+    <h1>{{ .Title }}</h1>
+
+    <ul class="pl-0 list-none leading-loose">
+      {{ range .Data.Terms }}
+        <li><a class="hover:text-aimirucha" href="{{ .Page.RelPermalink }}">#&nbsp;{{ .Page.Title }}</a>&nbsp;({{ .Count }})</li>
+      {{ end }}
+    </ul>
+  </main>
+{{ end }}

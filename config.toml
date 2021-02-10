@@ -1,0 +1,41 @@
+baseurl = "https://exuanbo.xyz"
+title = "Exuanbo's"
+languageCode = "en"
+
+relativeURLs = true
+rssLimit = 10
+hasCJKLanguage = true
+enableRobotsTXT = true
+enableEmoji = true
+
+[build]
+  writeStats = true
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  description = "Exuanbo's landing page"
+
+[menu]
+  [[menu.main]]
+    name = "POSTS"
+    url = "/posts/"
+    weight = 2
+
+  [[menu.main]]
+    name = "ABOUT"
+    url = "/about/"
+    weight = 3
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2

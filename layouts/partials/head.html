@@ -1,0 +1,36 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{{ $description := .Description }}
+{{ if .IsHome }}
+  {{ $description = .Site.Params.Description }}
+{{ else if not $description }}
+  {{ $description = (.Summary | plainify) }}
+{{ end }}
+<meta name="description" content="{{ $description }}">
+
+{{ template "_internal/twitter_cards.html" . }}
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/schema.html" . }}
+
+<meta name="google-site-verification" content="dq1h9DPOSfOEVYwYpWaX3eQwpfPIsJHqQcN9TIUcqNQ">
+
+{{ $title := .Title }}
+{{ if not .IsHome }}{{ $title = print $title " - " .Site.Title }}{{ end }}
+<title>{{ $title }}</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+{{ with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end }}
+
+{{ if eq hugo.Environment "dev" }}
+  <link rel="stylesheet" href="/css/styles.css">
+{{ else }}
+  <style>{{ "/* inject-inline: /assets/build/css/styles.css */" | safeCSS }}</style>
+{{ end }}
