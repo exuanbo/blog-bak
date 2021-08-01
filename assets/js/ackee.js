@@ -4,7 +4,7 @@ loadScript("https://ackee.exuanbo.xyz/privacy-respected.js", {
   ackeeTracker
     .create({
       server: "https://ackee.exuanbo.xyz",
-      domainId: "46cf7ffb-a271-4f07-9f5d-e3df97a4d5ef"
+      domainId: "1f9f76ad-23e7-4b4a-9550-af63af44a4bd"
     })
     .record()
 })
