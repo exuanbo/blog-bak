@@ -2,6 +2,8 @@ loadScript('https://ackee.exuanbo.xyz/privacy-respected.js', {
   async: true
 }).then(() => {
   ackeeTracker
-    .create('https://ackee.exuanbo.xyz')
-    .record('1f9f76ad-23e7-4b4a-9550-af63af44a4bd')
+    .create('https://ackee.exuanbo.xyz', {
+      detailed: true
+    })
+    .record('9d08600f-cf45-4a3f-9088-640d5047c97a')
 })
