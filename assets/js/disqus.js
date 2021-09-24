@@ -4,7 +4,6 @@ loadScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js').then(
       new DisqusJS({
         shortname: 'exuanbos',
         siteName: 'Exuanbo&#39s',
-        api: 'https://disqus.exuanbo.xyz/',
         apikey:
           'BgQNLwMb5CNsHCWWQt0ENC0BHzt1DkszGjBOWiTH5S5MQ7k6WRNeFFUbRULH90L9'
       })
