@@ -1,4 +1,4 @@
-loadScript('https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqus.js').then(
+loadScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js').then(
   () => {
     const loadDisqus = () => {
       new DisqusJS({
