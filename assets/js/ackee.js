@@ -5,5 +5,5 @@ loadScript('https://ackee.exuanbo.xyz/privacy-respected.js', {
     .create('https://ackee.exuanbo.xyz', {
       detailed: true
     })
-    .record('9d08600f-cf45-4a3f-9088-640d5047c97a')
+    .record('16bbfa87-0305-4ca1-8210-cbddc1e4aa7a')
 })
