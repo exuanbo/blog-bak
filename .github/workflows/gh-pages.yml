@@ -33,9 +33,9 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
-          external_repository: exuanbo/exuanbo.github.io
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: master
           publish_dir: ./public
-          force_orphan: true
           cname: exuanbo.xyz
+          external_repository: exuanbo/exuanbo.github.io
+          force_orphan: true
