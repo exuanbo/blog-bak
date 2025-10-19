@@ -1,4 +1,4 @@
-loadScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js').then(
+loadScript('https://cdn.jsdelivr.net/npm/disqusjs@3.2.1/dist/browser/disqusjs.es2015.umd.min.js').then(
   () => {
     const loadDisqus = () => {
       new DisqusJS({
@@ -6,7 +6,7 @@ loadScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js').then(
         siteName: 'Exuanbo&#39s',
         apikey:
           'BgQNLwMb5CNsHCWWQt0ENC0BHzt1DkszGjBOWiTH5S5MQ7k6WRNeFFUbRULH90L9'
-      })
+      }).render()
     }
 
     const runningOnBrowser = typeof window !== 'undefined'
@@ -34,7 +34,7 @@ loadScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js').then(
             threshold: [0]
           }
         )
-        disqusObserver.observe(document.getElementById('disqus_thread'))
+        disqusObserver.observe(document.getElementById('disqusjs'))
       } else {
         loadDisqus()
       }
